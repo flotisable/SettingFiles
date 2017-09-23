@@ -4,4 +4,4 @@ initSourceName=".emacs"
 initTargetName=".emacs"
 targetDir=${HOME}
 
-cp ${initSourceName} ${targetDir}/${targetDir}
+cp ${initSourceName} ${targetDir}/${initTargetName}
