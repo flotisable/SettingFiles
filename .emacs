@@ -25,10 +25,10 @@
 (require 'package)
 (add-to-list 'package-archives 
              '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 ; end third-party archives
 
 ; evil mode settings
-(add-to-list 'load-path "~/.emacs.d/elpa/evil-20170815.1422" )
 (require 'evil)
 (evil-mode 1)
 ; end evil mode settings
