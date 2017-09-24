@@ -21,30 +21,30 @@
 (put 'downcase-region 'disabled nil)
 
 
-; third-party archives
-(require 'package)
+; third-party archives  第三方套件庫
+(require 'package)                                          ; 需要 package 這個套件
 (add-to-list 'package-archives 
-             '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
+             '("melpa" . "https://melpa.org/packages/") t)  ; 加入 melpa 套件庫
+(package-initialize)                                        ; 讀入套件資料
 ; end third-party archives
 
-; evil mode settings
-(require 'evil)
-(evil-mode 1)
-; end evil mode settings
+; mode settings  模式設定
+(column-number-mode 1)  ; 在 mode line 顯示列號
+(menu-bar-mode -1)      ; 關閉 menu bar
+(display-time-mode 1)   ; 在 mode line 顯示時間
 
-; mode settings
-(column-number-mode 1)
-(menu-bar-mode -1)
-(display-time-mode 1)
-
-(add-hook 'prog-mode-hook 'linum-mode )
+(add-hook 'prog-mode-hook 'linum-mode ) ; 在 prog mode 下顯示行號
 ; end mode settings
 
-; key bindings
-(global-set-key "\C-ca" 'org-agenda)
+; key bindings  按鍵設定
+(global-set-key "\C-ca" 'org-agenda) ; 設定 C-c a 開啟 org agenda file
 ; end key bindings
 
-; org mode settings
-(setq org-agenda-files "~/Documents/orgAgendaFiles.org")
+; evil mode settings  evil mode 設定
+(require 'evil) ; 需要 evil 這個套件
+(evil-mode 1)   ; 開啟 evil mode
+; end evil mode settings
+
+; org mode settings  org mode 設定
+(setq org-agenda-files "~/Documents/orgAgendaFiles.org")  ; 設定 agenda file 的列表設定檔
 ; end org mode settings
