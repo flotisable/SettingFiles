@@ -37,7 +37,7 @@
 ; end mode settings
 
 ; key bindings  按鍵設定
-(global-set-key "\C-ca" 'org-agenda) ; 設定 C-c a 開啟 org agenda file
+(global-set-key "\C-ca" 'org-agenda) ; 設定 C-c a 開啟 org agenda dispatcher
 ; end key bindings
 
 ; evil mode settings  evil mode 設定
