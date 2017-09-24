@@ -7,3 +7,6 @@ all: $(targetDir)/$(initTargetName)
 
 install:
 	./install.sh $(initSourceName) $(targetDir) $(initTargetName)
+
+uninstall:
+	rm $(targetDir)/$(initTargetName)
