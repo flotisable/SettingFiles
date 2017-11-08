@@ -10,6 +10,7 @@ for backup my emacs init file
     - [Modify The Script](#modify-the-script)
     - [Using Arguments](#using-arguments)
   - [Using Makefile](#using-makefile)
+- [Getting Start](#getting-start)
 - [KeyBindings](#key-bindings)
 - [Packages](#packages)
 
@@ -75,8 +76,25 @@ to change the path and file name of **.emacs**, just modify the variables of mak
 
 the variables is the same as the install script
 
+# Getting Start
+for using the emacs init file first time, you need to decide whether you want to use the packages or not
+
+if you don't want to use packages, just delete the corresponding lines in the emacs init file
+
+if you want to use the packages, type ```<M-x> list-packages``` in emacs
+
+it will open the default emacs package manager
+
+find the packages listed in the [Packages](#packages) in the package manager
+
+type ```i``` to mark the package as install
+
+after mark all the packages, type ```x``` to install the packages
+
+then just have fun with the init file
 # Key Bindings
 - C-c a : open the org agenda dispatcher
 
 # Packages
-- evil : Extensable VI Layer
+- evil        : Extensable VI Layer
+- ox-ioslide  : the org mode package to export to Google I/O slide
