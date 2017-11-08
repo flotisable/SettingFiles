@@ -47,4 +47,5 @@
 
 ; org mode settings  org mode 設定
 (setq org-agenda-files "~/Documents/orgAgendaFiles.org")  ; 設定 agenda file 的列表設定檔
+(setq org-export-backends '(html latex odt ioslide beamer))
 ; end org mode settings
