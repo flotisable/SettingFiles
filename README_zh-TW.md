@@ -10,6 +10,7 @@
     - [修改腳本](#修改腳本)
     - [使用參數](#使用參數)
   - [使用 Makefile](#使用-makefile)
+- [初次使用](#初次使用)
 - [快捷鍵](#快捷鍵)
 - [套件包](#套件包)
 
@@ -75,8 +76,25 @@ makefile 是為那些想用 **make** 來處理的人寫的
 
 這些變數和安裝腳本的變數是一樣的
 
+# 初次使用
+在第一次使用 emacs init 檔時，可以先決定要不要使用套件
+
+如果不想使用的話，只要將 init 檔中相關的行數刪掉即可
+
+如果要使用套件的話，在 emacs 中輸入 ```<M-x> list-packages```
+
+這樣會開啟 emacs 預設的套件管理員
+
+在套件管理員中找到 [套件](#套件) 中列出的套件
+
+按下 ```i``` 來標記要安裝那個套件
+
+在標記完所有要安裝的套件後，按下 ```x``` 來安裝這些套件
+
+接下來就是好好享受這個 init 檔了
 # 快捷鍵
 - C-c a : 開啟 org agenda dispatcher
 
 # 套件包
-- evil : Extensable VI Layer, 讓 emacs 可以使用 vi 的按鍵配置與 mode
+- evil        : Extensable VI Layer, 讓 emacs 可以使用 vi 的按鍵配置與 mode
+- ox-ioslide  : org mode 相關的套件，用來產生 Google I/O 形式的投影片
