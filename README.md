@@ -1,6 +1,8 @@
 # EmacsInit
 for backup my emacs init file
 
+[Traditional Chinese README](README_zh-TW.md)
+
 # Indexes
 - [Files](#files)
 - [To Use Emacs Init File](#to-use-emacs-init-file)
