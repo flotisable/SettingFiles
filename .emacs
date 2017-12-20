@@ -9,6 +9,7 @@
  '(make-backup-files nil)
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
+ '(package-selected-packages (quote (ox-ioslide evil)))
  '(tab-always-indent nil)
  '(tab-width 2))
 (custom-set-faces
@@ -16,7 +17,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:height 142))))
+ '(cursor ((t (:background "azure4")))))
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
