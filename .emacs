@@ -33,6 +33,7 @@
 ; mode settings  模式設定
 (column-number-mode 1)  ; 在 mode line 顯示列號
 (menu-bar-mode -1)      ; 關閉 menu bar
+(tool-bar-mode -1)      ; 關閉 tool bar
 (display-time-mode 1)   ; 在 mode line 顯示時間
 
 (add-hook 'prog-mode-hook 'linum-mode ) ; 在 prog mode 下顯示行號
