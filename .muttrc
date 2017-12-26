@@ -1,0 +1,7 @@
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+set record=~/Mail/sent
+
+#set postponed='imaps://s09930698@imap.gmail.com/draft'
+source ~/.mutt/gmailAppPasswd
