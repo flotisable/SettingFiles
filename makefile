@@ -1,13 +1,15 @@
-muttSettingsSource	= .muttrc
-gitSettingsSource		= .gitconfig
+muttSettingsSource  = .muttrc
+gitSettingsSource   = .gitconfig
 
-muttSettingsTarget	= $(HOME)/.muttrc
-gitSettingsTarget		= $(HOME)/.gitconfig
+muttSettingsTarget  = $(HOME)/.muttrc
+gitSettingsTarget   = $(HOME)/.gitconfig
 
-targetFiles = $(muttSettingsTargte) $(gitSettingsTarget)
+targetFiles = '$(muttSettingsTarget) $(gitSettingsTarget)'
 
 all:
-	mv $(targetFiles) .
+	for file in $(targetFiles); do \
+		cp $$file . ;\
+	done
 
 install:
 	cp $(muttSettingsSource) 	$(muttSettingsTarget)
