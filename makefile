@@ -1,10 +1,12 @@
-muttSettingsSource  = .muttrc
-gitSettingsSource   = .gitconfig
+muttSettingsSource  := .muttrc
+gitSettingsSource   := .gitconfig
 
-muttSettingsTarget  = $(HOME)/.muttrc
-gitSettingsTarget   = $(HOME)/.gitconfig
+muttSettingsTarget  := $(HOME)/.muttrc
+gitSettingsTarget   := $(HOME)/.gitconfig
 
-targetFiles = '$(muttSettingsTarget) $(gitSettingsTarget)'
+targetFiles := \
+	$(muttSettingsTarget) \
+	$(gitSettingsTarget)
 
 all:
 	for file in $(targetFiles); do \
