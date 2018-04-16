@@ -30,14 +30,27 @@
 (package-initialize)                                        ; 讀入套件資料
 ; end third-party archives
 
-; mode settings  模式設定
-(column-number-mode 1)  ; 在 mode line 顯示列號
-(menu-bar-mode -1)      ; 關閉 menu bar
-(tool-bar-mode -1)      ; 關閉 tool bar
-(scroll-bar-mode -1)    ; 關閉 scroll bar
-(display-time-mode 1)   ; 在 mode line 顯示時間
+; automatic download package when using emacs for the first time  在第一次使用 emacs 時自動下載套件
+(setq package-list '(evil ox-ioslide))
 
-(add-hook 'prog-mode-hook 'linum-mode ) ; 在 prog mode 下顯示行號
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+; end automatic download package when using emacs for the first time  在第一次使用 emacs 時自動下載套件
+
+; mode settings  模式設定
+(column-number-mode 1 ) ; 在 mode line 顯示列號
+(menu-bar-mode -1     ) ; 關閉 menu bar
+(tool-bar-mode -1     ) ; 關閉 tool bar
+(scroll-bar-mode -1   ) ; 關閉 scroll bar
+(display-time-mode 1  ) ; 在 mode line 顯示時間
+
+(if (fboundp 'display-line-numbers-mode)
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode  )
+  (add-hook 'prog-mode-hook 'linum-mode                 )) ; 在 prog mode 下顯示行號
 ; end mode settings
 
 ; key bindings  按鍵設定
@@ -47,6 +60,38 @@
 ; evil mode settings  evil mode 設定
 (require 'evil) ; 需要 evil 這個套件
 (evil-mode 1)   ; 開啟 evil mode
+
+(setq-default evil-shift-width 2) ; 設定縮排為 2 個字元
+
+; function to toggle relative line number in evil mode  在 evil mode 切換相對行號的函式
+(defun evil-toggle-relative ()
+  (interactive)
+  (if (equal (symbol-value 'display-line-numbers) t)
+    (setq display-line-numbers 'relative)
+    (setq display-line-numbers t        )))
+; end function to toggle relative line number in evil mode
+
+(define-key evil-normal-state-map " "     'evil-scroll-page-down  ) ; 設定空白鍵向上一頁
+(define-key evil-normal-state-map "\d"    'evil-scroll-page-up    ) ; 設定退格鍵向下一頁
+
+(if (fboundp 'display-line-numbers-mode)
+  (define-key evil-normal-state-map "\\r" 'evil-toggle-relative)) ; 設定 \r 切換行號顯示
+
+; remove vim key binding in insert mode  清掉插入模式的 vim 按鍵
+(define-key evil-insert-state-map "\C-w"  nil )
+(define-key evil-insert-state-map "\C-a"  nil )
+(define-key evil-insert-state-map "\C-d"  nil )
+(define-key evil-insert-state-map "\C-t"  nil )
+(define-key evil-insert-state-map "\C-x"  nil )
+(define-key evil-insert-state-map "\C-p"  nil )
+(define-key evil-insert-state-map "\C-n"  nil )
+(define-key evil-insert-state-map "\C-e"  nil )
+(define-key evil-insert-state-map "\C-y"  nil )
+(define-key evil-insert-state-map "\C-r"  nil )
+(define-key evil-insert-state-map "\C-o"  nil )
+(define-key evil-insert-state-map "\C-k"  nil )
+(define-key evil-insert-state-map "\C-v"  nil )
+; end remove vim key binding in insert mode
 ; end evil mode settings
 
 ; org mode settings  org mode 設定
