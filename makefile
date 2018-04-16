@@ -1,18 +1,12 @@
-vimrcDir=$(HOME)
-nvimrcDir=$(HOME)/.config/nvim
-
-vimrcSourceFile=.vimrc
-nvimrcSourceFile=init.vim
-
-vimrcTargetFile=.vimrc
-nvimrcTargetFile=init.vim
+include settings
 
 all: $(vimrcDir)/$(vimrcTargetFile) $(nvimrcDir)/$(nvimrcTargetFile)
 	cp $^ .
 
 install:
-	./installVimrc.sh $(vimrcDir) $(vimrcTargetFile) $(nvimrcDir) $(nvimrcTargetFile) $(vimrcSourceFile) $(nvimrcSourceFile)
+	./installVimrc.sh
 
 uninstall:
 	rm $(vimrcDir)/$(vimrcTargetFile)
 	rm $(nvimrcDir)/$(nvimrcTargetFile)
+	if [ -e $(pluginManagerPath)/plug.vim ]; then rm $(pluginManagerPath)/plug.vim; fi
