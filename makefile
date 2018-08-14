@@ -36,9 +36,9 @@ install:
 	cp ${topSettingsSource} 	${topSettingsTarget}
 	cp ${tmuxSettingsSource} 	${tmuxSettingsTarget}
 	i=1; \
-	for source in ${mpsytPlaylistSources}; do \
+	for source in ${mpsytPlaylistSourcesFull}; do \
 		 target=$$(echo ${mpsytPlaylistTargetsFull} | cut -d' ' -f$$i); \
-		 cp "$$source $$target"; \
+		 cp $$source $$target; \
 		 i=$$(( $i + 1 )); \
 	done
 
