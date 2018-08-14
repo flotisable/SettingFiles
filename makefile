@@ -35,10 +35,11 @@ install:
 	cp ${gitSettingsSource} 	${gitSettingsTarget}
 	cp ${topSettingsSource} 	${topSettingsTarget}
 	cp ${tmuxSettingsSource} 	${tmuxSettingsTarget}
-	for(( i=1 ; $$i <= $(words ${mpsytPlaylistSources}) ; i++ )); do \
-		 source=$$(echo ${mpsytPlaylistSourcesFull} | cut -d' ' -f$$i); \
+	i=1; \
+	for source in ${mpsytPlaylistSources}; do \
 		 target=$$(echo ${mpsytPlaylistTargetsFull} | cut -d' ' -f$$i); \
-		 cp $$source $$target; \
+		 cp "$$source $$target"; \
+		 i=$$(( $i + 1 )); \
 	done
 
 uninstall:
