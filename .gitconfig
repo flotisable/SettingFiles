@@ -5,3 +5,5 @@
 	editor = nvim
 [merge]
 	tool = vimdiff
+[hub]
+	protocol = https
