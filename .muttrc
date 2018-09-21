@@ -1,9 +1,30 @@
+# secure settings
 set ssl_starttls=yes
 set ssl_force_tls=yes
+# end secure settings
 
+# mail settings
 set record=~/Mail/sent
 set postponed=~/Mail/postponed
 
-source ~/.mutt/gmailAppPasswd
+unset pop_delete
+# end mail settings
 
-folder-hook gmail ' set smtp_url = smtps://s09930698@smtp.gmail.com;'
+source ~/.mutt/gmailAppPasswd # password for gmail
+
+# gmail settings
+folder-hook gmail ' set smtp_url  = smtps://s09930698@smtp.gmail.com; \
+                    set pop_host  = pops://s09930698@pop.gmail.com; \
+                    set spoolfile = ~/Mail/gmail'
+# end gmail settings
+
+# ntu institute settings
+folder-hook ntu ' set pop_host  = pops://r06943085@mail.ntu.edu.tw; \
+                  set spoolfile = ~/Mail/ntu'
+# end ntu institute settings
+
+# inria internship settings
+folder-hook inria ' set smtp_url  = smtps://whuang@zimbra.inria.fr; \
+                    set pop_host  = pops://whuang@zimbra.inria.fr; \
+                    set spoolfile = ~/Mail/inria'
+# end inria internship settings
