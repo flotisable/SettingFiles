@@ -8,23 +8,39 @@ set record=~/Mail/sent
 set postponed=~/Mail/postponed
 
 unset pop_delete
+
+mailboxes ~/Mail/gmail ~/Mail/ntu ~/Mail/inria
+
+set sort = 'reverse-threads'
 # end mail settings
 
-source ~/.mutt/gmailAppPasswd # password for gmail
+# folder default settings ( to reverse other folder-hook settings )
+folder-hook . ' push <collapse-all>; \
+                unset imap_pass; \
+                unset smtp_pass; \
+                unset pop_pass; \
+                unset smtp_url; \
+                unset pop_host; \
+                set folder = ~/Mail'
+# end folder default settings ( to reverse other folder-hook settings )
 
 # gmail settings
-folder-hook gmail ' set smtp_url  = smtps://s09930698@smtp.gmail.com; \
+folder-hook gmail ' source ~/.mutt/gmailAppPasswd; \
+                    set smtp_url  = smtps://s09930698@smtp.gmail.com; \
                     set pop_host  = pops://s09930698@pop.gmail.com; \
-                    set spoolfile = ~/Mail/gmail'
+                    set spoolfile = ~/Mail/gmail; \
+                    set folder    = imaps://s09930698@imap.gmail.com'
 # end gmail settings
 
 # ntu institute settings
 folder-hook ntu ' set pop_host  = pops://r06943085@mail.ntu.edu.tw; \
-                  set spoolfile = ~/Mail/ntu'
+                  set spoolfile = ~/Mail/ntu; \
+                  set folder    = imaps://r06943085@mail.ntu.edu.tw'
 # end ntu institute settings
 
 # inria internship settings
 folder-hook inria ' set smtp_url  = smtps://whuang@zimbra.inria.fr; \
                     set pop_host  = pops://whuang@zimbra.inria.fr; \
-                    set spoolfile = ~/Mail/inria'
+                    set spoolfile = ~/Mail/inria; \
+                    set folder    = imaps://whuang@zimbra.inria.fr'
 # end inria internship settings
