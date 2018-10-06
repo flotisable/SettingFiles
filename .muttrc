@@ -27,11 +27,12 @@ folder-hook . ' push <collapse-all>; \
 
 # gmail settings
 folder-hook gmail ' source ~/.mutt/gmailAppPasswd; \
-                    set smtp_url  = smtps://s09930698@smtp.gmail.com; \
-                    set pop_host  = pops://s09930698@pop.gmail.com; \
-                    set spoolfile = ~/Mail/gmail; \
-                    set hostname  = localhost; \
-                    set folder    = imaps://s09930698@imap.gmail.com'
+                    set smtp_url            = smtps://s09930698@smtp.gmail.com; \
+                    set pop_host            = pops://s09930698@pop.gmail.com; \
+                    set spoolfile           = ~/Mail/gmail; \
+                    set hostname            = localhost; \
+                    set smtp_authenticators = plain; \
+                    set folder              = imaps://s09930698@imap.gmail.com'
 # end gmail settings
 
 # ntu institute settings
