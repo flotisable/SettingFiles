@@ -4,9 +4,12 @@ set ssl_force_tls=yes
 # end secure settings
 
 # mail settings
-set record=~/Mail/sent
-set postponed=~/Mail/postponed
-set editor=nvim
+set record            = ~/Mail/sent
+set postponed         = ~/Mail/postponed
+set editor            = nvim
+set header_cache      = ~/.cache/mutt
+set message_cachedir  = ~/.cache/mutt
+set message_cache_clean
 
 unset pop_delete
 
