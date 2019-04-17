@@ -1,0 +1,9 @@
+[submodule "Vimrc"]
+	path = Vimrc
+	url = https://github.com/flotisable/Vimrc.git
+[submodule "EmacsInit"]
+	path = EmacsInit
+	url = https://github.com/flotisable/EmacsInit.git
+[submodule "VscodeSetting"]
+	path = VscodeSetting
+	url = https://github.com/flotisable/VscodeSetting.git
