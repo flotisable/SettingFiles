@@ -36,10 +36,11 @@ all:
 	done
 
 install:
-	cp ${muttSettingsSource} 	${muttSettingsTarget}
-	cp ${gitSettingsSource} 	${gitSettingsTarget}
-	cp ${topSettingsSource} 	${topSettingsTarget}
-	cp ${tmuxSettingsSource} 	${tmuxSettingsTarget}
+	cp ${muttSettingsSource} ${muttSettingsTarget}
+	cp ${gitSettingsSource}  ${gitSettingsTarget}
+	cp ${topSettingsSource}  ${topSettingsTarget}
+	cp ${tmuxSettingsSource} ${tmuxSettingsTarget}
+	cp ${mpvSettingsSource}  ${mpvSettingsTarget}
 	i=1; \
 	for source in ${mpsytPlaylistSourcesFull}; do \
 		 target=$$(echo ${mpsytPlaylistTargetsFull} | cut -d' ' -f$$i); \
