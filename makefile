@@ -1,3 +1,5 @@
+include ./settings
+
 mpsytPlaylistDir := MpsytPlaylist
 
 muttSettingsSource   := .muttrc
@@ -8,8 +10,6 @@ mpvSettingsSource    := mpv.conf
 mpsytPlaylistSources := favorite.m3u
 
 mpsytPlaylistSourcesFull := $(addprefix ${mpsytPlaylistDir}/,${mpsytPlaylistSources})
-
-os := windows
 
 muttSettingsTarget   := "${HOME}"/.muttrc
 gitSettingsTarget    := "${HOME}"/.gitconfig
