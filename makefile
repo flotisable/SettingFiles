@@ -4,23 +4,28 @@ muttSettingsSource   := .muttrc
 gitSettingsSource    := .gitconfig
 topSettingsSource    := .toprc
 tmuxSettingsSource   := .tmux.conf
+mpvSettingsSource    := mpv.conf
 mpsytPlaylistSources := favorite.m3u
 
 mpsytPlaylistSourcesFull := $(addprefix ${mpsytPlaylistDir}/,${mpsytPlaylistSources})
 
-muttSettingsTarget   := ${HOME}/.muttrc
-gitSettingsTarget    := ${HOME}/.gitconfig
-topSettingsTarget    := ${HOME}/.toprc
-tmuxSettingsTarget   := ${HOME}/.tmux.conf
+os := windows
+
+muttSettingsTarget   := "${HOME}"/.muttrc
+gitSettingsTarget    := "${HOME}"/.gitconfig
+topSettingsTarget    := "${HOME}"/.toprc
+tmuxSettingsTarget   := "${HOME}"/.tmux.conf
+mpvSettingsTarget    := "$(shell ./defaultPath.sh mpv ${os})"/mpv.conf
 mpsytPlaylistTargets := ${mpsytPlaylistSources}
 
-mpsytPlaylistTargetsFull := $(addprefix ${HOME}/.config/mps-youtube/playlists/,${mpsytPlaylistSources})
+mpsytPlaylistTargetsFull := $(addprefix "$(shell ./defaultPath.sh mpsyt ${os})"/playlists/,${mpsytPlaylistSources})
 
 targetFiles := \
 	${muttSettingsTarget} \
 	${gitSettingsTarget} \
 	${topSettingsTarget} \
-	${tmuxSettingsTarget}
+	${tmuxSettingsTarget} \
+	${mpvSettingsTarget}
 
 all:
 	for file in ${targetFiles}; do \
