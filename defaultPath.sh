@@ -9,9 +9,9 @@ case ${configProgram} in
 
     case ${os} in
 
-      linux   ) echo "${HOME}/.config/mpv";;
-      windows ) echo "${APPDATA}\\mpv";;
-      macos   ) echo "${HOME}/.config/mpv";;
+      Linux       ) echo "${HOME}/.config/mpv";;
+      Windows_NT  ) echo "${APPDATA}\\mpv";;
+      Darwin      ) echo "${HOME}/.config/mpv";;
 
     esac;;
 
@@ -19,9 +19,9 @@ case ${configProgram} in
 
     case ${os} in
 
-      linux   ) echo "${HOME}/.config/mps-youtube";;
-      windows ) echo "${APPDATA}\\mps-youtube";;
-      macos   ) echo "${HOME}/.config/mps-youtube";;
+      Linux       ) echo "${HOME}/.config/mps-youtube";;
+      Windows_NT  ) echo "${APPDATA}\\mps-youtube";;
+      Darwin      ) echo "${HOME}/.config/mps-youtube";;
 
     esac;;
 

@@ -1,4 +1,4 @@
-include ./settings
+OS ?= $(shell uname -s)
 
 mpsytPlaylistDir := MpsytPlaylist
 
@@ -15,10 +15,10 @@ muttSettingsTarget   := "${HOME}"/.muttrc
 gitSettingsTarget    := "${HOME}"/.gitconfig
 topSettingsTarget    := "${HOME}"/.toprc
 tmuxSettingsTarget   := "${HOME}"/.tmux.conf
-mpvSettingsTarget    := "$(shell ./defaultPath.sh mpv ${os})"/mpv.conf
+mpvSettingsTarget    := "$(shell ./defaultPath.sh mpv ${OS})"/mpv.conf
 mpsytPlaylistTargets := ${mpsytPlaylistSources}
 
-mpsytPlaylistTargetsFull := $(addprefix "$(shell ./defaultPath.sh mpsyt ${os})"/playlists/,${mpsytPlaylistSources})
+mpsytPlaylistTargetsFull := $(addprefix "$(shell ./defaultPath.sh mpsyt ${OS})"/playlists/,${mpsytPlaylistSources})
 
 targetFiles := \
 	${muttSettingsTarget} \
