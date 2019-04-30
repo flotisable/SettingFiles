@@ -1,24 +1,31 @@
 OS ?= $(shell uname -s)
 
-mpsytPlaylistDir := MpsytPlaylist
+include settings
 
-muttSettingsSource   := .muttrc
-gitSettingsSource    := .gitconfig
-topSettingsSource    := .toprc
-tmuxSettingsSource   := .tmux.conf
-mpvSettingsSource    := mpv.conf
-mpsytPlaylistSources := favorite.m3u
+mpsytPlaylistSourcesFull := $(addprefix ${mpsytPlaylistSourceDir}/,${mpsytPlaylistSources})
 
-mpsytPlaylistSourcesFull := $(addprefix ${mpsytPlaylistDir}/,${mpsytPlaylistSources})
+# setup default value
+ifeq "${mpsytPlaylistTargetDir}" ""
+mpsytPlaylistTargetDir := $(shell ./defaultPath.sh mpsyt ${OS})
+endif
+ifeq "${muttSettingsTarget}" ""
+muttSettingsTarget := $(shell ./defaultPath.sh mutt ${OS})
+endif
+ifeq "${gitSettingsTarget}" ""
+gitSettingsTarget := $(shell ./defaultPath.sh git ${OS})
+endif
+ifeq "${topSettingsTarget}" ""
+topSettingsTarget := $(shell ./defaultPath.sh top ${OS})
+endif
+ifeq "${tmuxSettingsTarget}" ""
+tmuxSettingsTarget := $(shell ./defaultPath.sh tmux ${OS})
+endif
+ifeq "${mpvSettingsTarget}" ""
+mpvSettingsTarget := $(shell ./defaultPath.sh mpv ${OS})/mpv.conf
+endif
+# setup default value
 
-muttSettingsTarget   := "${HOME}"/.muttrc
-gitSettingsTarget    := "${HOME}"/.gitconfig
-topSettingsTarget    := "${HOME}"/.toprc
-tmuxSettingsTarget   := "${HOME}"/.tmux.conf
-mpvSettingsTarget    := "$(shell ./defaultPath.sh mpv ${OS})"/mpv.conf
-mpsytPlaylistTargets := ${mpsytPlaylistSources}
-
-mpsytPlaylistTargetsFull := $(addprefix "$(shell ./defaultPath.sh mpsyt ${OS})"/playlists/,${mpsytPlaylistSources})
+mpsytPlaylistTargetsFull := $(addprefix ${mpsytPlaylistTargetDir}/playlists/,${mpsytPlaylistSources})
 
 targetFiles := \
 	${muttSettingsTarget} \
@@ -28,25 +35,17 @@ targetFiles := \
 	${mpvSettingsTarget}
 
 all:
-	for file in ${targetFiles}; do \
-		cp $$file . ; \
+	@for file in ${targetFiles}; do \
+		echo "copy $$file"; \
+		cp "$$file" . ; \
 	done
-	for file in ${mpsytPlaylistTargetsFull}; do \
-		cp $$file ${mpsytPlaylistDir}; \
+	@for file in ${mpsytPlaylistTargetsFull}; do \
+		echo "copy $$file"; \
+		cp "$$file" ${mpsytPlaylistSourceDir}; \
 	done
 
 install:
-	cp ${muttSettingsSource} ${muttSettingsTarget}
-	cp ${gitSettingsSource}  ${gitSettingsTarget}
-	cp ${topSettingsSource}  ${topSettingsTarget}
-	cp ${tmuxSettingsSource} ${tmuxSettingsTarget}
-	cp ${mpvSettingsSource}  ${mpvSettingsTarget}
-	i=1; \
-	for source in ${mpsytPlaylistSourcesFull}; do \
-		 target=$$(echo ${mpsytPlaylistTargetsFull} | cut -d' ' -f$$i); \
-		 cp $$source $$target; \
-		 i=$$(( $i + 1 )); \
-	done
+	@./install.sh
 
 uninstall:
 	rm ${targetFiles}
