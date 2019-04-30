@@ -19,7 +19,7 @@ installSettings()
 
   if [ "${ifInstall}" = "1" ]; then
     echo "install ${sourceFile}"
-    #cp "${sourceFile}" "${TargetFile}"
+    cp "${sourceFile}" "${TargetFile}"
   fi
 }
 # end function definition
