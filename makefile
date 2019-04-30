@@ -47,5 +47,8 @@ all:
 install:
 	@./install.sh
 
+install-interactive:
+	@./install.sh -i
+
 uninstall:
 	rm ${targetFiles}
