@@ -4,12 +4,14 @@ muttSettingsTarget=
 gitSettingsTarget=
 topSettingsTarget=
 tmuxSettingsTarget=
+screenettingsTarget=
 mpvSettingsTarget=
 
-installTmuxSettings=1
+installMuttettings=1
 installGitSettings=1
 installTopSettings=1
 installTmuxSettings=1
+installScreenSettings=1
 installMpvSettings=1
 installMpsytPlaylistSettings=1
 
@@ -19,5 +21,6 @@ muttSettingsSource=.muttrc
 gitSettingsSource=.gitconfig
 topSettingsSource=.toprc
 tmuxSettingsSource=.tmux.conf
+screenSettingsSource=.screenrc
 mpvSettingsSource=mpv.conf
 mpsytPlaylistSources=favorite.m3u

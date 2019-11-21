@@ -20,6 +20,9 @@ endif
 ifeq "${tmuxSettingsTarget}" ""
 tmuxSettingsTarget := $(shell ./defaultPath.sh tmux ${OS})
 endif
+ifeq "${screenSettingsTarget}" ""
+screenSettingsTarget := $(shell ./defaultPath.sh screen ${OS})
+endif
 ifeq "${mpvSettingsTarget}" ""
 mpvSettingsTarget := $(shell ./defaultPath.sh mpv ${OS})/mpv.conf
 endif
@@ -32,6 +35,7 @@ targetFiles := \
 	${gitSettingsTarget} \
 	${topSettingsTarget} \
 	${tmuxSettingsTarget} \
+	${screenSettingsTarget} \
 	${mpvSettingsTarget}
 
 all:

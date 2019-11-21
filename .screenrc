@@ -1,0 +1,8 @@
+hardstatus alwayslastline
+hardstatus string "%-Lw%{+ .g}%n %t*%{-}%+Lw%=%c %d-%M-%y"
+
+escape \0a
+
+bind j focus down
+bind k focus up
+bindkey "\033a" command
