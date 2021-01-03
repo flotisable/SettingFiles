@@ -24,11 +24,11 @@ ifeq "${screenSettingsTarget}" ""
 screenSettingsTarget := $(shell ./defaultPath.sh screen ${OS})
 endif
 ifeq "${mpvSettingsTarget}" ""
-mpvSettingsTarget := $(shell ./defaultPath.sh mpv ${OS})/mpv.conf
+mpvSettingsTarget := "$(shell ./defaultPath.sh mpv ${OS})/mpv.conf"
 endif
 # setup default value
 
-mpsytPlaylistTargetsFull := $(addprefix ${mpsytPlaylistTargetDir}/,${mpsytPlaylistSources})
+mpsytPlaylistTargetsFull := $(foreach path,$(addprefix ${mpsytPlaylistTargetDir}/,$(subst ",,${mpsytPlaylistSources})),"${path}")
 
 targetFiles := \
 	${muttSettingsTarget} \
@@ -45,7 +45,7 @@ all:
 	done
 	@for file in ${mpsytPlaylistTargetsFull}; do \
 		echo "copy $$file"; \
-		cp "$$file" ${mpsytPlaylistSourceDir}; \
+		cp "$$file" "${mpsytPlaylistSourceDir}"; \
 	done
 
 install:
