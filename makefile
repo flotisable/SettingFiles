@@ -28,7 +28,7 @@ mpvSettingsTarget := $(shell ./defaultPath.sh mpv ${OS})/mpv.conf
 endif
 # setup default value
 
-mpsytPlaylistTargetsFull := $(addprefix ${mpsytPlaylistTargetDir}/playlists/,${mpsytPlaylistSources})
+mpsytPlaylistTargetsFull := $(addprefix ${mpsytPlaylistTargetDir}/,${mpsytPlaylistSources})
 
 targetFiles := \
 	${muttSettingsTarget} \
