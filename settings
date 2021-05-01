@@ -7,7 +7,7 @@ tmuxSettingsTarget=
 screenettingsTarget=
 mpvSettingsTarget=
 
-installMuttettings=1
+installMuttSettings=1
 installGitSettings=1
 installTopSettings=1
 installTmuxSettings=1
