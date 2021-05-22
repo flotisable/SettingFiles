@@ -6,6 +6,7 @@ topSettingsTarget=
 tmuxSettingsTarget=
 screenettingsTarget=
 mpvSettingsTarget=
+starshipSettingsTarget=
 
 installMuttSettings=1
 installGitSettings=1
@@ -13,6 +14,7 @@ installTopSettings=1
 installTmuxSettings=1
 installScreenSettings=1
 installMpvSettings=1
+installStarshipSettings=1
 installMpsytPlaylistSettings=1
 
 mpsytPlaylistSourceDir=MpsytPlaylist
@@ -23,4 +25,5 @@ topSettingsSource=.toprc
 tmuxSettingsSource=.tmux.conf
 screenSettingsSource=.screenrc
 mpvSettingsSource=mpv.conf
+starshipSettingsSource=starship.toml
 mpsytPlaylistSources="favorite.m3u fullMetalAlchemist.m3u letterBee.m3u pokemon.m3u rebron.m3u shana.m3u"

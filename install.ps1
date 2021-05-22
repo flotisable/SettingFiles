@@ -79,6 +79,10 @@ If( "${mpvSettingsTarget}" -eq "" )
 {
   $mpvSettingsTarget = "$(./defaultPath.ps1 mpv ${env:OS})/mpv.conf"
 }
+If( "${starshipSettingsTarget}" -eq "" )
+{
+  $starshipSettingsTarget = $(./defaultPath.ps1 starship ${env:OS})
+}
 If( "${mpsytPlaylistTargetDir}" -eq "" )
 {
   $mpsytPlaylistTargetDir = $(./defaultPath.ps1 mpsyt ${env:OS})
@@ -86,12 +90,13 @@ If( "${mpsytPlaylistTargetDir}" -eq "" )
 # end setup default path
 #}}}
 # install setting files{{{
-installSettings ${muttSettingsSource}   ${muttSettingsTarget}   ${installMuttSettings}
-installSettings ${gitSettingsSource}    ${gitSettingsTarget}    ${installGitSettings}
-installSettings ${topSettingsSource}    ${topSettingsTarget}    ${installTopSettings}
-installSettings ${tmuxSettingsSource}   ${tmuxSettingsTarget}   ${installTmuxSettings}
-installSettings ${screenSettingsSource} ${screenSettingsTarget} ${installScreenSettings}
-installSettings ${mpvSettingsSource}    ${mpvSettingsTarget}    ${installMpvSettings}
+installSettings ${muttSettingsSource}     ${muttSettingsTarget}     ${installMuttSettings}
+installSettings ${gitSettingsSource}      ${gitSettingsTarget}      ${installGitSettings}
+installSettings ${topSettingsSource}      ${topSettingsTarget}      ${installTopSettings}
+installSettings ${tmuxSettingsSource}     ${tmuxSettingsTarget}     ${installTmuxSettings}
+installSettings ${screenSettingsSource}   ${screenSettingsTarget}   ${installScreenSettings}
+installSettings ${mpvSettingsSource}      ${mpvSettingsTarget}      ${installMpvSettings}
+installSettings ${starshipSettingsSource} ${starshipSettingsTarget} ${installStarshipSettings}
 
 $mpsytPlaylistSources = $mpsytPlaylistSources -replace '"',''
 

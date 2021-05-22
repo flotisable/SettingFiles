@@ -1,0 +1,12 @@
+[username]
+format      = "[$user]($style)"
+show_always = true
+
+[hostname]
+format    = "@[$hostname]($style)"
+ssh_only  = false
+
+[directory]
+format            = ":[$path]($style)[$readonly]($readonly) "
+truncation_length = 0
+truncate_to_repo  = false

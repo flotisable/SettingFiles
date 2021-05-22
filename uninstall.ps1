@@ -36,6 +36,10 @@ If( "${mpvSettingsTarget}" -eq "" )
 {
   $mpvSettingsTarget = "$(./defaultPath.ps1 mpv ${env:OS})/mpv.conf"
 }
+If( "${starshipSettingsTarget}" -eq "" )
+{
+  $starshipSettingsTarget = $(./defaultPath.ps1 starship ${env:OS})
+}
 If( "${mpsytPlaylistTargetDir}" -eq "" )
 {
   $mpsytPlaylistTargetDir = $(./defaultPath.ps1 mpsyt ${env:OS})
@@ -49,6 +53,7 @@ Remove-Item ${topSettingsTarget}
 Remove-Item ${tmuxSettingsTarget}
 Remove-Item ${screenSettingsTarget}
 Remove-Item ${mpvSettingsTarget}
+Remove-Item ${starshipSettingsTarget}
 
 $mpsytPlaylistSources = $mpsytPlaylistSources -replace '"',''
 

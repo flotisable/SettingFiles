@@ -29,6 +29,9 @@ fi
 if [ -z ${mpvSettingsTarget} ]; then
   mpvSettingsTarget="$(./defaultPath.sh mpv ${OS})/mpv.conf"
 fi
+if [ -z ${starshipSettingsTarget} ]; then
+  starshipSettingsTarget="$(./defaultPath.sh starship ${OS})"
+fi
 if [ -z ${mpsytPlaylistTargetDir} ]; then
   mpsytPlaylistTargetDir="$(./defaultPath.sh mpsyt ${OS})"
 fi
@@ -41,6 +44,7 @@ rm ${topSettingsTarget}
 rm ${tmuxSettingsTarget}
 rm ${screenSettingsTarget}
 rm ${mpvSettingsTarget}
+rm ${starshipSettingsTarget}
 
 for file in ${mpsytPlaylistSources}; do
 {

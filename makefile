@@ -35,6 +35,9 @@ endif
 ifeq "${mpvSettingsTarget}" ""
 mpvSettingsTarget := "$(shell ${defaultScript} mpv ${OS})/mpv.conf"
 endif
+ifeq "${starshipSettingsTarget}" ""
+starshipSettingsTarget := "$(shell ${defaultScript} starship ${OS})"
+endif
 # setup default value
 
 mpsytPlaylistTargetsFull := $(foreach path,$(addprefix ${mpsytPlaylistTargetDir}/,$(subst ",,${mpsytPlaylistSources})),"${path}")
@@ -45,7 +48,8 @@ targetFiles := \
 	${topSettingsTarget} \
 	${tmuxSettingsTarget} \
 	${screenSettingsTarget} \
-	${mpvSettingsTarget}
+	${mpvSettingsTarget} \
+	${starshipSettingsTarget}
 
 all:
 ifeq "${OS}" "Windows_NT"
