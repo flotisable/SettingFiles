@@ -23,7 +23,7 @@ installSettings()
 {
   # function arguments{{{
   sourceFile=$1
-  TargetFile=$2
+  targetFile=$2
   ifInstall=$3
   # end function arguments
 #}}}
@@ -50,7 +50,7 @@ installSettings()
   # install file{{{
   if [ "${ifInstall}" = "1" ]; then
     echo "install ${sourceFile}"
-    cp "${sourceFile}" "${TargetFile}"
+    cp "${sourceFile}" "${targetFile}"
   fi
   # end install file}}}
 }
@@ -75,7 +75,7 @@ fi
 if [ -z ${mpvSettingsTarget} ]; then
   mpvSettingsTarget="$(./defaultPath.sh mpv ${OS})/mpv.conf"
 fi
-if [ -z ${mpvSettingsTarget} ]; then
+if [ -z ${starshipSettingsTarget} ]; then
   starshipSettingsTarget="$(./defaultPath.sh starship ${OS})"
 fi
 if [ -z ${mpsytPlaylistTargetDir} ]; then
