@@ -1,0 +1,23 @@
+version: 2
+log-file: '/home/flotisable/efmLsp.log'
+log-level: 1
+
+tools:
+  raku-lint: &raku-lint
+    lint-command: 'raku -c'
+    lint-formats:
+      - '%A%rSORRY%r'
+      - '%Cat %f:%l'
+      - '%Z%p>%r'
+      - '%C%m'
+  clang-check: &clang-check
+    lint-command: 'clang-check'
+    lint-formats:
+      - '%f:%l:%c: %tarning: %m'
+      - '%f:%l:%c: %trror: %m'
+
+languages:
+  raku:
+    - <<: *raku-lint
+  cpp:
+    - <<: *clang-check
