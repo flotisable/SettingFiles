@@ -40,6 +40,10 @@ If( "${starshipSettingsTarget}" -eq "" )
 {
   $starshipSettingsTarget = $(./defaultPath.ps1 starship ${env:OS})
 }
+If( "${efmLanguageServerSettingsTarget}" -eq "" )
+{
+  $efmLanguageServerSettingsTarget = $(./defaultPath.ps1 efmLanguageServer ${env:OS})
+}
 If( "${mpsytPlaylistTargetDir}" -eq "" )
 {
   $mpsytPlaylistTargetDir = $(./defaultPath.ps1 mpsyt ${env:OS})
@@ -54,6 +58,7 @@ Remove-Item ${tmuxSettingsTarget}
 Remove-Item ${screenSettingsTarget}
 Remove-Item ${mpvSettingsTarget}
 Remove-Item ${starshipSettingsTarget}
+Remove-Item ${efmLanguageServerSettingsTarget}
 
 $mpsytPlaylistSources = $mpsytPlaylistSources -replace '"',''
 

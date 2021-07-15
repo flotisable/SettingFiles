@@ -38,6 +38,9 @@ endif
 ifeq "${starshipSettingsTarget}" ""
 starshipSettingsTarget := "$(shell ${defaultScript} starship ${OS})"
 endif
+ifeq "${efmLanguageServerSettingsTarget}" ""
+efmLanguageServerSettingsTarget := "$(shell ${defaultScript} efmLanguageServer ${OS})"
+endif
 # setup default value
 
 mpsytPlaylistTargetsFull := $(foreach path,$(addprefix ${mpsytPlaylistTargetDir}/,$(subst ",,${mpsytPlaylistSources})),"${path}")
@@ -57,12 +60,14 @@ ifeq "${OS}" "Windows_NT"
 		$(subst ${empty} ${empty},${comma},${targetFiles}) \
 		$(subst ${empty} ${empty},${comma},${mpsytPlaylistTargetsFull}) \
 		${mpsytPlaylistSourceDir}
+	@powershell -NoProfile -Command "Copy-Item ${efmLanguageServerSettingsTarget} ${efmLanguageServerSettingsSource}"
 
 else
 	@for file in ${targetFiles}; do \
 		echo "copy $$file"; \
 		cp "$$file" . ; \
 	done
+	cp ${efmLanguageServerSettingsTarget} ${efmLanguageServerSettingsSource}
 	@for file in ${mpsytPlaylistTargetsFull}; do \
 		echo "copy $$file"; \
 		cp "$$file" "${mpsytPlaylistSourceDir}"; \

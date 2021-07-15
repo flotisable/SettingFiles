@@ -5,12 +5,13 @@ Param(
 
 Switch( ${configProgram} )
 {
-  mutt      { "${env:USERPROFILE}/.muttrc"                }
-  git       { "${env:USERPROFILE}/.gitconfig"             }
-  top       { "${env:USERPROFILE}/.toprc"                 }
-  tmux      { "${env:USERPROFILE}/.tmux.conf"             }
-  screen    { "${env:USERPROFILE}/.screenrc"              }
-  starship  { "${env:USERPROFILE}/.config/starship.toml"  }
+  mutt              { "${env:USERPROFILE}/.muttrc"                            }
+  git               { "${env:USERPROFILE}/.gitconfig"                         }
+  top               { "${env:USERPROFILE}/.toprc"                             }
+  tmux              { "${env:USERPROFILE}/.tmux.conf"                         }
+  screen            { "${env:USERPROFILE}/.screenrc"                          }
+  starship          { "${env:USERPROFILE}/.config/starship.toml"              }
+  efmLanguageServer { "${env:USERPROFILE}/.config/efm-langserver/config.yaml" }
 
   mpv
   {

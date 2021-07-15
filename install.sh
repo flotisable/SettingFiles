@@ -78,19 +78,23 @@ fi
 if [ -z ${starshipSettingsTarget} ]; then
   starshipSettingsTarget="$(./defaultPath.sh starship ${OS})"
 fi
+if [ -z ${efmLanguageServerSettingsTarget} ]; then
+  efmLanguageServerSettingsTarget="$(./defaultPath.sh efmLanguageServer ${OS})"
+fi
 if [ -z ${mpsytPlaylistTargetDir} ]; then
   mpsytPlaylistTargetDir="$(./defaultPath.sh mpsyt ${OS})"
 fi
 # end setup default path
 #}}}
 # install setting files{{{
-installSettings ${muttSettingsSource}     ${muttSettingsTarget}     ${installMuttSettings}
-installSettings ${gitSettingsSource}      ${gitSettingsTarget}      ${installGitSettings}
-installSettings ${topSettingsSource}      ${topSettingsTarget}      ${installTopSettings}
-installSettings ${tmuxSettingsSource}     ${tmuxSettingsTarget}     ${installTmuxSettings}
-installSettings ${screenSettingsSource}   ${screenSettingsTarget}   ${installScreenSettings}
-installSettings ${mpvSettingsSource}      ${mpvSettingsTarget}      ${installMpvSettings}
-installSettings ${starshipSettingsSource} ${starshipSettingsTarget} ${installStarshipSettings}
+installSettings ${muttSettingsSource}               ${muttSettingsTarget}               ${installMuttSettings}
+installSettings ${gitSettingsSource}                ${gitSettingsTarget}                ${installGitSettings}
+installSettings ${topSettingsSource}                ${topSettingsTarget}                ${installTopSettings}
+installSettings ${tmuxSettingsSource}               ${tmuxSettingsTarget}               ${installTmuxSettings}
+installSettings ${screenSettingsSource}             ${screenSettingsTarget}             ${installScreenSettings}
+installSettings ${mpvSettingsSource}                ${mpvSettingsTarget}                ${installMpvSettings}
+installSettings ${starshipSettingsSource}           ${starshipSettingsTarget}           ${installStarshipSettings}
+installSettings ${efmLanguageServerSettingsSource}  ${efmLanguageServerSettingsTarget}  ${installEfmLanguageServerSettings}
 
 for file in ${mpsytPlaylistSources}; do
 {

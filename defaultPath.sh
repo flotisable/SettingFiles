@@ -5,12 +5,13 @@ os=$2
 
 case ${configProgram} in
 
-  mutt      ) echo "${HOME}/.muttrc";;
-  git       ) echo "${HOME}/.gitconfig";;
-  top       ) echo "${HOME}/.toprc";;
-  tmux      ) echo "${HOME}/.tmux.conf";;
-  screen    ) echo "${HOME}/.screenrc";;
-  starship  ) echo "${HOME}/.config/starship.toml";;
+  mutt              ) echo "${HOME}/.muttrc";;
+  git               ) echo "${HOME}/.gitconfig";;
+  top               ) echo "${HOME}/.toprc";;
+  tmux              ) echo "${HOME}/.tmux.conf";;
+  screen            ) echo "${HOME}/.screenrc";;
+  starship          ) echo "${HOME}/.config/starship.toml";;
+  efmLanguageServer ) echo "${HOME}/.config/efm-langserver/config.yaml";;
 
   mpv       )
 

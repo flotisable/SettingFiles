@@ -32,6 +32,9 @@ fi
 if [ -z ${starshipSettingsTarget} ]; then
   starshipSettingsTarget="$(./defaultPath.sh starship ${OS})"
 fi
+if [ -z ${efmLanguageServerSettingsTarget} ]; then
+  efmLanguageServerSettingsTarget="$(./defaultPath.sh efmLanguageServer ${OS})"
+fi
 if [ -z ${mpsytPlaylistTargetDir} ]; then
   mpsytPlaylistTargetDir="$(./defaultPath.sh mpsyt ${OS})"
 fi
@@ -45,6 +48,7 @@ rm ${tmuxSettingsTarget}
 rm ${screenSettingsTarget}
 rm ${mpvSettingsTarget}
 rm ${starshipSettingsTarget}
+rm ${efmLanguageServerSettingsTarget}
 
 for file in ${mpsytPlaylistSources}; do
 {
