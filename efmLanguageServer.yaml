@@ -1,6 +1,4 @@
 version: 2
-log-file: '/home/flotisable/efmLsp.log'
-log-level: 1
 
 tools:
   raku-lint: &raku-lint
