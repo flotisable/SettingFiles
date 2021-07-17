@@ -12,6 +12,15 @@ case ${configProgram} in
   screen            ) echo "${HOME}/.screenrc";;
   starship          ) echo "${HOME}/.config/starship.toml";;
   efmLanguageServer ) echo "${HOME}/.config/efm-langserver/config.yaml";;
+  efmLanguageServer )
+
+    case ${os} in
+
+      Linux       ) echo "${HOME}/.config/efm-langserver/config.yaml";;
+      Windows_NT  ) echo "${APPDATA}\\efm-langserver\\config.yaml";;
+      Darwin      ) echo "${HOME}/.config/efm-langserver/config.yaml";;
+
+    esac;;
 
   mpv       )
 
