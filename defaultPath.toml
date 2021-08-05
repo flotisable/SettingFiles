@@ -1,0 +1,17 @@
+mutt              = "${HOME}/.muttrc"
+git               = "${HOME}/.gitconfig"
+top               = "${HOME}/.toprc"
+tmux              = "${HOME}/.tmux.conf"
+screen            = "${HOME}/.screenrc"
+starship          = "${HOME}/.config/starship.toml"
+efmLanguageServer = "${HOME}/.config/efm-langserver/config.yaml"
+
+[mpv]
+linux   = "${HOME}/.config/mpv"
+windows = "${APPDATA}\\mpv"
+macos   = "${HOME}/.config/mpv"
+
+[playlistDir]
+linux   = "${HOME}/.config/mps-youtube"
+windows = "${APPDATA}\\mps-youtube"
+macos   = "${HOME}/.config/mps-youtube"
