@@ -3,7 +3,6 @@ file=$1
 
 defaultPathFile="./defaultPath.toml"
 mapPrefix="_map"
-os=$(uname -s)
 
 # mapInit <map name>
 mapInit()
@@ -33,7 +32,7 @@ mapSet()
   local key=$2
   local value=$3
 
-  eval "${mapPrefix}_${name}_${key}=${value}"
+  eval "${mapPrefix}_${name}_${key}='${value}'"
 }
 
 # mapFind <map name> <key>
@@ -82,9 +81,7 @@ parseValue()
 # osTokey <os>
 osToKey()
 {
-  local os=$1
-
-  case $os in
+  case ${OS:-$(uname -s)} in
 
     Linux       ) echo "linux";;
     Windows_NT  ) echo "windows";;
@@ -162,7 +159,7 @@ parseToml()
   done < $file
 }
 
-os=$(osToKey $os)
+os=$(osToKey)
 
 parseToml "$file"             "settings"
 parseToml "$defaultPathFile"  "defaults"
