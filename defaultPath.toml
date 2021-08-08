@@ -7,9 +7,9 @@ starship          = "${HOME}/.config/starship.toml"
 efmLanguageServer = "${HOME}/.config/efm-langserver/config.yaml"
 
 [mpv]
-linux   = "${HOME}/.config/mpv"
-windows = "${APPDATA}\\mpv"
-macos   = "${HOME}/.config/mpv"
+linux   = "${HOME}/.config/mpv/mpv.conf"
+windows = "${APPDATA}\\mpv\\mpv.conf"
+macos   = "${HOME}/.config/mpv/mpv.conf"
 
 [playlistDir]
 linux   = "${HOME}/.config/mps-youtube"
