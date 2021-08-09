@@ -8,15 +8,7 @@ else
 fi
 # end process arguments
 #}}}
-# OS detection{{{
-if [ -z ${OS} ]; then
-  OS=$(uname -s)
-fi
-
-echo "detected OS: ${OS}"
-# end OS detection
-#}}}
-. ./settings
+. ./readSettings.sh "./settings.toml"
 
 # function definition{{{
 installSettings()
@@ -56,53 +48,30 @@ installSettings()
 }
 # end function definition
 #}}}
-# setup default path{{{
-if [ -z ${muttSettingsTarget} ]; then
-  muttSettingsTarget="$(./defaultPath.sh mutt ${OS})"
-fi
-if [ -z ${gitSettingsTarget} ]; then
-  gitSettingsTarget="$(./defaultPath.sh git ${OS})"
-fi
-if [ -z ${topSettingsTarget} ]; then
-  topSettingsTarget="$(./defaultPath.sh top ${OS})"
-fi
-if [ -z ${tmuxSettingsTarget} ]; then
-  tmuxSettingsTarget="$(./defaultPath.sh tmux ${OS})"
-fi
-if [ -z ${screenSettingsTarget} ]; then
-  screenSettingsTarget="$(./defaultPath.sh screen ${OS})"
-fi
-if [ -z ${mpvSettingsTarget} ]; then
-  mpvSettingsTarget="$(./defaultPath.sh mpv ${OS})/mpv.conf"
-fi
-if [ -z ${starshipSettingsTarget} ]; then
-  starshipSettingsTarget="$(./defaultPath.sh starship ${OS})"
-fi
-if [ -z ${efmLanguageServerSettingsTarget} ]; then
-  efmLanguageServerSettingsTarget="$(./defaultPath.sh efmLanguageServer ${OS})"
-fi
-if [ -z ${mpsytPlaylistTargetDir} ]; then
-  mpsytPlaylistTargetDir="$(./defaultPath.sh mpsyt ${OS})"
-fi
-# end setup default path
-#}}}
 # install setting files{{{
-installSettings ${muttSettingsSource}               ${muttSettingsTarget}               ${installMuttSettings}
-installSettings ${gitSettingsSource}                ${gitSettingsTarget}                ${installGitSettings}
-installSettings ${topSettingsSource}                ${topSettingsTarget}                ${installTopSettings}
-installSettings ${tmuxSettingsSource}               ${tmuxSettingsTarget}               ${installTmuxSettings}
-installSettings ${screenSettingsSource}             ${screenSettingsTarget}             ${installScreenSettings}
-installSettings ${mpvSettingsSource}                ${mpvSettingsTarget}                ${installMpvSettings}
-installSettings ${starshipSettingsSource}           ${starshipSettingsTarget}           ${installStarshipSettings}
-installSettings ${efmLanguageServerSettingsSource}  ${efmLanguageServerSettingsTarget}  ${installEfmLanguageServerSettings}
+targetTableName=$(mapFind "settings" "target")
+sourceTableName=$(mapFind "settings" "source")
+installTableName=$(mapFind "settings" "install")
 
-for file in ${mpsytPlaylistSources}; do
-{
-  source="${mpsytPlaylistSourceDir}/${file}"
-  target="${mpsytPlaylistTargetDir}/${file}"
+for target in $(mapKeys "$targetTableName"); do
 
-  installSettings ${source} ${target} ${installMpsytPlaylistSettings}
-}
+  if [ "$target" == "playlistDir" ]; then
+
+    for playlist in $(mapFind "$sourceTableName" "playlist"); do
+
+      sourceFile="$(mapFind "$sourceTableName" "$target")/$playlist"
+      targetFile="$(mapFind "$targetTableName" "$target")/$playlist"
+
+      installSettings $sourceFile $targetFile $(mapFind "$installTableName" "playlist")
+
+    done
+    
+  else
+
+    installSettings $(mapFind "$sourceTableName" "$target") $(mapFind "$targetTableName" "$target") $(mapFind "$installTableName" "$target")
+
+  fi
+
 done
 # end install setting files}}}
 # vim: foldmethod=marker foldmarker={{{,}}}

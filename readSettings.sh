@@ -160,6 +160,7 @@ parseToml()
 }
 
 os=$(osToKey)
+echo "detected OS: ${os}"
 
 parseToml "$file"             "settings"
 parseToml "$defaultPathFile"  "defaults"
