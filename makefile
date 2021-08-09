@@ -54,7 +54,9 @@ targetFiles := \
 	${mpvSettingsTarget} \
 	${starshipSettingsTarget}
 
-all:
+default: copy
+
+copy:
 ifeq "${OS}" "Windows_NT"
 	@powershell -NoProfile ./copy.ps1 \
 		$(subst ${empty} ${empty},${comma},${targetFiles}) \
