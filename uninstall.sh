@@ -1,62 +1,35 @@
 #!/bin/sh
 
-# OS detection{{{
-if [ -z ${OS} ]; then
-  OS=$(uname -s)
-fi
+. ./readSettings.sh "./settings.toml"
 
-echo "detected OS: ${OS}"
-# end OS detection
-#}}}
-. ./settings
-
-# setup default path{{{
-if [ -z ${muttSettingsTarget} ]; then
-  muttSettingsTarget="$(./defaultPath.sh mutt ${OS})"
-fi
-if [ -z ${gitSettingsTarget} ]; then
-  gitSettingsTarget="$(./defaultPath.sh git ${OS})"
-fi
-if [ -z ${topSettingsTarget} ]; then
-  topSettingsTarget="$(./defaultPath.sh top ${OS})"
-fi
-if [ -z ${tmuxSettingsTarget} ]; then
-  tmuxSettingsTarget="$(./defaultPath.sh tmux ${OS})"
-fi
-if [ -z ${screenSettingsTarget} ]; then
-  screenSettingsTarget="$(./defaultPath.sh screen ${OS})"
-fi
-if [ -z ${mpvSettingsTarget} ]; then
-  mpvSettingsTarget="$(./defaultPath.sh mpv ${OS})/mpv.conf"
-fi
-if [ -z ${starshipSettingsTarget} ]; then
-  starshipSettingsTarget="$(./defaultPath.sh starship ${OS})"
-fi
-if [ -z ${efmLanguageServerSettingsTarget} ]; then
-  efmLanguageServerSettingsTarget="$(./defaultPath.sh efmLanguageServer ${OS})"
-fi
-if [ -z ${mpsytPlaylistTargetDir} ]; then
-  mpsytPlaylistTargetDir="$(./defaultPath.sh mpsyt ${OS})"
-fi
-# end setup default path
-#}}}
-# install setting files{{{
-rm ${muttSettingsTarget}
-rm ${gitSettingsTarget}
-rm ${topSettingsTarget}
-rm ${tmuxSettingsTarget}
-rm ${screenSettingsTarget}
-rm ${mpvSettingsTarget}
-rm ${starshipSettingsTarget}
-rm ${efmLanguageServerSettingsTarget}
-
-for file in ${mpsytPlaylistSources}; do
+removeFile()
 {
-  source="${mpsytPlaylistSourceDir}/${file}"
-  target="${mpsytPlaylistTargetDir}/${file}"
+  local fileName=$1
 
-  rm ${target}
+  echo "remove $fileName"
+  rm $fileName
 }
+
+# install setting files{{{
+targetTableName=$(mapFind "settings" "target")
+sourceTableName=$(mapFind "settings" "source")
+
+for target in $(mapKeys "$targetTableName"); do
+
+  if [ "$target" == "playlistDir" ]; then
+
+    for playlist in $(mapFind "$sourceTableName" "playlist"); do
+
+      removeFile "$(mapFind "$targetTableName" "$target")/${playlist}"
+
+    done
+
+  else
+
+    removeFile "$(mapFind "$targetTableName" "$target")"
+
+  fi
+
 done
 # end install setting files}}}
 # vim: foldmethod=marker foldmarker={{{,}}}
