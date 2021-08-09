@@ -63,15 +63,7 @@ ifeq "${OS}" "Windows_NT"
 	@powershell -NoProfile -Command "Copy-Item ${efmLanguageServerSettingsTarget} ${efmLanguageServerSettingsSource}"
 
 else
-	@for file in ${targetFiles}; do \
-		echo "copy $$file"; \
-		cp "$$file" . ; \
-	done
-	cp ${efmLanguageServerSettingsTarget} ${efmLanguageServerSettingsSource}
-	@for file in ${mpsytPlaylistTargetsFull}; do \
-		echo "copy $$file"; \
-		cp "$$file" "${mpsytPlaylistSourceDir}"; \
-	done
+	@./copy.sh
 endif
 
 install:
