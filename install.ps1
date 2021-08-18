@@ -1,16 +1,7 @@
 Param( [switch]$interactive )
 
-$settingFile = "./settings"
+$settingFile = "./settings.toml"
 
-# OS detection{{{
-If( ${env:OS} -eq "" )
-{
-  ${env:OS} = uname -s
-}
-
-Write-Host "detected OS: ${env:OS}"
-# end OS detection
-#}}}
 . ./readSettings.ps1 $settingFile
 
 # function definition{{{
@@ -31,8 +22,8 @@ Function installSettings
     {
       Switch( ${value} )
       {
-        "y"     { $ifInstall = 1; Break       }
-        "n"     { $ifInstall = 0; Break       }
+        "y"     { $ifInstall = $True;   Break }
+        "n"     { $ifInstall = $FalsE;  Break }
         Default { Write-Host "invalid input!" }
       }
       # not use -in because older powershell does not support this
@@ -45,72 +36,33 @@ Function installSettings
   # end interactive mode
   #}}}
   # install file{{{
-  If( "${ifInstall}" -eq "1" )
+  If( ${ifInstall} )
   {
     Write-Host "install ${sourceFile}"
-    Copy-Item "${sourceFile}" "${TargetFile}"
+    Copy-Item "${sourceFile}" "${targetFile}"
   }
   # end install file}}}
 }
 # end function definition
 #}}}
-# setup default path{{{
-If( "${muttSettingsTarget}" -eq "" )
-{
-  $muttSettingsTarget = $(./defaultPath.ps1 mutt ${env:OS})
-}
-If( "${gitSettingsTarget}" -eq "" )
-{
-  $gitSettingsTarget = $(./defaultPath.ps1 git ${env:OS})
-}
-If( "${topSettingsTarget}" -eq "" )
-{
-  $topSettingsTarget = $(./defaultPath.ps1 top ${env:OS})
-}
-If( "${tmuxSettingsTarget}" -eq "" )
-{
-  $tmuxSettingsTarget = $(./defaultPath.ps1 tmux ${env:OS})
-}
-If( "${screenSettingsTarget}" -eq "" )
-{
-  $screenSettingsTarget = $(./defaultPath.ps1 screen ${env:OS})
-}
-If( "${mpvSettingsTarget}" -eq "" )
-{
-  $mpvSettingsTarget = "$(./defaultPath.ps1 mpv ${env:OS})/mpv.conf"
-}
-If( "${starshipSettingsTarget}" -eq "" )
-{
-  $starshipSettingsTarget = $(./defaultPath.ps1 starship ${env:OS})
-}
-If( "${efmLanguageServerSettingsTarget}" -eq "" )
-{
-  $efmLanguageServerSettingsTarget = $(./defaultPath.ps1 efmLanguageServer ${env:OS})
-}
-If( "${mpsytPlaylistTargetDir}" -eq "" )
-{
-  $mpsytPlaylistTargetDir = $(./defaultPath.ps1 mpsyt ${env:OS})
-}
-# end setup default path
-#}}}
 # install setting files{{{
-installSettings ${muttSettingsSource}               ${muttSettingsTarget}               ${installMuttSettings}
-installSettings ${gitSettingsSource}                ${gitSettingsTarget}                ${installGitSettings}
-installSettings ${topSettingsSource}                ${topSettingsTarget}                ${installTopSettings}
-installSettings ${tmuxSettingsSource}               ${tmuxSettingsTarget}               ${installTmuxSettings}
-installSettings ${screenSettingsSource}             ${screenSettingsTarget}             ${installScreenSettings}
-installSettings ${mpvSettingsSource}                ${mpvSettingsTarget}                ${installMpvSettings}
-installSettings ${starshipSettingsSource}           ${starshipSettingsTarget}           ${installStarshipSettings}
-installSettings ${efmLanguageServerSettingsSource}  ${efmLanguageServerSettingsTarget}  ${installEfmLanguageServerSettings}
-
-$mpsytPlaylistSources = $mpsytPlaylistSources -replace '"',''
-
-ForEach( $file in -split ${mpsytPlaylistSources} )
+ForEach( $target in $settings['target'].keys )
 {
-  $source = "${mpsytPlaylistSourceDir}/${file}"
-  $target = "${mpsytPlaylistTargetDir}/${file}"
+  $targetFile = Invoke-Expression "Write-Output $($settings['target'][$target])"
+  $sourceFile = Invoke-Expression "Write-Output $($settings['source'][$target])"
 
-  installSettings ${source} ${target} ${installMpsytPlaylistSettings}
+  If( $target -eq 'playlistDir' )
+  {
+    If( Test-Path $targetFile -PathType Container )
+    {
+      ForEach( $playlist in $settings['source']['playlist'] )
+      {
+        installSettings $sourceFile/$playlist $targetFile/$playlist $settings['install'][$target]
+      }
+    }
+    Continue
+  }
+  installSettings $sourceFile $targetFile $settings['install'][$target]
 }
 # end install setting files}}}
 # vim: foldmethod=marker foldmarker={{{,}}}
