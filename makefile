@@ -1,5 +1,6 @@
 OS ?= $(shell uname -s)
 
+.PHONY: default copy install install-interactive uninstall
 default: copy
 
 copy:
