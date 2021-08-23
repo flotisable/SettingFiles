@@ -8,10 +8,10 @@ efmLanguageServer = "${HOME}/.config/efm-langserver/config.yaml"
 
 [mpv]
 linux   = "${HOME}/.config/mpv/mpv.conf"
-windows = "${APPDATA}\\mpv\\mpv.conf"
+windows = "${env:APPDATA}\\mpv\\mpv.conf"
 macos   = "${HOME}/.config/mpv/mpv.conf"
 
 [playlistDir]
 linux   = "${HOME}/.config/mps-youtube"
-windows = "${APPDATA}\\mps-youtube"
+windows = "${env:APPDATA}\\mps-youtube"
 macos   = "${HOME}/.config/mps-youtube"

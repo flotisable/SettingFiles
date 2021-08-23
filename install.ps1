@@ -23,7 +23,7 @@ Function installSettings
       Switch( ${value} )
       {
         "y"     { $ifInstall = $True;   Break }
-        "n"     { $ifInstall = $FalsE;  Break }
+        "n"     { $ifInstall = $False;  Break }
         Default { Write-Host "invalid input!" }
       }
       # not use -in because older powershell does not support this
@@ -57,7 +57,7 @@ ForEach( $target in $settings['target'].keys )
     {
       ForEach( $playlist in $settings['source']['playlist'] )
       {
-        installSettings $sourceFile/$playlist $targetFile/$playlist $settings['install'][$target]
+        installSettings $sourceFile/$playlist $targetFile/$playlist $settings['install']['playlist']
       }
     }
     Continue

@@ -33,8 +33,13 @@ Function parseToml()
         $isParseArray = $False
         $currentTable[$arrayKey][0] = $currentTable[$arrayKey][0] -replace '^\s*\[\s*', ''
         $currentTable[$arrayKey][0] = $currentTable[$arrayKey][0] -replace '\s*\]\s*$', ''
-        $currentTable[$arrayKey][0] = $currentTable[$arrayKey][0] -replace '\s*,\s*', ''
+        $currentTable[$arrayKey][0] = $currentTable[$arrayKey][0] -replace '\s*,\s*', ' '
         $currentTable[$arrayKey] = -split $currentTable[$arrayKey][0]
+
+        For( $i = 0 ; $i -lt $currentTable[$arrayKey].length ; ++$i )
+        {
+          $currentTable[$arrayKey][$i] = parseValue( $currentTable[$arrayKey][$i] )
+        }
       }
       Else
       {
@@ -74,9 +79,12 @@ Function parseToml()
 
 Function osToKey()
 {
-  $OS ??= $(uname -s)
+  If( $env:OS -eq $null )
+  {
+    $env:OS = $(uname -s)
+  }
 
-  Switch( $OS )
+  Switch( $env:OS )
   {
     Linux       { return "linux"    }
     Windows_NT  { return "windows"  }
