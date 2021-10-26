@@ -12,7 +12,7 @@ ForEach( $target in $settings['target'].keys )
     Continue
   }
 
-  If( $target -eq 'playlistDir' -and ( Test-Path $file -PathType Container ) )
+  If( $target -eq 'playlistDir' -and ( Test-Path $targetFile -PathType Container ) )
   {
     ForEach( $playlist in $settings['source']['playlist'] )
     {
