@@ -9,6 +9,7 @@ screen            = ""
 mpv               = ""
 starship          = ""
 efmLanguageServer = ""
+conemu            = ""
 
 [install]
 mutt              = true
@@ -19,6 +20,7 @@ screen            = true
 mpv               = true
 starship          = true
 efmLanguageServer = true
+conemu            = true
 playlist          = true
 
 [source]
@@ -32,6 +34,7 @@ screen            = ".screenrc"
 mpv               = "mpv.conf"
 starship          = "starship.toml"
 efmLanguageServer = "efmLanguageServer.yaml"
+conemu            = "ConEmu.xml"
 playlist          = [
   "favorite.m3u",
   "fullMetalAlchemist.m3u",

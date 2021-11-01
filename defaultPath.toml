@@ -11,6 +11,11 @@ linux   = "${HOME}/.config/mpv/mpv.conf"
 windows = "${env:APPDATA}\\mpv\\mpv.conf"
 macos   = "${HOME}/.config/mpv/mpv.conf"
 
+[conemu]
+linux   = ""
+windows = "${env:APPDATA}\\ConEmu.xml"
+macos   = ""
+
 [playlistDir]
 linux   = "${HOME}/.config/mps-youtube"
 windows = "${env:APPDATA}\\mps-youtube"
