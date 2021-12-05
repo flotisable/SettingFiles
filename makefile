@@ -1,32 +1,34 @@
 OS ?= $(shell uname -s)
 
+scriptDir := Scripts
+
 .PHONY: default copy install install-interactive uninstall
 default: copy
 
 copy:
 ifeq "${OS}" "Windows_NT"
-	@powershell -NoProfile ./copy.ps1
+	@powershell -NoProfile ./${scriptDir}/copy.ps1
 else
-	@./copy.sh
+	@./${scriptDir}/copy.sh
 endif
 
 install:
 ifeq "${OS}" "Windows_NT"
-	@powershell -NoProfile ./install.ps1
+	@powershell -NoProfile ./${scriptDir}/install.ps1
 else
-	@./install.sh
+	@./${scriptDir}/install.sh
 endif
 
 install-interactive:
 ifeq "${OS}" "Windows_NT"
-	@powershell -NoProfile ./install.ps1 -interactive
+	@powershell -NoProfile ./${scriptDir}/install.ps1 -interactive
 else
-	@./install.sh -i
+	@./${scriptDir}/install.sh -i
 endif
 
 uninstall:
 ifeq "${OS}" "Windows_NT"
-	@powershell -NoProfile ./uninstall.ps1
+	@powershell -NoProfile ./${scriptDir}/uninstall.ps1
 else
-	@./uninstall.sh
+	@./${scriptDir}/uninstall.sh
 endif

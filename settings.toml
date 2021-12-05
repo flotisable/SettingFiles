@@ -24,17 +24,17 @@ conemu            = true
 playlist          = true
 
 [source]
-playlistDir = "MpsytPlaylist"
+playlistDir = "Settings/MpsytPlaylist"
 
-mutt              = ".muttrc"
-git               = ".gitconfig"
-top               = ".toprc"
-tmux              = ".tmux.conf"
-screen            = ".screenrc"
-mpv               = "mpv.conf"
-starship          = "starship.toml"
-efmLanguageServer = "efmLanguageServer.yaml"
-conemu            = "ConEmu.xml"
+mutt              = "Settings/.muttrc"
+git               = "Settings/.gitconfig"
+top               = "Settings/.toprc"
+tmux              = "Settings/.tmux.conf"
+screen            = "Settings/.screenrc"
+mpv               = "Settings/mpv.conf"
+starship          = "Settings/starship.toml"
+efmLanguageServer = "Settings/efmLanguageServer.yaml"
+conemu            = "Settings/ConEmu.xml"
 playlist          = [
   "favorite.m3u",
   "fullMetalAlchemist.m3u",

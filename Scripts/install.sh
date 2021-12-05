@@ -1,4 +1,7 @@
 #!/bin/sh
+settingFile="./settings.toml"
+
+scriptDir="$(dirname $0)"
 
 # process arguments{{{
 if [ "$1" = "--interactive" -o "$1" = "-i" ]; then
@@ -8,7 +11,7 @@ else
 fi
 # end process arguments
 #}}}
-. ./readSettings.sh "./settings.toml"
+. ${scriptDir}/readSettings.sh ${settingFile}
 
 # function definition{{{
 installSettings()
