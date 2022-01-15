@@ -7,3 +7,7 @@
 	tool = vimdiff
 [hub]
 	protocol = https
+[credential]
+	helper = cache
+[init]
+	defaultBranch = main
