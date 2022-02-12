@@ -9,3 +9,5 @@
 	protocol = https
 [init]
 	defaultBranch = main
+[commit]
+	gpgSign = true
