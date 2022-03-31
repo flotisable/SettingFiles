@@ -16,6 +16,11 @@ linux   = ""
 windows = "${env:APPDATA}\\ConEmu.xml"
 macos   = ""
 
+[windowsTerminal]
+linux   = ""
+windows = "${env:LOCALAPPDATA}\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\settings.json"
+macos   = ""
+
 [playlistDir]
 linux   = "${HOME}/.config/mps-youtube"
 windows = "${env:APPDATA}\\mps-youtube"

@@ -10,6 +10,7 @@ mpv               = ""
 starship          = ""
 efmLanguageServer = ""
 conemu            = ""
+windowsTerminal   = ""
 
 [install]
 mutt              = true
@@ -21,6 +22,7 @@ mpv               = true
 starship          = true
 efmLanguageServer = true
 conemu            = true
+windowsTerminal   = true
 playlist          = true
 
 [source]
@@ -35,6 +37,7 @@ mpv               = "Settings/mpv.conf"
 starship          = "Settings/starship.toml"
 efmLanguageServer = "Settings/efmLanguageServer.yaml"
 conemu            = "Settings/ConEmu.xml"
+windowsTerminal   = "Settings/windowsTerminalSettings.json"
 playlist          = [
   "favorite.m3u",
   "fullMetalAlchemist.m3u",
