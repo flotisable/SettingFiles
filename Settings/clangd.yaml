@@ -1,6 +1,2 @@
 Hover:
   ShowAKA: Yes
-
-Diagnoistics:
-  ClangTidy:
-    Add: clang-analyzer-*
