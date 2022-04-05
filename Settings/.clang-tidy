@@ -1,0 +1,15 @@
+---
+Checks:
+'-*,clang-diagnostic-*,clang-analyzer-*,portability-*,bugprone-*,performance-*,readability-*,-bugprone-bool-pointer-implicit-conversion,-readability-implicit-bool-conversion'
+WarningsAsErrors: ''
+HeaderFilterRegex: ''
+AnalyzeTemporaryDtors: false
+FormatStyle:     none
+User:            flotisable
+CheckOptions:
+  - key:    readability-identifier-length.IgnoredVariableNames
+    value:  'ch|x|y|i'
+  - key:    readability-identifier-length.IgnoredParameterNames
+    value:  'ch|x|y|i'
+...
+

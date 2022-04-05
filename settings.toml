@@ -11,6 +11,9 @@ starship          = ""
 efmLanguageServer = ""
 conemu            = ""
 windowsTerminal   = ""
+clangd            = ""
+clangFormat       = ""
+clangTidy         = ""
 
 [install]
 mutt              = true
@@ -23,6 +26,9 @@ starship          = true
 efmLanguageServer = true
 conemu            = true
 windowsTerminal   = true
+clangd            = true
+clangFormat       = true
+clangTidy         = true
 playlist          = true
 
 [source]
@@ -38,6 +44,9 @@ starship          = "Settings/starship.toml"
 efmLanguageServer = "Settings/efmLanguageServer.yaml"
 conemu            = "Settings/ConEmu.xml"
 windowsTerminal   = "Settings/windowsTerminalSettings.json"
+clangd            = "Settings/clangd.yaml"
+clangFormat       = "Settings/.clang-format"
+clangTidy         = "Settings/.clang-tidy"
 playlist          = [
   "favorite.m3u",
   "fullMetalAlchemist.m3u",
