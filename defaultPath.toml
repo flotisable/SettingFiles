@@ -28,6 +28,11 @@ linux   = ""
 windows = "${env:LOCALAPPDATA}\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\settings.json"
 macos   = ""
 
+[gpg]
+linux   = "${HOME}/.gnupg/gpg.conf"
+windows = "${env:APPDATA}\\gnupg\\gpg.conf"
+macos   = "${HOME}/.gnupg/gpg.conf"
+
 [playlistDir]
 linux   = "${HOME}/.config/mps-youtube"
 windows = "${env:APPDATA}\\mps-youtube"

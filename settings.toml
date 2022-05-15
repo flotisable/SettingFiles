@@ -14,6 +14,7 @@ windowsTerminal   = ""
 clangd            = ""
 clangFormat       = ""
 clangTidy         = ""
+gpg               = ""
 
 [install]
 mutt              = true
@@ -29,6 +30,7 @@ windowsTerminal   = true
 clangd            = true
 clangFormat       = true
 clangTidy         = true
+gpg               = true
 playlist          = true
 
 [source]
@@ -47,6 +49,7 @@ windowsTerminal   = "Settings/windowsTerminalSettings.json"
 clangd            = "Settings/clangd.yaml"
 clangFormat       = "Settings/.clang-format"
 clangTidy         = "Settings/.clang-tidy"
+gpg               = "Settings/gpg.conf"
 playlist          = [
   "favorite.m3u",
   "fullMetalAlchemist.m3u",
