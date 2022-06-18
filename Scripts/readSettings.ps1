@@ -117,3 +117,4 @@ ForEach( $target in @( $settings['target'].keys ) )
     $default = $default[$os]
   }
   $settings['target'][$target] = $default
+}
