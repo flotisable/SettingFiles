@@ -26,6 +26,11 @@ Function parseToml()
 
   ForEach( $line in Get-Content $file )
   {
+    If( $line -match '^\s*#' )
+    {
+      Continue
+    }
+
     If( $isParseArray )
     {
       If( $line -match '\]\s*$' )
@@ -112,4 +117,3 @@ ForEach( $target in @( $settings['target'].keys ) )
     $default = $default[$os]
   }
   $settings['target'][$target] = $default
-}
