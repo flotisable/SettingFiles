@@ -33,6 +33,11 @@ linux   = "${HOME}/.gnupg/gpg.conf"
 windows = "${env:APPDATA}\\gnupg\\gpg.conf"
 macos   = "${HOME}/.gnupg/gpg.conf"
 
+[pwsh]
+linux   = "${HOME}/.config/powershell/profile.ps1"
+windows = "${profile}"
+macos   = "${HOME}/.config/powershell/profile.ps1"
+
 [playlistDir]
 linux   = "${HOME}/.config/mps-youtube"
 windows = "${env:APPDATA}\\mps-youtube"

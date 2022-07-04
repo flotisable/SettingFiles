@@ -19,6 +19,7 @@ clangd            = ""
 clangFormat       = ""
 clangTidy         = ""
 gpg               = ""
+pwsh              = ""
 
 [install]
 mutt              = true
@@ -35,6 +36,7 @@ clangd            = true
 clangFormat       = true
 clangTidy         = true
 gpg               = true
+pwsh              = true
 playlist          = true
 
 [source]
@@ -54,6 +56,7 @@ clangd            = "Settings/clangd.yaml"
 clangFormat       = "Settings/.clang-format"
 clangTidy         = "Settings/.clang-tidy"
 gpg               = "Settings/gpg.conf"
+pwsh              = "Settings/profile.ps1"
 playlist          = [
   "favorite.m3u",
   "fullMetalAlchemist.m3u",
