@@ -1,5 +1,8 @@
 # keybindings
-Set-PSReadlineOption -EditMode Emacs
+If( Get-Command -ErrorAction SilentlyContinue Set-PSReadLineOption )
+{
+  Set-PSReadLineOption -EditMode Emacs
+}
 
 # environment settings
 $env:HOME = "$env:USERPROFILE"
@@ -19,4 +22,7 @@ Function Start-Emacs()
   emacsclientw -ca "`"`""
 }
 
-Invoke-Expression (&starship init powershell)
+If( $PSVersionTable.PSVersion.Major -ge 5 )
+{
+  Invoke-Expression (&starship.exe init powershell)
+}
