@@ -5,7 +5,25 @@
     [
         {
             "command": "unbound",
-            "keys": "win+sc(41)"
+            "keys": "f12"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+`"
+        },
+        {
+            "command": "unbound",
+            "keys": "win+`"
+        },
+        {
+            "command": 
+            {
+                "action": "quakeMode"
+            }
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": 
@@ -18,16 +36,6 @@
         {
             "command": "paste",
             "keys": "ctrl+v"
-        },
-        {
-            "command": 
-            {
-                "action": "quakeMode"
-            }
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
         },
         {
             "command": 
@@ -46,6 +54,7 @@
             "keys": "alt+shift+d"
         }
     ],
+    "alwaysOnTop": false,
     "alwaysShowTabs": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
@@ -344,6 +353,9 @@
             "yellow": "#808000"
         }
     ],
+    "snapToGridOnResize": true,
+    "tabSwitcherMode": "inOrder",
+    "tabWidthMode": "titleLength",
     "theme": "system",
     "windowingBehavior": "useNew"
 }
