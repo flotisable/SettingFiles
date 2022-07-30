@@ -61,6 +61,7 @@
     "defaultProfile": "{27bac1a9-1f27-48c1-9e84-fda8a6df2b1b}",
     "disableAnimations": false,
     "launchMode": "maximized",
+    "minimizeToNotificationArea": true,
     "profiles": 
     {
         "defaults": {},
@@ -354,6 +355,7 @@
         }
     ],
     "snapToGridOnResize": true,
+    "startOnUserLogin": true,
     "tabSwitcherMode": "inOrder",
     "tabWidthMode": "titleLength",
     "theme": "system",
