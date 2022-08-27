@@ -24,6 +24,7 @@ New-Alias emacs 'Start-Emacs'
 
 # chocolatry profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+
 if ( Test-Path( $ChocolateyProfile ) )
 {
   Import-Module "$ChocolateyProfile"
@@ -38,3 +39,8 @@ If( $PSVersionTable.PSVersion.Major -ge 5 )
 {
   Invoke-Expression (&starship.exe init powershell)
 }
+
+Invoke-Expression (& {
+  $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
+  (zoxide init --cmd cd --hook $hook powershell | Out-String)
+})
