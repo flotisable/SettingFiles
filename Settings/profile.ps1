@@ -1,7 +1,19 @@
 # keybindings
 If( Get-Command -ErrorAction SilentlyContinue Set-PSReadLineOption )
 {
-  Set-PSReadLineOption -EditMode Emacs
+  Set-PSReadLineOption -EditMode Emacs -HistoryNoDuplicates
+
+  $version = (Get-Module PSReadLine).Version
+
+  If( $version.Major -eq 2 -and $version.Minor -ge 1 -or $version.Major -ge 3 )
+  {
+    Set-PSReadLineOption -PredictionSource History
+  }
+  If( $version.Major -eq 2 -and $version.Minor -ge 2 -or $version.Major -ge 3 )
+  {
+    Set-PSReadLineOption -PredictionViewStyle ListView
+  }
+  Remove-Variable version
 }
 
 # environment settings
