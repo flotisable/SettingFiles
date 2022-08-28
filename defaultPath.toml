@@ -7,6 +7,7 @@ starship          = "${HOME}/.config/starship.toml"
 efmLanguageServer = "${HOME}/.config/efm-langserver/config.yaml"
 clangFormat       = "${HOME}/.clang-format"
 clangTidy         = "${HOME}/.clang-tidy"
+bash              = "${HOME}/.bashrc"
 
 [mpv]
 linux   = "${HOME}/.config/mpv/mpv.conf"
