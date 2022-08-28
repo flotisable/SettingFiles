@@ -8,6 +8,7 @@ efmLanguageServer = "${HOME}/.config/efm-langserver/config.yaml"
 clangFormat       = "${HOME}/.clang-format"
 clangTidy         = "${HOME}/.clang-tidy"
 bash              = "${HOME}/.bashrc"
+readline          = "${HOME}/.inputrc"
 
 [mpv]
 linux   = "${HOME}/.config/mpv/mpv.conf"

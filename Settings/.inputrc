@@ -1,0 +1,11 @@
+# colot settings
+set colored-completion-prefix on
+set colored-stats             on
+
+# completion behavior settings
+set show-all-if-ambiguous   on
+set show-all-if-unmodified  on
+set skip-completed-text     on
+
+# keybindings
+TAB: menu-complete
