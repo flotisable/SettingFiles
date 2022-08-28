@@ -14,7 +14,7 @@ fi
 
 # Put your fun stuff here.
 
-PATH="/home/flotisable/bin${PATH:+:${PATH}}"; export PATH;
+PATH="${HOME}/bin${PATH:+:${PATH}}"; export PATH;
 
 shopt -s extglob
 
