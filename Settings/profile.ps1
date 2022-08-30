@@ -35,12 +35,15 @@ Function Start-Emacs()
   emacsclientw -ca "`"`""
 }
 
-If( $PSVersionTable.PSVersion.Major -ge 5 )
+If( (Get-Command -ErrorAction SilentlyContinue starship) -and $PSVersionTable.PSVersion.Major -ge 5 )
 {
-  Invoke-Expression (&starship.exe init powershell)
+  Invoke-Expression (&starship init powershell)
 }
 
-Invoke-Expression (& {
-  $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
-  (zoxide init --cmd cd --hook $hook powershell | Out-String)
-})
+If( Get-Command -ErrorAction SilentlyContinue zoxide )
+{
+  Invoke-Expression (& {
+    $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
+    (zoxide init --cmd cd --hook $hook powershell | Out-String)
+  })
+}
