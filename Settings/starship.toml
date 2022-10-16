@@ -14,3 +14,7 @@ ssh_only  = false
 format            = ":[$path]($style)[$readonly]($readonly) "
 truncation_length = 0
 truncate_to_repo  = false
+
+[character]
+success_symbol  = "[\U0001F604❯](bold green)"
+error_symbol    = "[\U0001F62D❯](bold red)"
