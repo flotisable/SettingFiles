@@ -15,6 +15,11 @@ linux   = "${HOME}/.config/mpv/mpv.conf"
 windows = "${env:APPDATA}\\mpv\\mpv.conf"
 macos   = "${HOME}/.config/mpv/mpv.conf"
 
+[ytdlp]
+linux   = "${HOME}/.config/yt-dlp/config"
+windows = "${env:APPDATA}\\yt-dlp\\config"
+macos   = "${HOME}/.config/yt-dlp/config"
+
 [clangd]
 linux   = "${HOME}/.config/clangd/config.yaml"
 windows = "${env:LOCALAPPDATA}\\clangd\\config.yaml"
