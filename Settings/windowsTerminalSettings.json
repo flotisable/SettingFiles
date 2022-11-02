@@ -359,5 +359,5 @@
     "tabSwitcherMode": "inOrder",
     "tabWidthMode": "titleLength",
     "theme": "system",
-    "windowingBehavior": "useNew"
+    "windowingBehavior": "useAnyExisting"
 }
