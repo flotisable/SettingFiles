@@ -11,6 +11,14 @@ local config =
   tab_bar_at_bottom             = true,
 
   window_background_opacity = 0.8,
+
+  unix_domains =
+  {
+    {
+      name = default_unix_domain,
+    },
+  },
+  default_gui_startup_args = { 'connect', default_unix_domain },
 }
 
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
