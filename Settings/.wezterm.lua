@@ -11,9 +11,9 @@ local config =
   -- appearance settings
   color_scheme  = 'nord',
 
-  hide_tab_bar_if_only_one_tab  = true,
-  use_fancy_tab_bar             = false,
-  tab_bar_at_bottom             = true,
+  use_fancy_tab_bar                     = false,
+  tab_bar_at_bottom                     = true,
+  tab_and_split_indices_are_zero_based  = true,
 
   window_background_opacity = 0.8,
   -- end appearance settings
@@ -79,5 +79,46 @@ wezterm.on( 'gui-startup',
   end
 )
 -- end start GUI maxmized
+
+-- statusline
+wezterm.on( 'update-status',
+  function( window, pane )
+
+    local date          = wezterm.strftime( '%Y-%m-%d %p %H:%M' )
+    local workspace     = window:mux_window():get_workspace()
+    local leader_colors =
+    {
+      active    = 'red',
+      inactive  = 'gray',
+    }
+    local leader_color
+
+    if window:leader_is_active() then
+      leader_color = leader_colors.active
+    else
+      leader_color = leader_colors.inactive
+    end
+
+    window:set_left_status(
+      wezterm.format(
+        {
+          { Background  = { Color = leader_color } },
+          { Text        = ' ' .. workspace .. ' ' },
+        }
+      )
+    )
+
+    window:set_right_status(
+      wezterm.format(
+        {
+          { Background  = { Color = 'teal' } },
+          { Text        = ' ' .. date .. ' ' },
+        }
+      )
+    )
+
+  end
+)
+-- end statusline
 
 return config
