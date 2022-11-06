@@ -25,7 +25,7 @@ local config =
       name = default_unix_domain,
     },
   },
-  default_gui_startup_args = { 'connect', default_unix_domain },
+  default_domain = default_unix_domain,
   -- end multiplexing settings
 
   -- keybindings
@@ -67,5 +67,17 @@ for i = 0, 9, 1 do
   addLeaderBinding( tostring( i ), act.ActivateTab( i ) )
 end
 -- end simulate tmux keys
+
+-- start GUI maxmized
+wezterm.on( 'gui-startup',
+  function( cmd )
+
+    local tab, pane, window = wezterm.mux.spawn_window( cmd or {} )
+
+    window:gui_window():maximize()
+
+  end
+)
+-- end start GUI maxmized
 
 return config
