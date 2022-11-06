@@ -1,5 +1,6 @@
 -- wezterm variables
 local wezterm = require 'wezterm'
+local act     = wezterm.action
 -- end wezterm variables
 
 local default_unix_domain = 'default'
@@ -26,6 +27,11 @@ local config =
   },
   default_gui_startup_args = { 'connect', default_unix_domain },
   -- end multiplexing settings
+
+  -- keybindings
+  leader  = { key = 'a', mods = 'ALT' },
+  keys    = {},
+  -- end keybindings
 }
 -- end basic configs
 
@@ -37,5 +43,29 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
 
 end
 -- end Windows specific settings
+
+-- simulate tmux keys
+local function addLeaderBinding( key, action, modsWithoutLeader )
+
+  local mods = 'LEADER'
+
+  if modsWithoutLeader then
+    mods = mods .. '|' .. modsWithoutLeader
+  end
+
+  table.insert( config.keys, { key = key, mods = mods, action = action })
+
+end
+
+addLeaderBinding( 'c', act.SpawnTab 'CurrentPaneDomain'                       )
+addLeaderBinding( 'n', act.ActivateTabRelative( 1  )                          )
+addLeaderBinding( 'p', act.ActivateTabRelative( -1 )                          )
+addLeaderBinding( '%', act.SplitHorizontal  { domain = 'CurrentPaneDomain' }  )
+addLeaderBinding( '"', act.SplitVertical    { domain = 'CurrentPaneDomain' }  )
+
+for i = 0, 9, 1 do
+  addLeaderBinding( tostring( i ), act.ActivateTab( i ) )
+end
+-- end simulate tmux keys
 
 return config
