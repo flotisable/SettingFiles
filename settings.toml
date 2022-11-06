@@ -24,6 +24,7 @@ gpg               = ""
 pwsh              = ""
 bash              = ""
 readline          = ""
+autohotkey        = ""
 
 [install]
 mutt              = true
@@ -45,6 +46,7 @@ gpg               = true
 pwsh              = true
 bash              = true
 readline          = true
+autohotkey        = true
 playlist          = true
 
 [source]
@@ -69,6 +71,7 @@ gpg               = "Settings/gpg.conf"
 pwsh              = "Settings/profile.ps1"
 bash              = "Settings/.bashrc"
 readline          = "Settings/.inputrc"
+autohotkey        = "Settings/AutoHotkey.ahk"
 playlist          = [
   "favorite.m3u",
   "fullMetalAlchemist.m3u",

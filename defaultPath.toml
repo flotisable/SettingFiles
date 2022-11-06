@@ -10,6 +10,7 @@ clangFormat       = "${HOME}/.clang-format"
 clangTidy         = "${HOME}/.clang-tidy"
 bash              = "${HOME}/.bashrc"
 readline          = "${HOME}/.inputrc"
+autohotkey        = "${HOME}/Documents/AutoHotkey.ahk"
 
 [mpv]
 linux   = "${HOME}/.config/mpv/mpv.conf"
