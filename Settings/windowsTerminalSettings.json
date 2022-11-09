@@ -355,7 +355,7 @@
         }
     ],
     "snapToGridOnResize": true,
-    "startOnUserLogin": true,
+    "startOnUserLogin": false,
     "tabSwitcherMode": "inOrder",
     "tabWidthMode": "titleLength",
     "theme": "system",
