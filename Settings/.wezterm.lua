@@ -38,8 +38,9 @@ local config =
 -- Windows specific settings
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
 
-  config.default_prog  = { 'powershell' }
-  config.font          = wezterm.font( 'Consolas' )
+  config.default_prog = { 'powershell' }
+  config.font         = wezterm.font( 'Consolas' )
+  config.font_size    = 14
 
 end
 -- end Windows specific settings
