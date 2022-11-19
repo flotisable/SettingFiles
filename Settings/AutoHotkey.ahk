@@ -8,7 +8,8 @@ isWezTermHidden   := 0
 F12::
 If( isWezTermHidden == 1 )
 {
-  WinShow, % "ahk_class " . wezTermClassName
+  WinShow,      % "ahk_class " . wezTermClassName
+  WinActivate,  % "ahk_class " . wezTermClassName
   isWezTermHidden := 0
 }
 Else If( WinExist( "ahk_class " . wezTermClassName ) )
