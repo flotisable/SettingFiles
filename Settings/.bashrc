@@ -33,3 +33,6 @@ fi
 if which zoxide > /dev/null 2>&1; then
   eval "$(zoxide init --cmd cd bash)"
 fi
+
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
