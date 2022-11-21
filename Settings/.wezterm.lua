@@ -45,6 +45,19 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
 end
 -- end Windows specific settings
 
+-- Linux specific settings
+if wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
+
+  config.default_prog = { 'bash' }
+  config.font         = wezterm.font_with_fallback( {
+                                                      'DejaVu Sans Mono',
+                                                      'AR PL New Kai'
+                                                    } )
+  config.font_size    = 14
+
+end
+-- end Linux specific settings
+
 -- simulate tmux keys
 local function addLeaderBinding( key, action, modsWithoutLeader )
 
