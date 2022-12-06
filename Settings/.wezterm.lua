@@ -71,11 +71,17 @@ local function addLeaderBinding( key, action, modsWithoutLeader )
 
 end
 
-addLeaderBinding( 'c', act.SpawnTab 'CurrentPaneDomain'                       )
-addLeaderBinding( 'n', act.ActivateTabRelative( 1  )                          )
-addLeaderBinding( 'p', act.ActivateTabRelative( -1 )                          )
-addLeaderBinding( '%', act.SplitHorizontal  { domain = 'CurrentPaneDomain' }  )
-addLeaderBinding( '"', act.SplitVertical    { domain = 'CurrentPaneDomain' }  )
+addLeaderBinding( 'c', act.SpawnTab 'CurrentPaneDomain'                                 )
+addLeaderBinding( 'n', act.ActivateTabRelative( 1  )                                    )
+addLeaderBinding( 'p', act.ActivateTabRelative( -1 )                                    )
+addLeaderBinding( '%', act.SplitHorizontal( { domain = 'CurrentPaneDomain' }), 'SHIFT'  )
+addLeaderBinding( '"', act.SplitVertical(   { domain = 'CurrentPaneDomain' }), 'SHIFT'  )
+addLeaderBinding( '[', act.ActivateCopyMode                                             )
+addLeaderBinding( 'w', act.ShowTabNavigator                                             )
+addLeaderBinding( 'h', act.ActivatePaneDirection 'Left'                                 )
+addLeaderBinding( 'j', act.ActivatePaneDirection 'Down'                                 )
+addLeaderBinding( 'k', act.ActivatePaneDirection 'Up'                                   )
+addLeaderBinding( 'l', act.ActivatePaneDirection 'Right'                                )
 
 for i = 0, 9, 1 do
   addLeaderBinding( tostring( i ), act.ActivateTab( i ) )
