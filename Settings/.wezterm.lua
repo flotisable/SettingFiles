@@ -5,6 +5,8 @@ local act     = wezterm.action
 
 local default_unix_domain = 'default'
 
+local toggleStatusLineEvent         = 'ToggleStatusLineEvent'
+local toggleBackgroundOpacityEvent  = 'ToggleBackgroundOpacityEvent'
 -- basic configs
 local config =
 {
@@ -71,17 +73,19 @@ local function addLeaderBinding( key, action, modsWithoutLeader )
 
 end
 
-addLeaderBinding( 'c', act.SpawnTab 'CurrentPaneDomain'                                 )
-addLeaderBinding( 'n', act.ActivateTabRelative( 1  )                                    )
-addLeaderBinding( 'p', act.ActivateTabRelative( -1 )                                    )
-addLeaderBinding( '%', act.SplitHorizontal( { domain = 'CurrentPaneDomain' }), 'SHIFT'  )
-addLeaderBinding( '"', act.SplitVertical(   { domain = 'CurrentPaneDomain' }), 'SHIFT'  )
-addLeaderBinding( '[', act.ActivateCopyMode                                             )
-addLeaderBinding( 'w', act.ShowTabNavigator                                             )
-addLeaderBinding( 'h', act.ActivatePaneDirection 'Left'                                 )
-addLeaderBinding( 'j', act.ActivatePaneDirection 'Down'                                 )
-addLeaderBinding( 'k', act.ActivatePaneDirection 'Up'                                   )
-addLeaderBinding( 'l', act.ActivatePaneDirection 'Right'                                )
+addLeaderBinding( 'c',    act.SpawnTab 'CurrentPaneDomain'                                )
+addLeaderBinding( 'n',    act.ActivateTabRelative( 1  )                                   )
+addLeaderBinding( 'p',    act.ActivateTabRelative( -1 )                                   )
+addLeaderBinding( '%',    act.SplitHorizontal( { domain = 'CurrentPaneDomain' }), 'SHIFT' )
+addLeaderBinding( '"',    act.SplitVertical(   { domain = 'CurrentPaneDomain' }), 'SHIFT' )
+addLeaderBinding( '[',    act.ActivateCopyMode                                            )
+addLeaderBinding( 'w',    act.ShowTabNavigator                                            )
+addLeaderBinding( 'h',    act.ActivatePaneDirection 'Left'                                )
+addLeaderBinding( 'j',    act.ActivatePaneDirection 'Down'                                )
+addLeaderBinding( 'k',    act.ActivatePaneDirection 'Up'                                  )
+addLeaderBinding( 'l',    act.ActivatePaneDirection 'Right'                               )
+addLeaderBinding( 'o',    act.EmitEvent( toggleBackgroundOpacityEvent )                   )
+addLeaderBinding( 'F10',  act.EmitEvent( toggleStatusLineEvent        )                   )
 
 for i = 0, 9, 1 do
   addLeaderBinding( tostring( i ), act.ActivateTab( i ) )
@@ -141,4 +145,36 @@ wezterm.on( 'update-status',
 )
 -- end statusline
 
+wezterm.on( toggleBackgroundOpacityEvent,
+  function( window, pane )
+
+    local overrides = window:get_config_overrides() or {}
+    local opaque    = 1.0
+
+    if not overrides.window_background_opacity then
+      overrides.window_background_opacity = opaque
+    else
+      overrides.window_background_opacity = nil
+    end
+
+    window:set_config_overrides( overrides )
+
+  end
+)
+
+wezterm.on( toggleStatusLineEvent,
+  function( window, pane )
+
+    local overrides = window:get_config_overrides() or {}
+
+    if overrides.enable_tab_bar == nil then
+      overrides.enable_tab_bar = false
+    else
+      overrides.enable_tab_bar = nil
+    end
+
+    window:set_config_overrides( overrides )
+
+  end
+)
 return config
