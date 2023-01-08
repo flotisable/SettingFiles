@@ -28,3 +28,8 @@ Else
 {
   Run, wezterm-gui start
 }
+return
+
+!F2::
+Send #s
+return
