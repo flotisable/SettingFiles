@@ -32,7 +32,10 @@ local config =
 
   -- keybindings
   leader  = { key = 'a', mods = 'ALT' },
-  keys    = {},
+  keys    =
+  {
+    { key = 'F11', action = act.ToggleFullScreen },
+  },
   -- end keybindings
 }
 -- end basic configs
