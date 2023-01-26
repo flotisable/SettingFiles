@@ -153,8 +153,8 @@ keybindings:
 
   # As an alternative to the resize keybindings above, resize mode enables resizing via
   # HJKL or arrow keys. The binding mode is defined above with the name "resize".
-  - command: "binding mode resize"
-    binding: "Alt+R"
+  # - command: "binding mode resize"
+  #   binding: "Alt+R"
 
   # Change tiling direction. This determines where new tiling windows will be inserted.
   - command: "tiling direction horizontal"
@@ -188,7 +188,7 @@ keybindings:
 
   # Re-evaluate configuration file.
   - command: "reload config"
-    binding: "Alt+Shift+R"
+    binding: "Alt+R"
 
   # Launch CMD terminal (alternatively `exec wt` or `exec %ProgramFiles%/Git/git-bash.exe`
   # to start Windows Terminal and Git Bash respectively.
