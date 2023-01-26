@@ -4,18 +4,19 @@ gaps:
 
 bar:
   height: "30px"
-  position: "top"
+  position: "bottom"
   opacity: 1.0
   background: "#20242cc4"
   foreground: "#ffffff"
-  font_family: "Segoe UI"
-  font_size: "13px"
+  font_family: "Times New Roman"
+  font_size: "14px"
   padding: "4px 6px"
   components_left:
     - type: "workspaces"
       focused_workspace_background: "#ffffff33"
       displayed_workspace_background: "#00000033"
       default_workspace_background: "transparent"
+      font_family: "標楷體"
   components_right:
     - type: "tiling direction"
       background: "#ffffff33"
@@ -26,7 +27,7 @@ bar:
       margin: "0 4px 0 0"
       padding: "0 8px"
     - type: "clock"
-      time_formatting: "hh:mm tt  ddd MMM d"
+      time_formatting: "yyyy/MM/dd hh:mm tt"
       margin: "0 0 0 10px"
 
 workspaces:
