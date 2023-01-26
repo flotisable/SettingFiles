@@ -32,20 +32,22 @@ bar:
 
 workspaces:
   - name: "1"
-    display_name: "通訊 (1)"
+    display_name: "日常 (1)"
   - name: "2"
-    display_name: "Emacs (2)"
+    display_name: "程式 (2)"
   - name: "3"
-    display_name: "日常 (3)"
+    display_name: "遊戲 (3)"
   - name: "4"
-    display_name: "瀏覽器 (4)"
+    display_name: "通訊 (4)"
   - name: "5"
-    display_name: "citrix (5)"
   - name: "6"
-    display_name: "會議 (6)"
   - name: "7"
   - name: "8"
+    display_name: "工作 (8)"
   - name: "9"
+    display_name: "OBS (9)"
+  - name: "0"
+    display_name: "Emacs (0)"
 
 window_rules:
   # Task Manager requires admin privileges to manage and should be ignored unless running
@@ -222,6 +224,8 @@ keybindings:
     binding: "Alt+8"
   - command: "focus workspace 9"
     binding: "Alt+9"
+  - command: "focus workspace 0"
+    binding: "Alt+0"
 
   # Move focused workspace to a monitor in a given direction.
   # - command: "move workspace left"
@@ -252,3 +256,5 @@ keybindings:
     binding: "Alt+Shift+8"
   - commands: ["move to workspace 9", "focus workspace 9"]
     bindings: ["Alt+Shift+9"]
+  - commands: ["move to workspace 0", "focus workspace 0"]
+    bindings: ["Alt+Shift+0"]
