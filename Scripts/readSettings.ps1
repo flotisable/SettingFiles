@@ -1,7 +1,5 @@
 Param( $settingFile )
 
-$defaultPathFile = "./defaultPath.toml"
-
 Function parseValue()
 {
   $value = $args[0]
@@ -91,30 +89,13 @@ Function osToKey()
 
   Switch( $env:OS )
   {
-    Linux       { return "linux"    }
-    Windows_NT  { return "windows"  }
-    Darwin      { return "macos"    }
+    Linux       { return "Linux"    }
+    Windows_NT  { return "Windows"  }
+    Darwin      { return "MacOs"    }
   }
 }
 
 $os = osToKey
 Write-Host "detected OS: $os"
 
-$settings     = parseToml $settingFile
-$defaultPaths = parseToml $defaultPathFile
-
-ForEach( $target in @( $settings['target'].keys ) )
-{
-  If( $settings['target'][$target] -ne '' )
-  {
-    Continue
-  }
-
-  $default = $defaultPaths[$target]
-
-  If( $default -is [Hashtable] )
-  {
-    $default = $default[$os]
-  }
-  $settings['target'][$target] = $default
-}
+$settings = parseToml $settingFile

@@ -17,9 +17,8 @@ fi
 installSettings()
 {
   # function arguments{{{
-  sourceFile=$1
-  targetFile=$2
-  ifInstall=$3
+  local sourceFile=$1
+  local targetFile=$2
   # end function arguments
 #}}}
   # interactive mode{{{
@@ -43,37 +42,27 @@ installSettings()
   # end interactive mode
 #}}}
   # install file{{{
-  if [ "${ifInstall}" = "1" ]; then
-    echo "install ${sourceFile}"
-    cp "${sourceFile}" "${targetFile}"
-  fi
+  local dir
+  dir="$(dirname $targetFile)"
+
+  mkdir -vp $dir  
+  echo "install ${sourceFile}"
+  cp "${sourceFile}" "${targetFile}"
   # end install file}}}
 }
 # end function definition
 #}}}
 # install setting files{{{
-targetTableName=$(mapFind "settings" "target")
-sourceTableName=$(mapFind "settings" "source")
-installTableName=$(mapFind "settings" "install")
+dirTableName=$(mapFind "settings" "dir")
 
-for target in $(mapKeys "$targetTableName"); do
+root=$(mapFind "$dirTableName" "root")
 
-  if [ "$target" == "playlistDir" ]; then
+for file in $(find -L "Settings/$os" -type f -printf '%P\n'); do
 
-    for playlist in $(mapFind "$sourceTableName" "playlist"); do
+  targetFile="$root/$file"
+  sourceFile="Settings/$os/$file"
 
-      sourceFile="$(mapFind "$sourceTableName" "$target")/$playlist"
-      targetFile="$(mapFind "$targetTableName" "$target")/$playlist"
-
-      installSettings $sourceFile $targetFile $(mapFind "$installTableName" "playlist")
-
-    done
-    
-  else
-
-    installSettings $(mapFind "$sourceTableName" "$target") $(mapFind "$targetTableName" "$target") $(mapFind "$installTableName" "$target")
-
-  fi
+  installSettings $sourceFile $targetFile
 
 done
 # end install setting files}}}

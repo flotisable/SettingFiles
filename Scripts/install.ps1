@@ -12,7 +12,6 @@ Function installSettings
   # function arguments{{{
   $sourceFile = $args[0]
   $targetFile = $args[1]
-  $ifInstall  = $args[2]
   # end function arguments
   #}}}
   # interactive mode{{{
@@ -38,33 +37,29 @@ Function installSettings
   # end interactive mode
   #}}}
   # install file{{{
-  If( ${ifInstall} )
+  If( New-Item -Type Directory -ErrorAction SilentlyContinue $dir)
   {
-    Write-Host "install ${sourceFile}"
-    Copy-Item "${sourceFile}" "${targetFile}"
+    Write-Host "create directory" $dir
   }
+  Write-Host "install ${sourceFile}"
+  Copy-Item "${sourceFile}" "${targetFile}"
   # end install file}}}
 }
 # end function definition
 #}}}
 # install setting files{{{
-ForEach( $target in $settings['target'].keys )
-{
-  $targetFile = Invoke-Expression "Write-Output $($settings['target'][$target])"
-  $sourceFile = Invoke-Expression "Write-Output $($settings['source'][$target])"
+$root           = Invoke-Expression "Write-Output $($settings['dir']['root'])"
+$rcRoot         = ( Get-Item ${scriptDir}/../Settings/$os ).FullName
+$rcRootPattern  = "$( $rcRoot -replace '\\', '\\' )\\"
 
-  If( $target -eq 'playlistDir' )
-  {
-    If( Test-Path $targetFile -PathType Container )
-    {
-      ForEach( $playlist in $settings['source']['playlist'] )
-      {
-        installSettings $sourceFile/$playlist $targetFile/$playlist $settings['install']['playlist']
-      }
-    }
-    Continue
-  }
-  installSettings $sourceFile $targetFile $settings['install'][$target]
+ForEach( $file in ( Get-ChildItem -Recurse -File $rcRoot ).FullName )
+{
+  $file       = $file -replace $rcRootPattern, ""
+  $sourceFile = "$rcRoot/$file"
+  $targetFile = "$root/$file"
+  $dir        = $(Split-Path -Parent $targetFile)
+
+  installSettings $sourceFile $targetFile
 }
 # end install setting files}}}
 # vim: foldmethod=marker foldmarker={{{,}}}

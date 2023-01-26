@@ -1,7 +1,6 @@
 #!/bin/sh
 file=$1
 
-defaultPathFile="./defaultPath.toml"
 mapPrefix="_map"
 
 # mapInit <map name>
@@ -83,9 +82,9 @@ osToKey()
 {
   case ${OS:-$(uname -s)} in
 
-    Linux       ) echo "linux";;
-    Windows_NT  ) echo "windows";;
-    Darwin      ) echo "macos";;
+    Linux       ) echo "Linux";;
+    Windows_NT  ) echo "Windows";;
+    Darwin      ) echo "MacOs";;
 
   esac
 }
@@ -168,29 +167,4 @@ parseToml()
 os=$(osToKey)
 echo "detected OS: ${os}"
 
-parseToml "$file"             "settings"
-parseToml "$defaultPathFile"  "defaults"
-
-targetMapName=$(mapFind "settings" "target")
-
-# set default values if the target is not set
-for target in $(mapKeys "$targetMapName"); do
-
-  if [ -n "$(mapFind "$targetMapName" "$target")" ]; then
-
-    continue
-
-  fi
-
-  default=$(mapFind "defaults" "$target")
-
-  if [ $(isMap $default) -eq 1 ]; then
-
-    default=$(mapFind "$default" "$os")
-
-  fi
-
-  mapSet "$targetMapName" "$target" "$default"
-
-done
-# end set default values if the target is not set
+parseToml "$file" "settings"
