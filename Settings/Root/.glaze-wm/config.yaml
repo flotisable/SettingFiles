@@ -57,8 +57,49 @@ window_rules:
     match_class_name: "#32770"
 
   # Some applications (eg. Steam) have borders that extend past the normal border size.
-  - command: "resize borders 0px -7px -7px -7px"
+  - commands:
+    - "move to workspace 3"
+    - "resize borders 0px -7px -7px -7px"
+    - "focus workspace 3"
     match_process_name: "steam"
+
+  # Assassin's Creed full screen resolution can be wrong when being handled in
+  # tiling mode
+  - command: "ignore"
+    match_process_name: "ACOrigins"
+
+  - command: "ignore"
+    match_process_name: "javaw"
+
+  - commands:
+    - "move to workspace 1"
+    - "focus workspace 1"
+    match_process_name: "/firefox/"
+
+  - commands:
+    - "move to workspace 2"
+    - "focus workspace 2"
+    match_process_name: "Code"
+
+  - commands:
+    - "move to workspace 3"
+    - "focus workspace 3"
+    match_process_name: "/HD-Player|Minecraft/"
+
+  - commands:
+    - "move to workspace 4"
+    - "focus workspace 4"
+    match_process_name: "Discord"
+
+  - commands:
+    - "move to workspace 9"
+    - "focus workspace 9"
+    match_process_name: "/obs/"
+
+  - commands:
+    - "move to workspace 0"
+    - "focus workspace 0"
+    match_process_name: "/emacs/"
 
 binding_modes:
   - name: "resize"
