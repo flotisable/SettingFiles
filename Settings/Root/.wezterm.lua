@@ -95,18 +95,6 @@ for i = 0, 9, 1 do
 end
 -- end simulate tmux keys
 
--- start GUI maxmized
-wezterm.on( 'gui-startup',
-  function( cmd )
-
-    local tab, pane, window = wezterm.mux.spawn_window( cmd or {} )
-
-    window:gui_window():maximize()
-
-  end
-)
--- end start GUI maxmized
-
 -- statusline
 wezterm.on( 'update-status',
   function( window, pane )
