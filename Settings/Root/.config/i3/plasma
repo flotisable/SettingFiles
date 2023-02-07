@@ -1,0 +1,9 @@
+# i3 config file (v4)
+# for KDE Plasma
+bar
+{
+  mode invisible
+}
+# window rules
+for_window [title="桌面 — Plasma"] kill
+# vim: filetype=i3config
