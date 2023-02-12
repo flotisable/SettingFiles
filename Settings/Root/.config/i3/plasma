@@ -5,5 +5,7 @@ bar
   mode invisible
 }
 # window rules
+# remove kscreen component, background image need to be handled by other
+# program, e.g. feh
 for_window [title="桌面 — Plasma"] kill
 # vim: filetype=i3config
