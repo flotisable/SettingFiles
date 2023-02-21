@@ -233,9 +233,9 @@ keybindings:
     binding: "Alt+0"
 
   - command: "focus workspace prev"
-    binding: "Alt+p"
+    binding: "Alt+P"
   - command: "focus workspace next"
-    binding: "Alt+n"
+    binding: "Alt+N"
 
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ["move to workspace 1", "focus workspace 1"]
@@ -261,6 +261,6 @@ keybindings:
 
   # Move focused workspace to a monitor in a given direction.
   - command: "move workspace left"
-    binding: "Alt+Shift+p"
+    binding: "Alt+Shift+P"
   - command: "move workspace right"
-    binding: "Alt+Shift+n"
+    binding: "Alt+Shift+N"
