@@ -3,6 +3,7 @@ version: 2
 tools:
   raku-lint: &raku-lint
     lint-command: 'raku -c'
+    lint-ignore-exit-code: true
     lint-formats:
       - '%A%rSORRY%r'
       - '%Cat %f:%l'
