@@ -42,8 +42,7 @@ exec --no-startup-id xrandr --output VGA-1 --auto --left-of DVI-I-1
 exec --no-startup-id xcompmgr
 
 # start a terminal
-bindsym $mod+Return exec ~/bin/toggleWezterm.sh
-bindsym F12         exec ~/bin/toggleWezterm.sh
+bindsym F12 exec ~/bin/toggleWezterm.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
