@@ -324,6 +324,19 @@ WindowUnderCursorScreenShot=Meta+Ctrl+Print,Meta+Ctrl+Print,擷取游標下的�
 _k_friendly_name=Spectacle
 _launch=Print,Print,啟動 Spectacle
 
+[org_kde_powerdevil]
+Decrease Keyboard Brightness=Keyboard Brightness Down,Keyboard Brightness Down,遞減鍵盤亮度
+Decrease Screen Brightness=Monitor Brightness Down,Monitor Brightness Down,遞減螢幕亮度
+Hibernate=Hibernate,Hibernate,休眠
+Increase Keyboard Brightness=Keyboard Brightness Up,Keyboard Brightness Up,遞增鍵盤亮度
+Increase Screen Brightness=Monitor Brightness Up,Monitor Brightness Up,遞增螢幕亮度
+PowerDown=Power Down,Power Down,強制關機
+PowerOff=Power Off,Power Off,關閉電源
+Sleep=Sleep,Sleep,暫停
+Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,切換鍵盤背光
+Turn Off Screen=none,none,關閉螢幕
+_k_friendly_name=電源管理
+
 [plasmashell]
 _k_friendly_name=Plasma
 activate task manager entry 1=Meta+1,Meta+1,啟用工作管理員項目 1
