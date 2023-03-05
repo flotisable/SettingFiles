@@ -32,9 +32,3 @@ F12::
     Run( "wezterm-gui start" )
   }
 }
-
-!F2::
-{
-  Send( "#s" )
-  Send( "#s" )
-}
