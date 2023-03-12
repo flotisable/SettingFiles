@@ -63,7 +63,6 @@ window_rules:
   - commands:
     - "move to workspace 3"
     - "resize borders 0px -7px -7px -7px"
-    - "focus workspace 3"
     match_process_name: "steam"
 
   # Assassin's Creed full screen resolution can be wrong when being handled in
@@ -76,37 +75,30 @@ window_rules:
 
   - commands:
     - "move to workspace 1"
-    - "focus workspace 1"
     match_process_name: "/firefox/"
 
   - commands:
     - "move to workspace 2"
-    - "focus workspace 2"
     match_process_name: "Code"
 
   - commands:
     - "move to workspace 3"
-    - "focus workspace 3"
     match_process_name: "/HD-Player|Minecraft|Zoom/"
 
   - commands:
     - "move to workspace 4"
-    - "focus workspace 4"
     match_process_name: "/Discord|Teams/"
 
   - commands:
     - "move to workspace 8"
-    - "focus workspace 8"
     match_process_name: "/SelfService|CDViewer/"
 
   - commands:
     - "move to workspace 9"
-    - "focus workspace 9"
-    match_process_name: "/obs/"
+    match_process_name: "/obs|avidemux/"
 
   - commands:
     - "move to workspace 0"
-    - "focus workspace 0"
     match_process_name: "/emacs/"
 
 binding_modes:
