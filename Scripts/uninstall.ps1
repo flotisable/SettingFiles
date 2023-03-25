@@ -15,7 +15,7 @@ Function removeFile( $file )
 }
 
 # install setting files{{{
-ForEach( $file in ( Get-ChildItem -Recurse -File $rcRoot ).FullName )
+ForEach( $file in ( Get-ChildItem -Recurse -FollowSymlink -File $rcRoot ).FullName )
 {
   $file       = $file -replace $rcRootPattern, ""
   $targetFile = "$root/$file"
