@@ -3,11 +3,24 @@ update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-
 
 [Desktops]
 Id_1=08e48bff-7f33-479d-a1ab-9e7c64e37bba
+Id_10=45db5160-fdb9-4ab0-81ea-497ced5c60e6
 Id_2=a36e7fe7-7611-44d5-9283-dcba15017003
+Id_3=ec63eabb-ed9c-47d2-af14-3479cac5c3aa
+Id_4=604541d8-d03b-4b49-955f-42f27c56b7ed
+Id_5=a20e68aa-7977-422e-97d4-ab1408b72858
+Id_6=0383f738-a4f3-4d52-9593-90bf5b1344ea
+Id_7=f3de0c4b-4aef-478d-b063-424d6f7d6f6e
+Id_8=a6c86919-ae03-4b11-a423-590d935f2687
+Id_9=923e9571-1428-41cc-84f6-ec3a207c88d6
 Name_1=日常
+Name_10=Emacs
 Name_2=程式
-Number=2
-Rows=1
+Name_3=遊戲
+Name_4=通訊
+Name_8=工作
+Name_9=OBS
+Number=10
+Rows=2
 
 [Plugins]
 bismuthEnabled=true
@@ -24,7 +37,19 @@ tileLayoutGap=2
 [Tiling]
 padding=4
 
+[Tiling][0b29c683-33f2-527c-9182-6cdd3bd82244]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][2696ef2b-8969-5714-900a-a49a9e5e66b1]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][2b985177-8731-544a-989b-beade5ae620f]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
 [Tiling][7890598f-4889-5279-927f-e9b88f13c612]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][9f2998f2-bea1-5cad-975f-89c004e52af8]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][c107e397-2624-5c36-9111-9223f013b9b2]

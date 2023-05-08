@@ -2,6 +2,6 @@
 update_info=kscreenlocker.upd:0.1-autolock
 
 [Greeter][Wallpaper][org.kde.image][General]
-Image=/home/flotisable/圖片/depth_and.jpg
-PreviewImage=/home/flotisable/圖片/depth_and.jpg
+Image=/home/flotisable/Pictures/plesios.jpg
+PreviewImage=/home/flotisable/Pictures/plesios.jpg
 SlidePaths=/usr/share/wallpapers/
