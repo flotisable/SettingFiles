@@ -89,6 +89,18 @@ addLeaderBinding( 'k',    act.ActivatePaneDirection 'Up'                        
 addLeaderBinding( 'l',    act.ActivatePaneDirection 'Right'                               )
 addLeaderBinding( 'o',    act.EmitEvent( toggleBackgroundOpacityEvent )                   )
 addLeaderBinding( 'F10',  act.EmitEvent( toggleStatusLineEvent        )                   )
+addLeaderBinding( ',',    act.PromptInputLine
+                          {
+                            description = 'Enter new name for current tab',
+                            action      = wezterm.action_callback(
+                              -- modify current tab name
+                              function( window, pane, line )
+                                if line then
+                                  window:active_tab():set_title( line )
+                                end
+                              end
+                            )
+                          } )
 
 for i = 0, 9, 1 do
   addLeaderBinding( tostring( i ), act.ActivateTab( i ) )
