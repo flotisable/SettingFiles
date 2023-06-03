@@ -4,8 +4,10 @@ local act     = wezterm.action
 -- end wezterm variables
 
 local default_unix_domain = 'default'
+local min_window_width    = '80'
 
 local toggleStatusLineEvent         = 'ToggleStatusLineEvent'
+local toggleWindowPaddingEvent      = 'ToggleWindowPaddingEvent'
 local toggleBackgroundOpacityEvent  = 'ToggleBackgroundOpacityEvent'
 -- basic configs
 local config =
@@ -89,6 +91,7 @@ addLeaderBinding( 'k',    act.ActivatePaneDirection 'Up'                        
 addLeaderBinding( 'l',    act.ActivatePaneDirection 'Right'                               )
 addLeaderBinding( 'o',    act.EmitEvent( toggleBackgroundOpacityEvent )                   )
 addLeaderBinding( 'F10',  act.EmitEvent( toggleStatusLineEvent        )                   )
+addLeaderBinding( 'C',    act.EmitEvent( toggleWindowPaddingEvent     )                   )
 addLeaderBinding( ',',    act.PromptInputLine
                           {
                             description = 'Enter new name for current tab',
@@ -174,6 +177,32 @@ wezterm.on( toggleStatusLineEvent,
       overrides.enable_tab_bar = false
     else
       overrides.enable_tab_bar = nil
+    end
+
+    window:set_config_overrides( overrides )
+
+  end
+)
+
+wezterm.on( toggleWindowPaddingEvent,
+  function( window, pane )
+
+    local overrides = window:get_config_overrides() or {}
+
+    -- make window width max( window_width / 2, min_window_width )
+    local window_width  = window:get_dimensions().pixel_width
+    local padding       = math.min( window_width / 4, ( window_width - min_window_width ) / 2 )
+
+    if overrides.window_padding.left == padding then
+
+      overrides.window_padding.left   = nil
+      overrides.window_padding.right  = nil
+
+    else
+
+      overrides.window_padding.left   = padding
+      overrides.window_padding.right  = padding
+
     end
 
     window:set_config_overrides( overrides )
