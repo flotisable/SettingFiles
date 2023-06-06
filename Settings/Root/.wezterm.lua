@@ -193,7 +193,14 @@ wezterm.on( toggleWindowPaddingEvent,
     local window_width  = window:get_dimensions().pixel_width
     local padding       = math.min( window_width / 4, ( window_width - min_window_width ) / 2 )
 
-    if overrides.window_padding.left == padding then
+    if not overrides.window_padding then
+
+      overrides.window_padding = {
+                                    left   = padding,
+                                    right  = padding
+                                 }
+
+    elseif overrides.window_padding.left == padding then
 
       overrides.window_padding.left   = nil
       overrides.window_padding.right  = nil
