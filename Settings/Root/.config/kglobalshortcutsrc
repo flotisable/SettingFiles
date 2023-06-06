@@ -378,6 +378,6 @@ kcm-users=none,none,使用者
 powerdevilprofilesconfig=none,none,節能選項
 screenlocker=none,none,螢幕鎖定
 
-[toggleWezterm.sh.desktop]
+[toggleWezterm.sh-2.desktop]
 _k_friendly_name=toggleWezterm.sh
-_launch=F12,none,toggleWezterm.sh
+_launch=F12,none,/home/flotisable/bin/toggleWezterm.sh
