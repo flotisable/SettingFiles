@@ -83,7 +83,7 @@ window_rules:
 
   - commands:
     - "move to workspace 3"
-    match_process_name: "/HD-Player|Minecraft|Zoom/"
+    match_process_name: "/HD-Player|Minecraft|Zoom|steam/"
 
   - commands:
     - "move to workspace 4"
