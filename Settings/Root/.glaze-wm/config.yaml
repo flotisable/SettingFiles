@@ -2,6 +2,10 @@ gaps:
   inner_gap: 2
   outer_gap: 2
 
+general:
+  # Whether to show floating windows as always on top.
+  show_floating_on_top: false
+
 bar:
   height: "30px"
   position: "bottom"
@@ -11,14 +15,21 @@ bar:
   font_family: "Times New Roman"
   font_size: "14px"
   padding: "4px 6px"
+  offset_x: "0"
+  offset_y: "0"
+  border_radius: "0"
   components_left:
     - type: "workspaces"
       focused_workspace_background: "#ffffff33"
       displayed_workspace_background: "#00000033"
       default_workspace_background: "transparent"
       font_family: "標楷體"
+  components_center:
+    - type: "window title"
   components_right:
     - type: "tiling direction"
+      label_horizontal: "⮂"
+      label_vertical: "⮁"
       background: "#ffffff33"
       margin: "0 4px"
       padding: "0 8px"
@@ -27,6 +38,8 @@ bar:
       margin: "0 4px 0 0"
       padding: "0 8px"
     - type: "clock"
+      # Documentation on formatting date/time string:
+      # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
       time_formatting: "yyyy/MM/dd hh:mm tt"
       margin: "0 0 0 10px"
 
@@ -63,7 +76,7 @@ window_rules:
   - commands:
     - "move to workspace 3"
     - "resize borders 0px -7px -7px -7px"
-    match_process_name: "steam"
+    match_process_name: "/steam/"
 
   # Assassin's Creed full screen resolution can be wrong when being handled in
   # tiling mode
@@ -83,7 +96,7 @@ window_rules:
 
   - commands:
     - "move to workspace 3"
-    match_process_name: "/HD-Player|Minecraft|Zoom|steam/"
+    match_process_name: "/HD-Player|Minecraft|Zoom/"
 
   - commands:
     - "move to workspace 4"
@@ -154,9 +167,7 @@ keybindings:
   #   binding: "Alt+R"
 
   # Change tiling direction. This determines where new tiling windows will be inserted.
-  - command: "tiling direction horizontal"
-    binding: "Alt+Shift+V"
-  - command: "tiling direction vertical"
+  - command: "tiling direction toggle"
     binding: "Alt+V"
 
   # Change focus between floating / tiling windows.
@@ -192,10 +203,10 @@ keybindings:
     binding: "Alt+Y"
 
   # Focus the next/previous workspace defined in `workspaces` config.
-  - command: "focus workspace prev"
-    binding: "Alt+P"
   - command: "focus workspace next"
     binding: "Alt+N"
+  - command: "focus workspace prev"
+    binding: "Alt+P"
 
   # Change focus to a workspace defined in `workspaces` config.
   - command: "focus workspace 1"
@@ -219,6 +230,12 @@ keybindings:
   - command: "focus workspace 0"
     binding: "Alt+0"
 
+  # Move focused workspace to a monitor in a given direction.
+  - command: "move workspace left"
+    binding: "Alt+Shift+P"
+  - command: "move workspace right"
+    binding: "Alt+Shift+N"
+
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ["move to workspace 1", "focus workspace 1"]
     binding: "Alt+Shift+1"
@@ -240,9 +257,3 @@ keybindings:
     bindings: ["Alt+Shift+9"]
   - commands: ["move to workspace 0", "focus workspace 0"]
     bindings: ["Alt+Shift+0"]
-
-  # Move focused workspace to a monitor in a given direction.
-  - command: "move workspace left"
-    binding: "Alt+Shift+P"
-  - command: "move workspace right"
-    binding: "Alt+Shift+N"
