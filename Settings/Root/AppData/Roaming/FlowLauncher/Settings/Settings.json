@@ -103,7 +103,7 @@
   "WindowLeft": 350,
   "WindowTop": 169.33333333333331,
   "MaxResultsToShow": 5,
-  "ActivateTimes": 33,
+  "ActivateTimes": 142,
   "CustomPluginHotkeys": [],
   "CustomShortcuts": [],
   "DontPromptUpdateMsg": false,
@@ -123,10 +123,11 @@
     "Password": null
   },
   "LastQueryMode": "Selected",
+  "AnimationSpeed": "Medium",
+  "CustomAnimationLength": 360,
   "PluginSettings": {
     "PythonExecutablePath": "",
     "NodeExecutablePath": "",
-    "PythonDirectory": null,
     "Plugins": {
       "0ECADE17459B49F587BF81DC3A125110": {
         "ID": "0ECADE17459B49F587BF81DC3A125110",
