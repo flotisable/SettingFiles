@@ -1,3 +1,10 @@
 # i3 config file (v4)
 # for local machine
+# monitor settings
+exec --no-startup-id xrandr \
+  --output HDMI-1   --primary --auto --right-of DVI-D-0 \
+  --output DVI-D-0; \
+  feh --bg-scale ~/Pictures/gilgamesh_and_enkidu.png ~/Pictures/Scáthach.png
+  # setup background image
+
 # vim: filetype=i3config

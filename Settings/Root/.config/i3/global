@@ -34,10 +34,6 @@ assign [class=Emacs]    $ws0
 assign [class=firefox]  $ws1
 assign [class=Wfica]    $ws8
 
-# setup background image
-exec --no-startup-id feh --bg-scale ~/Pictures/815091.png ~/Pictures/725683.png 
-# monitor settings
-exec --no-startup-id xrandr --output VGA-1 --auto --left-of DVI-I-1
 # transparency support
 exec --no-startup-id xcompmgr
 
