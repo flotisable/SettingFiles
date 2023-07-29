@@ -1,0 +1,11 @@
+<type>: <description>
+
+# suggested types
+# - add:      add new functionality
+# - fix:      fix bug
+# - doc:      modify documentation
+# - test:     modify test
+# - refactor: modify the code without changing functionality
+# - maintain: anything related to repo maintenance
+#
+# vim: filetype=gitcommit

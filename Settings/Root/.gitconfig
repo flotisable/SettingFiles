@@ -11,3 +11,4 @@
 	defaultBranch = main
 [commit]
 	gpgSign = true
+	template = ~/.gitcommit
