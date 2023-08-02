@@ -36,7 +36,9 @@ local config =
   leader  = { key = 'a', mods = 'ALT' },
   keys    =
   {
-    { key = 'F11', action = act.ToggleFullScreen },
+    { key = 'F11',  action = act.ToggleFullScreen                               },
+    -- Ctrl + ^ is used in vim to switch to alternative buffer
+    { key = '^',    action = act.DisableDefaultAssignment,  mods = 'CTRL|SHIFT' },
   },
   -- end keybindings
 }
