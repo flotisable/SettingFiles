@@ -78,10 +78,10 @@ window_rules:
     - "resize borders 0px -7px -7px -7px"
     match_process_name: "/steam/"
 
-  # Assassin's Creed full screen resolution can be wrong when being handled in
-  # tiling mode
+  # Assassin's Creed and TombRaider full screen resolution can be wrong when
+  # being handled in tiling mode
   - command: "ignore"
-    match_process_name: "ACOrigins"
+    match_process_name: "/ACOrigins|TombRaider/"
 
   - command: "ignore"
     match_process_name: "javaw"
