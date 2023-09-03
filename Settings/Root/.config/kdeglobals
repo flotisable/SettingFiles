@@ -146,6 +146,7 @@ TerminalService=org.wezfurlong.wezterm.desktop
 
 [KDE]
 LookAndFeelPackage=org.kde.breezedark.desktop
+ShowDeleteCommand=false
 
 [KFileDialog Settings]
 Allow Expansion=false
@@ -170,6 +171,9 @@ View Style=DetailTree
 [KScreen]
 ScaleFactor=1.5
 ScreenScaleFactors=DVI-I-1=1.5;HDMI-1=1.5;VGA-1=1.5;
+
+[PreviewSettings]
+MaximumRemoteSize=0
 
 [Shortcuts]
 Back=Back; Alt+Left

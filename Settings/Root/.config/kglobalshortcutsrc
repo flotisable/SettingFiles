@@ -327,14 +327,14 @@ _k_friendly_name=顏文字選擇工具
 _launch=Meta+.,Meta+.,顏文字選擇工具
 
 [org.kde.spectacle.desktop]
-ActiveWindowScreenShot=Meta+Print,Meta+Print,擷取作用中視窗
-CurrentMonitorScreenShot=none,none,擷取目前顯示器
-FullScreenScreenShot=Shift+Print,Shift+Print,擷取整個桌面
-OpenWithoutScreenshot=none,none,啟動 Spectacle 但不擷取
-RectangularRegionScreenShot=Meta+Shift+Print,Meta+Shift+Print,擷取矩形區域
-WindowUnderCursorScreenShot=Meta+Ctrl+Print,Meta+Ctrl+Print,擷取游標下的視窗
+ActiveWindowScreenShot=Meta+Print,Meta+Print,Capture Active Window
+CurrentMonitorScreenShot=none,none,Capture Current Monitor
+FullScreenScreenShot=Shift+Print,Shift+Print,Capture Entire Desktop
+OpenWithoutScreenshot=none,none,Launch Spectacle without capturing
+RectangularRegionScreenShot=Meta+Shift+Print,Meta+Shift+Print,Capture Rectangular Region
+WindowUnderCursorScreenShot=Meta+Ctrl+Print,Meta+Ctrl+Print,Capture Window Under Cursor
 _k_friendly_name=Spectacle
-_launch=Print,Print,啟動 Spectacle
+_launch=Print,Print,Launch Spectacle
 
 [org_kde_powerdevil]
 Decrease Keyboard Brightness=Keyboard Brightness Down,Keyboard Brightness Down,遞減鍵盤亮度
