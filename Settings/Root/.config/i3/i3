@@ -59,6 +59,8 @@ exec --no-startup-id fcitx
 # clipboard
 exec --no-startup-id klipper
 
+bindsym $win+2 exec firefox
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -p -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # vim: filetype=i3config
