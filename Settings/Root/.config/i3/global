@@ -30,9 +30,10 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 # window rules
-assign [class=Emacs]    $ws0
-assign [class=firefox]  $ws1
-assign [class=Wfica]    $ws8
+assign [class=Emacs]      $ws0
+assign [class=firefox]    $ws1
+assign [class=Wfica]      $ws8
+assign [class=(?i)steam]  $ws3
 
 # transparency support
 exec --no-startup-id xcompmgr
