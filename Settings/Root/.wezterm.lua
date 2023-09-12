@@ -20,6 +20,8 @@ local config =
   tab_and_split_indices_are_zero_based  = true,
 
   window_background_opacity = 0.8,
+
+  adjust_window_size_when_changing_font_size = false,
   -- end appearance settings
 
   -- multiplexing settings
