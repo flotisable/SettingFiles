@@ -118,7 +118,15 @@ end
 wezterm.on( 'update-status',
   function( window, pane )
 
-    local date          = wezterm.strftime( '%Y-%m-%d %p %H:%M' )
+    local day           = wezterm.strftime( '%Y-%m-%d' )
+    local apm           = wezterm.strftime( '%p' )
+    local apmSymbol     =
+    {
+      am = '🔆',
+      pm = '🌙',
+    }
+    local time          = wezterm.strftime( '%H:%M' )
+    local date
     local workspace     = window:mux_window():get_workspace()
     local leader_colors =
     {
@@ -132,6 +140,14 @@ wezterm.on( 'update-status',
     else
       leader_color = leader_colors.inactive
     end
+
+    if apm == 'AM' then
+      apm = apmSymbol.am
+    else
+      apm = apmSymbol.pm
+    end
+
+    date = day .. ' ' .. apm .. ' ' .. time
 
     window:set_left_status(
       wezterm.format(
