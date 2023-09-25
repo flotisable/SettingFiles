@@ -3,16 +3,16 @@
 set $mod Mod1
 
 # workspaces
-set $ws1 "日常 (1)"
-set $ws2 "程式 (2)"
-set $ws3 "遊戲 (3)"
-set $ws4 "通訊 (4)"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "工作 (8)"
-set $ws9 "OBS (9)"
-set $ws0 "Emacs (0)"
+set $ws1 "日常 ①"
+set $ws2 "程式 ②"
+set $ws3 "遊戲 ③"
+set $ws4 "通訊 ④"
+set $ws5 "⑤"
+set $ws6 "⑥"
+set $ws7 "⑦"
+set $ws8 "工作 ⑧"
+set $ws9 "OBS ⑨"
+set $ws0 "Emacs ⓪"
 
 font pango:DejaVu Sans Mono 14
 
