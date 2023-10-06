@@ -3,8 +3,12 @@ local wezterm = require 'wezterm'
 local act     = wezterm.action
 -- end wezterm variables
 
-local default_unix_domain = 'default'
-local min_window_width    = '80'
+local default_unix_domain     = 'default'
+local min_window_columns      = '80'
+local default_window_padding  =
+  {
+    bottom = '0px',
+  }
 
 local toggleStatusLineEvent         = 'ToggleStatusLineEvent'
 local toggleWindowPaddingEvent      = 'ToggleWindowPaddingEvent'
@@ -22,6 +26,8 @@ local config =
   window_background_opacity = 0.8,
 
   adjust_window_size_when_changing_font_size = false,
+
+  window_padding = default_window_padding,
   -- end appearance settings
 
   -- multiplexing settings
@@ -210,27 +216,24 @@ wezterm.on( toggleWindowPaddingEvent,
     local overrides = window:get_config_overrides() or {}
 
     -- make window width max( window_width / 2, min_window_width )
-    local window_width  = window:get_dimensions().pixel_width
-    local padding       = math.min( window_width / 4, ( window_width - min_window_width ) / 2 )
+    local column_to_pixel   = pane:tab():get_size().pixel_width / pane:tab():get_size().cols
+    local window_width      = window:get_dimensions().pixel_width
+    local min_window_width  = min_window_columns * column_to_pixel
+    local padding           = math.min( window_width / 4, ( window_width - min_window_width ) / 2 )
 
-    if not overrides.window_padding then
-
-      overrides.window_padding = {
-                                    left   = padding,
-                                    right  = padding
-                                 }
-
-    elseif overrides.window_padding.left == padding then
-
-      overrides.window_padding.left   = nil
-      overrides.window_padding.right  = nil
-
-    else
-
-      overrides.window_padding.left   = padding
-      overrides.window_padding.right  = padding
-
+    if padding < 0 then
+      padding = nil
     end
+
+    if      not overrides.window_padding then
+      overrides.window_padding = default_window_padding
+    elseif  overrides.window_padding.left == padding or
+            overrides.window_padding.right == padding then
+      padding = nil
+    end
+
+    overrides.window_padding.left   = padding
+    overrides.window_padding.right  = padding
 
     window:set_config_overrides( overrides )
 
