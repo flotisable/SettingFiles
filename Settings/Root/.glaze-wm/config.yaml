@@ -27,6 +27,9 @@ bar:
   components_center:
     - type: "window title"
   components_right:
+    - type: "system tray"
+    - type: "volume"
+    - type: "network"
     - type: "tiling direction"
       label_horizontal: "⮂"
       label_vertical: "⮁"
