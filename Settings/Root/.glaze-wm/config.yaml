@@ -205,8 +205,8 @@ keybindings:
     binding: "Alt+R"
 
   # Focus the workspace that last had focus.
-  - command: "focus workspace recent"
-    binding: "Alt+Y"
+  # - command: "focus workspace recent"
+  #   binding: "Alt+Y"
 
   # Focus the next/previous workspace defined in `workspaces` config.
   - command: "focus workspace next"
