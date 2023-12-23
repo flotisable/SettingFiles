@@ -87,7 +87,7 @@ window_rules:
   # Assassin's Creed and TombRaider full screen resolution can be wrong when
   # being handled in tiling mode
   - command: "ignore"
-    match_process_name: "/ACOrigins|TombRaider|masterduel|FateSeeker/"
+    match_process_name: "/ACOrigins|TombRaider|masterduel|FateSeeker|game_64/"
 
   - command: "ignore"
     match_process_name: "javaw"
