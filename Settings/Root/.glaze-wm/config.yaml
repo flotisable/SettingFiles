@@ -264,5 +264,6 @@ keybindings:
   - commands: ["move to workspace 0", "focus workspace 0"]
     bindings: ["Alt+Shift+0"]
 
-  - commands: ["exec org-capture.ps1", "focus workspace 0"]
+  # Run emacs org capture
+  - command: "exec emacsclientw org-protocol://capture?template=t"
     bindings: ["Alt+C"]
