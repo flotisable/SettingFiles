@@ -265,5 +265,5 @@ keybindings:
     bindings: ["Alt+Shift+0"]
 
   # Run emacs org capture
-  - command: "exec emacsclientw org-protocol://capture?template=t"
+  - commands: ["exec emacsclientw --eval (org-capture)", focus workspace 0]
     bindings: ["Alt+C"]
