@@ -263,3 +263,6 @@ keybindings:
     bindings: ["Alt+Shift+9"]
   - commands: ["move to workspace 0", "focus workspace 0"]
     bindings: ["Alt+Shift+0"]
+
+  - commands: ["exec org-capture.ps1", "focus workspace 0"]
+    bindings: ["Alt+C"]
