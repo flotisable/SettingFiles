@@ -121,9 +121,55 @@ end
 -- end simulate tmux keys
 
 -- statusline
+local color = wezterm.color.get_builtin_schemes()[config.color_scheme]
+
+config.colors =
+{
+  tab_bar =
+  {
+    background = color.background,
+
+    active_tab =
+    {
+      fg_color = color.brights[8],
+      bg_color = color.ansi[7],
+    },
+
+    inactive_tab =
+    {
+      fg_color  = color.ansi[8],
+      bg_color  = color.ansi[1],
+    },
+
+    inactive_tab_hover =
+    {
+      fg_color  = color.ansi[8],
+      bg_color  = '#5E81AC',
+      italic    = true,
+    },
+
+    new_tab =
+    {
+      fg_color  = color.ansi[8],
+      bg_color  = color.ansi[1],
+    },
+
+
+    new_tab_hover =
+    {
+      fg_color  = color.ansi[8],
+      bg_color  = '#5E81AC',
+      italic    = true,
+    },
+  }
+}
+
 wezterm.on( 'update-status',
   function( window, pane )
 
+    local red           = color.brights[2]
+    local grey          = color.brights[1]
+    local navy          = color.ansi[5]
     local day           = wezterm.strftime( '%Y-%m-%d' )
     local apm           = wezterm.strftime( '%p' )
     local apmSymbol     =
@@ -136,8 +182,8 @@ wezterm.on( 'update-status',
     local workspace     = window:mux_window():get_workspace()
     local leader_colors =
     {
-      active    = 'red',
-      inactive  = 'gray',
+      active    = red,
+      inactive  = grey,
     }
     local leader_color
 
@@ -167,7 +213,7 @@ wezterm.on( 'update-status',
     window:set_right_status(
       wezterm.format(
         {
-          { Background  = { Color = 'teal' } },
+          { Background  = { Color = navy } },
           { Text        = ' ' .. date .. ' ' },
         }
       )
