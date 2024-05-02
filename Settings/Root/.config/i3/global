@@ -14,6 +14,24 @@ set $ws8 "工作 ⑧"
 set $ws9 "OBS ⑨"
 set $ws0 "Emacs ⓪"
 
+# nord colors
+set $nord0  #2e3440
+set $nord1  #3b4252
+set $nord2  #434c5e
+set $nord3  #4c566a
+set $nord4  #d8dee9
+set $nord5  #e5e9f0
+set $nord6  #eceff4
+set $nord7  #8fbcbb
+set $nord8  #88c0d0
+set $nord9  #81a1c1
+set $nord10 #5e81ac
+set $nord11 #bf616a
+set $nord12 #d08770
+set $nord13 #ebcb8b
+set $nord14 #a3be8c
+set $nord15 #b48ead
+
 font pango:DejaVu Sans Mono 14
 
 gaps inner 2
@@ -25,6 +43,15 @@ focus_follows_mouse no
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# colors
+# class                 border  background  text    indicator child_border
+client.focused          $nord8  $nord1      $nord6  $nord8    $nord8
+client.focused_inactive $nord2  $nord2      $nord4  $nord2    $nord2
+client.unfocused        $nord1  $nord1      $nord5  $nord1    $nord1
+client.urgent           $nord11 $nord13     $nord6  $nord11   $nord11
+client.placeholder      $nord0  $nord0      $nord6  $nord0    $nord0
+client.background               $nord0
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
