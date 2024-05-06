@@ -32,7 +32,7 @@ gaps:
 focus_borders:
   active:
     enabled: true
-    color: "#0000ff"
+    color: "#81A1C1"
 
   inactive:
     enabled: false
