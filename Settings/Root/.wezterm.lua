@@ -13,6 +13,8 @@ local default_window_padding  =
 local toggleStatusLineEvent         = 'ToggleStatusLineEvent'
 local toggleWindowPaddingEvent      = 'ToggleWindowPaddingEvent'
 local toggleBackgroundOpacityEvent  = 'ToggleBackgroundOpacityEvent'
+local toggleInternalTerminalEvent   = 'ToggleInternalTerminalEvent'
+
 -- basic configs
 local config =
 {
@@ -45,6 +47,7 @@ local config =
   keys    =
   {
     { key = 'F11',  action = act.ToggleFullScreen                               },
+    { key = 'F10',  action = act.EmitEvent( toggleInternalTerminalEvent )       },
     -- Ctrl + ^ is used in vim to switch to alternative buffer
     { key = '^',    action = act.DisableDefaultAssignment,  mods = 'CTRL|SHIFT' },
   },
@@ -280,6 +283,37 @@ wezterm.on( toggleWindowPaddingEvent,
 
     overrides.window_padding.left   = padding
     overrides.window_padding.right  = padding
+    window:set_config_overrides( overrides )
+
+  end
+)
+
+wezterm.on( toggleInternalTerminalEvent,
+  function( window, pane )
+
+    local overrides = window:get_config_overrides() or {}
+
+    if not overrides.leader then
+
+      overrides.enable_tab_bar  = false
+      overrides.leader          =
+        {
+          key   = '_',
+          mods  = 'WIN|CTRL|SHIFT|ALT',
+        }
+      overrides.keys            =
+        {
+          { key = 'F10',  action = act.DisableDefaultAssignment                 },
+          { key = 'F9',   action = act.EmitEvent( toggleInternalTerminalEvent ) },
+        }
+
+    else
+
+      overrides.enable_tab_bar  = nil
+      overrides.leader          = nil
+      overrides.keys            = nil
+
+    end
 
     window:set_config_overrides( overrides )
 
