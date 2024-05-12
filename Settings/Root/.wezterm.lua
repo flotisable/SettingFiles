@@ -3,12 +3,8 @@ local wezterm = require 'wezterm'
 local act     = wezterm.action
 -- end wezterm variables
 
-local default_unix_domain     = 'default'
-local min_window_columns      = '80'
-local default_window_padding  =
-  {
-    bottom = '0px',
-  }
+local defaultUnixDomain = 'default'
+local minWindowColumns  = '80'
 
 local toggleStatusLineEvent         = 'ToggleStatusLineEvent'
 local toggleWindowPaddingEvent      = 'ToggleWindowPaddingEvent'
@@ -19,7 +15,7 @@ local toggleInternalTerminalEvent   = 'ToggleInternalTerminalEvent'
 local config =
 {
   -- appearance settings
-  color_scheme  = 'nord',
+  color_scheme = 'nord',
 
   use_fancy_tab_bar                     = false,
   tab_bar_at_bottom                     = true,
@@ -29,17 +25,17 @@ local config =
 
   adjust_window_size_when_changing_font_size = false,
 
-  window_padding = default_window_padding,
+  window_padding = { bottom = '0px' },
   -- end appearance settings
 
   -- multiplexing settings
   unix_domains =
   {
     {
-      name = default_unix_domain,
+      name = defaultUnixDomain,
     },
   },
-  default_domain = default_unix_domain,
+  default_domain = defaultUnixDomain,
   -- end multiplexing settings
 
   -- keybindings
@@ -49,7 +45,7 @@ local config =
     { key = 'F11',  action = act.ToggleFullScreen                               },
     { key = 'F10',  action = act.EmitEvent( toggleInternalTerminalEvent )       },
     -- Ctrl + ^ is used in vim to switch to alternative buffer
-    { key = '^',    action = act.DisableDefaultAssignment,  mods = 'CTRL|SHIFT' },
+    { key = '^',    action = act.DisableDefaultAssignment, mods = 'CTRL|SHIFT'  },
   },
   -- end keybindings
 }
@@ -219,7 +215,7 @@ wezterm.on( 'update-status',
     local time          = wezterm.strftime( '%H:%M' )
     local date
     local workspace     = window:mux_window():get_workspace()
-    local leader_colors =
+    local leaderColors  =
     {
       active    = red,
       inactive  = grey,
@@ -227,9 +223,9 @@ wezterm.on( 'update-status',
     local leader_color
 
     if window:leader_is_active() then
-      leader_color = leader_colors.active
+      leaderColor = leaderColors.active
     else
-      leader_color = leader_colors.inactive
+      leaderColor = leaderColors.inactive
     end
 
     if apm == 'AM' then
@@ -243,7 +239,7 @@ wezterm.on( 'update-status',
     window:set_left_status(
       wezterm.format(
         {
-          { Background  = { Color = leader_color } },
+          { Background  = { Color = leaderColor } },
           { Text        = ' ' .. workspace .. ' ' },
         }
       )
@@ -252,8 +248,8 @@ wezterm.on( 'update-status',
     window:set_right_status(
       wezterm.format(
         {
-          { Background  = { Color = navy } },
-          { Text        = ' ' .. date .. ' ' },
+          { Background  = { Color = navy }    },
+          { Text        = ' ' .. date .. ' '  },
         }
       )
     )
@@ -301,24 +297,25 @@ wezterm.on( toggleWindowPaddingEvent,
     local overrides = window:get_config_overrides() or {}
 
     -- make window width max( window_width / 2, min_window_width )
-    local column_to_pixel   = pane:tab():get_size().pixel_width / pane:tab():get_size().cols
-    local window_width      = window:get_dimensions().pixel_width
-    local min_window_width  = min_window_columns * column_to_pixel
-    local padding           = math.min( window_width / 4, ( window_width - min_window_width ) / 2 )
+    local columnToPixel   = pane:tab():get_size().pixel_width / pane:tab():get_size().cols
+    local windowWidth     = window:get_dimensions().pixel_width
+    local minWindowWidth  = minWindowColumns * columnToPixel
+    local padding         = math.min( windowWidth / 4, ( windowWidth - minWindowWidth ) / 2 )
 
     if padding < 0 then
       padding = nil
     end
 
-    if      not overrides.window_padding then
-      overrides.window_padding = default_window_padding
-    elseif  overrides.window_padding.left == padding or
-            overrides.window_padding.right == padding then
-      padding = nil
+    if not overrides.window_padding then
+      overrides.window_padding =
+        {
+          left   = padding,
+          right  = padding,
+        }
+    else
+      overrides.window_padding = nil
     end
 
-    overrides.window_padding.left   = padding
-    overrides.window_padding.right  = padding
     window:set_config_overrides( overrides )
 
   end
