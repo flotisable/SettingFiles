@@ -91,20 +91,56 @@ local function addLeaderBinding( key, action, modsWithoutLeader )
 
 end
 
-addLeaderBinding( 'c',    act.SpawnTab 'CurrentPaneDomain'                                )
-addLeaderBinding( 'n',    act.ActivateTabRelative( 1  )                                   )
-addLeaderBinding( 'p',    act.ActivateTabRelative( -1 )                                   )
-addLeaderBinding( '%',    act.SplitHorizontal( { domain = 'CurrentPaneDomain' }), 'SHIFT' )
-addLeaderBinding( '"',    act.SplitVertical(   { domain = 'CurrentPaneDomain' }), 'SHIFT' )
-addLeaderBinding( '[',    act.ActivateCopyMode                                            )
-addLeaderBinding( 'w',    act.ShowTabNavigator                                            )
-addLeaderBinding( 'h',    act.ActivatePaneDirection 'Left'                                )
-addLeaderBinding( 'j',    act.ActivatePaneDirection 'Down'                                )
-addLeaderBinding( 'k',    act.ActivatePaneDirection 'Up'                                  )
-addLeaderBinding( 'l',    act.ActivatePaneDirection 'Right'                               )
-addLeaderBinding( 'o',    act.EmitEvent( toggleBackgroundOpacityEvent )                   )
-addLeaderBinding( 'F10',  act.EmitEvent( toggleStatusLineEvent        )                   )
-addLeaderBinding( 'C',    act.EmitEvent( toggleWindowPaddingEvent     )                   )
+local function addCopyModeBinding( key, action, mods )
+
+  local copyMode = nil
+
+  if config.key_tables then
+    copyMode = config.key_tables.copy_mode
+  end
+
+  if not copyMode and wezterm.gui then
+    copyMode = wezterm.gui.default_key_tables().copy_mode
+  end
+
+  if copyMode then
+
+    table.insert( copyMode, { key = key, mods = mods, action = action })
+
+    if config.key_tables then
+      config.key_tables.copy_mode = copyMode
+    else
+      config.key_tables = { copy_mode = copyMode, }
+    end
+
+  end
+
+end
+
+
+addCopyModeBinding( 'Enter',  act.Multiple
+                              {
+                                act.CopyTo( 'ClipboardAndPrimarySelection' ),
+                                act.CopyMode( 'Close' ),
+                              } )
+
+addLeaderBinding( 'c',    act.SpawnTab 'CurrentPaneDomain'                                  )
+addLeaderBinding( 'n',    act.ActivateTabRelative( 1  )                                     )
+addLeaderBinding( 'p',    act.ActivateTabRelative( -1 )                                     )
+addLeaderBinding( '%',    act.SplitHorizontal(  { domain = 'CurrentPaneDomain' } ), 'SHIFT' )
+addLeaderBinding( '"',    act.SplitVertical(    { domain = 'CurrentPaneDomain' } ), 'SHIFT' )
+addLeaderBinding( '|',    act.SplitHorizontal(  { domain = 'CurrentPaneDomain' } ), 'SHIFT' )
+addLeaderBinding( '-',    act.SplitVertical(    { domain = 'CurrentPaneDomain' } )          )
+addLeaderBinding( '[',    act.ActivateCopyMode                                              )
+addLeaderBinding( ']',    act.PasteFrom( 'Clipboard' )                                      )
+addLeaderBinding( 'w',    act.ShowTabNavigator                                              )
+addLeaderBinding( 'h',    act.ActivatePaneDirection 'Left'                                  )
+addLeaderBinding( 'j',    act.ActivatePaneDirection 'Down'                                  )
+addLeaderBinding( 'k',    act.ActivatePaneDirection 'Up'                                    )
+addLeaderBinding( 'l',    act.ActivatePaneDirection 'Right'                                 )
+addLeaderBinding( 'o',    act.EmitEvent( toggleBackgroundOpacityEvent )                     )
+addLeaderBinding( 'F10',  act.EmitEvent( toggleStatusLineEvent        )                     )
+addLeaderBinding( 'C',    act.EmitEvent( toggleWindowPaddingEvent     )                     )
 addLeaderBinding( ',',    act.PromptInputLine
                           {
                             description = 'Enter new name for current tab',
