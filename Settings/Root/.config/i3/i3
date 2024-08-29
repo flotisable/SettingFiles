@@ -47,7 +47,7 @@ exec --no-startup-id dunst
 # kde program launcher
 exec --no-startup-id krunner --daemon --replace
 # chewing input method
-exec --no-startup-id fcitx
+exec --no-startup-id fcitx5
 # clipboard
 exec --no-startup-id klipper
 
