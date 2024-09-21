@@ -301,5 +301,5 @@ keybindings:
     bindings: ["Alt+Shift+0"]
 
   # Run emacs org capture
-  - commands: ["exec emacsclientw --eval (org-capture)", focus workspace 0]
+  - commands: ["exec emacsclientw -ca \"\" --eval (org-capture)", focus workspace 0]
     bindings: ["Alt+C"]
