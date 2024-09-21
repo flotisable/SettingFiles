@@ -32,7 +32,7 @@ if ( Test-Path( $ChocolateyProfile ) )
 
 Function Start-Emacs()
 {
-  emacsclientw -ca "`"`""
+  emacsclientw -ca "`"`"" $Args
 }
 
 If( (Get-Command -ErrorAction SilentlyContinue starship) -and $PSVersionTable.PSVersion.Major -ge 5 )
