@@ -57,10 +57,12 @@ client.background               $nord0
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 # window rules
-assign [class=Emacs]      $ws0
-assign [class=firefox]    $ws1
-assign [class=Wfica]      $ws8
-assign [class=(?i)steam]  $ws3
+assign [class=Emacs title=Emacs]  $ws0
+assign [class=firefox]            $ws1
+assign [class=Wfica]              $ws8
+assign [class=(?i)steam]          $ws3
+
+for_window [class=Emacs title="Org Capture"] floating enable
 
 # transparency support
 exec --no-startup-id xcompmgr
@@ -139,7 +141,7 @@ bindsym $mod+r reload
 # bindsym $mod+r restart
 
 # emacs org capture
-bindsym $mod+c exec "emacsclient -n --eval '(org-capture)'"; workspace $ws0
+bindsym $mod+c exec "emacsclient -a '' --eval '(my-org-capture)'"
 
 bindsym button3 kill
 # vim: filetype=i3config
