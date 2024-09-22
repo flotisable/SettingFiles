@@ -155,6 +155,12 @@ window_rules:
   - commands:
     - "move to workspace 0"
     match_process_name: "/emacs/"
+    match_title: "/Emacs/"
+
+  - commands:
+    - "set floating"
+    match_process_name: "/emacs/"
+    match_title: "/Org Capture/"
 
 binding_modes:
   - name: "resize"
@@ -301,5 +307,5 @@ keybindings:
     bindings: ["Alt+Shift+0"]
 
   # Run emacs org capture
-  - commands: ["exec emacsclientw -ca \"\" --eval (org-capture)", focus workspace 0]
+  - command: "exec emacsclientw -a \"\" --eval \"(my-org-capture)\""
     bindings: ["Alt+C"]
