@@ -2,12 +2,13 @@
 update_info=bismuth_shortcuts_category.upd:bismuth-shortcuts-category,bismuth_shortcuts_from_kwin.upd:bismuth-shortcuts-from-kwin
 
 [ActivityManager]
-_k_friendly_name=Activity Manager
-switch-to-activity-1f2f2479-a10d-41cf-8e2e-052a14250efe=none,none,Switch to activity "Default"
+_k_friendly_name=活動管理器
+switch-to-activity-1f2f2479-a10d-41cf-8e2e-052a14250efe=none,none,切換到活動「Default」
 switch-to-activity-4d745884-4248-44db-9445-5644490d9c17=none,none,切換到活動 工作
 switch-to-activity-aeb191d8-0ad4-4f6d-b4f7-84d00dc96bde=none,none,切換到活動 預設
 
 [KDE Keyboard Layout Switcher]
+Switch to Last-Used Keyboard Layout=none,none,切換到上次使用的鍵盤佈局
 Switch to Next Keyboard Layout=Meta+Alt+K,none,切換到下一個鍵盤佈局
 _k_friendly_name=鍵盤佈局切換器
 
@@ -62,21 +63,20 @@ _k_friendly_name=觸控板
 [kded5]
 Show System Activity=Ctrl+Esc,Ctrl+Esc,顯示系統活動
 _k_friendly_name=KDE Daemon
-display=Display\tMeta+P,Display\tMeta+P,切換顯示
 
 [klipper]
 _k_friendly_name=Klipper
-clear-history=none,,Clear Clipboard History
+clear-history=none,none,Clear Clipboard History
 clipboard_action=none,Meta+Ctrl+X,Automatic Action Popup Menu
-cycleNextAction=none,,Next History Item
-cyclePrevAction=none,,Previous History Item
-edit_clipboard=none,,Edit Contents…
+cycleNextAction=none,none,Next History Item
+cyclePrevAction=none,none,Previous History Item
+edit_clipboard=none,none,Edit Contents…
 repeat_action=none,Meta+Ctrl+R,Manually Invoke Action on Current Clipboard
-show-barcode=none,,Show Barcode…
+show-barcode=none,none,Show Barcode…
 show-on-mouse-pos=none,Meta+V,Show Items at Mouse Position
 
 [kmix]
-_k_friendly_name=音效音量
+_k_friendly_name=音訊音量
 decrease-volume-Capture 2@HDA Intel PCH=none,none,Decrease volume of Capture 2 on HDA Intel PCH
 decrease-volume-Capture@HDA Intel PCH=none,none,Decrease volume of Capture on HDA Intel PCH
 decrease-volume-Center@HDA Intel PCH=none,none,Decrease volume of Center on HDA Intel PCH
@@ -92,8 +92,9 @@ decrease-volume-PCM@USB PnP Sound Device=none,none,Decrease volume of PCM on USB
 decrease-volume-Rear Mic Boost@HDA Intel PCH=none,none,Decrease volume of Rear Mic Boost on HDA Intel PCH
 decrease-volume-Rear Mic@HDA Intel PCH=none,none,Decrease volume of Rear Mic on HDA Intel PCH
 decrease-volume-Surround@HDA Intel PCH=none,none,Decrease volume of Surround on HDA Intel PCH
-decrease_microphone_volume=Microphone Volume Down,Microphone Volume Down,遞減麥克風音量
-decrease_volume=Volume Down,Volume Down,遞減音量
+decrease_microphone_volume=Microphone Volume Down,Microphone Volume Down,降低麥克風音量
+decrease_volume=Volume Down,Volume Down,降低音量
+decrease_volume_small=none,none,降低音量 1%
 increase-volume-Capture 2@HDA Intel PCH=none,none,Increase volume of Capture 2 on HDA Intel PCH
 increase-volume-Capture@HDA Intel PCH=none,none,Increase volume of Capture on HDA Intel PCH
 increase-volume-Center@HDA Intel PCH=none,none,Increase volume of Center on HDA Intel PCH
@@ -109,9 +110,10 @@ increase-volume-PCM@USB PnP Sound Device=none,none,Increase volume of PCM on USB
 increase-volume-Rear Mic Boost@HDA Intel PCH=none,none,Increase volume of Rear Mic Boost on HDA Intel PCH
 increase-volume-Rear Mic@HDA Intel PCH=none,none,Increase volume of Rear Mic on HDA Intel PCH
 increase-volume-Surround@HDA Intel PCH=none,none,Increase volume of Surround on HDA Intel PCH
-increase_microphone_volume=Microphone Volume Up,Microphone Volume Up,增加麥克風音量
-increase_volume=Volume Up,Volume Up,遞增音量
-mic_mute=Microphone Mute\tMeta+Volume Mute,Microphone Mute\tMeta+Volume Mute,麥克風靜音
+increase_microphone_volume=Microphone Volume Up,Microphone Volume Up,提高麥克風音量
+increase_volume=Volume Up,Volume Up,提高音量
+increase_volume_small=none,none,提高音量 1%
+mic_mute=Microphone Mute\tMeta+Volume Mute,Microphone Mute\tMeta+Volume Mute,將麥克風靜音
 mute=Volume Mute,Volume Mute,靜音
 toggle-mute-Auto Gain Control@USB PnP Sound Device=none,none,Mute Auto Gain Control on USB PnP Sound Device
 toggle-mute-Capture 2@HDA Intel PCH=none,none,Mute Capture 2 on HDA Intel PCH
@@ -137,35 +139,36 @@ toggle-mute-Rear Mic@HDA Intel PCH=none,none,Mute Rear Mic on HDA Intel PCH
 toggle-mute-Surround@HDA Intel PCH=none,none,Mute Surround on HDA Intel PCH
 
 [ksmserver]
-Halt Without Confirmation=none,none,不顯示關閉電腦的詢問訊息
+Halt Without Confirmation=none,none,不經確認即關機
 Lock Session=Meta+L\tScreensaver,Meta+L\tScreensaver,鎖定工作階段
-Log Out=Ctrl+Alt+Del,Ctrl+Alt+Del,登出
-Log Out Without Confirmation=none,none,不需確認直接登出
-Reboot Without Confirmation=none,none,不顯示重新啟動的詢問訊息
+Log Out=Ctrl+Alt+Del,Ctrl+Alt+Del,顯示登出確認畫面
+Log Out Without Confirmation=none,none,不經確認即登出
+LogOut=none,none,登出
+Reboot=none,none,重新開機
+Reboot Without Confirmation=none,none,不經確認即重新開機
+Shut Down=none,none,關機
 _k_friendly_name=工作階段管理
 
 [kwin]
 Activate Window Demanding Attention=Meta+Ctrl+A,Meta+Ctrl+A,依請求注意作用視窗
+Cycle Overview=none,none,循環切換總覽及格線檢視
+Cycle Overview Opposite=none,none,循環切換格線檢視及總覽
 Decrease Opacity=none,none,將作用中視窗的不透明度減少 5%
 Edit Tiles=none,Meta+T,切換方塊編輯器
-Expose=Ctrl+F9,Ctrl+F9,切換展示視窗（目前的桌面）
-ExposeAll=Ctrl+F10\tLaunch (C),Ctrl+F10\tLaunch (C),切換展示視窗（所有桌面）
-ExposeClass=Ctrl+F7,Ctrl+F7,切換展示視窗（視窗類別）
-ExposeClassCurrentDesktop=none,none,切換展示視窗（目前桌面上同視窗類別）
+Grid View=none,none,切換格線檢視
 Increase Opacity=none,none,將作用中視窗的不透明度增加 5%
 Invert Screen Colors=none,none,反轉螢幕顏色
 Kill Window=Meta+Ctrl+Esc,Meta+Ctrl+Esc,砍掉程式
-MoveMouseToCenter=Meta+F6,Meta+F6,移動滑鼠到中央
-MoveMouseToFocus=Meta+F5,Meta+F5,移動滑鼠到焦點
+MoveMouseToCenter=Meta+F6,Meta+F6,將滑鼠移至中央
+MoveMouseToFocus=Meta+F5,Meta+F5,將滑鼠移至焦點
 MoveZoomDown=none,none,將縮放區域移到下方
-MoveZoomLeft=none,none,將縮放區域移到左邊
-MoveZoomRight=none,none,將縮放區域移到右邊
+MoveZoomLeft=none,none,將放大區域向左移動
+MoveZoomRight=none,none,將放大區域向右移動
 MoveZoomUp=none,none,將縮放區域移到上方
 Overview=Meta+W,Meta+W,切換總覽
 Setup Window Shortcut=none,none,設定視窗的捷徑鍵
 Show Desktop=Meta+D,Meta+D,看一下桌面
-ShowDesktopGrid=Meta+F8,Meta+F8,顯示桌面格線
-Suspend Compositing=Alt+Shift+F12,Alt+Shift+F12,暫停混合
+Suspend Compositing=Alt+Shift+F12,Alt+Shift+F12,暫停合成器
 Switch One Desktop Down=none,Meta+Ctrl+Down,切換到下面的桌面
 Switch One Desktop Up=none,Meta+Ctrl+Up,切換到上面的桌面
 Switch One Desktop to the Left=Meta+Ctrl+Left,Meta+Ctrl+Left,往左移動一個桌面
@@ -210,7 +213,7 @@ Switch to Screen Above=none,none,切換到上方螢幕
 Switch to Screen Below=none,none,切換到下方螢幕
 Switch to Screen to the Left=none,none,切換到左方螢幕
 Switch to Screen to the Right=none,none,切換到右方螢幕
-Toggle Night Color=none,none,切換夜色模式
+Toggle Night Color=none,none,暫停/恢復夜光模式
 Toggle Window Raise/Lower=none,none,視窗置前或置後
 Walk Through Desktop List=none,none,瀏覽桌面清單項目
 Walk Through Desktop List (Reverse)=none,none,瀏覽桌面清單項目（反向）
@@ -243,10 +246,10 @@ Window One Desktop Down=Meta+Ctrl+Shift+Down,Meta+Ctrl+Shift+Down,視窗下移�
 Window One Desktop Up=Meta+Ctrl+Shift+Up,Meta+Ctrl+Shift+Up,視窗上移一個桌面
 Window One Desktop to the Left=Meta+Ctrl+Shift+Left,Meta+Ctrl+Shift+Left,視窗左移一個桌面
 Window One Desktop to the Right=Meta+Ctrl+Shift+Right,Meta+Ctrl+Shift+Right,視窗右移一個桌面
-Window One Screen Down=none,none,視窗下移一個螢幕
-Window One Screen Up=none,none,視窗上移一個螢幕
-Window One Screen to the Left=none,none,視窗左移一個螢幕
-Window One Screen to the Right=none,none,視窗右移一個螢幕
+Window One Screen Down=none,none,將視窗下移一個螢幕
+Window One Screen Up=none,none,將視窗上移一個螢幕
+Window One Screen to the Left=none,none,將視窗左移一個螢幕
+Window One Screen to the Right=none,none,將視窗右移一個螢幕
 Window Operations Menu=Alt+F3,Alt+F3,視窗操作選單
 Window Pack Down=none,none,將視窗向下移動
 Window Pack Left=none,none,將視窗向左移動
@@ -286,17 +289,17 @@ Window to Desktop 7=Meta+&,none,視窗移至桌面 7
 Window to Desktop 8=Meta+*,none,視窗移至桌面 8
 Window to Desktop 9=Meta+(,none,視窗移至桌面 9
 Window to Next Desktop=none,none,視窗移到下一個桌面
-Window to Next Screen=Meta+Shift+Right,Meta+Shift+Right,視窗移至下一個螢幕
+Window to Next Screen=Meta+Shift+Right,Meta+Shift+Right,將視窗移至下一個螢幕
 Window to Previous Desktop=none,none,視窗移到上一個桌面
-Window to Previous Screen=Meta+Shift+Left,Meta+Shift+Left,視窗移到上一個螢幕
-Window to Screen 0=none,none,視窗移至螢幕 0
-Window to Screen 1=none,none,視窗移至螢幕 1
-Window to Screen 2=none,none,視窗移至螢幕 2
-Window to Screen 3=none,none,視窗移至螢幕 3
-Window to Screen 4=none,none,視窗移至螢幕 4
-Window to Screen 5=none,none,視窗移至螢幕 5
-Window to Screen 6=none,none,視窗移至螢幕 6
-Window to Screen 7=none,none,視窗移至螢幕 7
+Window to Previous Screen=Meta+Shift+Left,Meta+Shift+Left,將視窗移至上一個螢幕
+Window to Screen 0=none,none,將視窗移至螢幕 0
+Window to Screen 1=none,none,將視窗移至螢幕 1
+Window to Screen 2=none,none,將視窗移至螢幕 2
+Window to Screen 3=none,none,將視窗移至螢幕 3
+Window to Screen 4=none,none,將視窗移至螢幕 4
+Window to Screen 5=none,none,將視窗移至螢幕 5
+Window to Screen 6=none,none,將視窗移至螢幕 6
+Window to Screen 7=none,none,將視窗移至螢幕 7
 _k_friendly_name=KWin
 view_actual_size=Meta+0,Meta+0,縮放到實際大小(A)
 view_zoom_in=Meta++\tMeta+=,Meta++,放大(I)
@@ -304,37 +307,14 @@ view_zoom_out=Meta+-,Meta+-,縮小(O)
 
 [mediacontrol]
 _k_friendly_name=媒體控制器
-mediavolumedown=none,,媒體音量減小
-mediavolumeup=none,,媒體音量增大
-nextmedia=Media Next,Media Next,播放下一首
-pausemedia=Media Pause,Media Pause,暫停媒體
-playmedia=none,,播放媒體
+mediavolumedown=none,none,降低媒體音量
+mediavolumeup=none,none,提高媒體音量
+nextmedia=Media Next,Media Next,媒體播放下一首
+pausemedia=Media Pause,Media Pause,暫停媒體播放
+playmedia=none,none,播放媒體
 playpausemedia=Media Play,Media Play,播放/暫停媒體
-previousmedia=Media Previous,Media Previous,播放前一首
+previousmedia=Media Previous,Media Previous,媒體播放上一首
 stopmedia=Media Stop,Media Stop,停止媒體播放
-
-[org.kde.dolphin.desktop]
-_k_friendly_name=Dolphin
-_launch=Meta+E,Meta+E,Dolphin
-
-[org.kde.krunner.desktop]
-RunClipboard=Alt+Shift+F2,Alt+Shift+F2,執行剪貼簿內容中的指令
-_k_friendly_name=KRunner
-_launch=Alt+F2\tAlt+Space\tSearch\tAlt+S,Alt+Space\tAlt+F2\tSearch,KRunner
-
-[org.kde.plasma.emojier.desktop]
-_k_friendly_name=顏文字選擇工具
-_launch=Meta+.,Meta+.,顏文字選擇工具
-
-[org.kde.spectacle.desktop]
-ActiveWindowScreenShot=Meta+Print,Meta+Print,Capture Active Window
-CurrentMonitorScreenShot=none,none,Capture Current Monitor
-FullScreenScreenShot=Shift+Print,Shift+Print,Capture Entire Desktop
-OpenWithoutScreenshot=none,none,Launch Spectacle without capturing
-RectangularRegionScreenShot=Meta+Shift+Print,Meta+Shift+Print,Capture Rectangular Region
-WindowUnderCursorScreenShot=Meta+Ctrl+Print,Meta+Ctrl+Print,Capture Window Under Cursor
-_k_friendly_name=Spectacle
-_launch=Print,Print,Launch Spectacle
 
 [org_kde_powerdevil]
 Decrease Keyboard Brightness=Keyboard Brightness Down,Keyboard Brightness Down,遞減鍵盤亮度
@@ -350,7 +330,8 @@ Turn Off Screen=none,none,關閉螢幕
 _k_friendly_name=電源管理
 
 [plasmashell]
-_k_friendly_name=Plasma
+_k_friendly_name=plasmashell
+activate application launcher=none,none,開啟應用程式啟動器
 activate task manager entry 1=Meta+1,Meta+1,啟用工作管理員項目 1
 activate task manager entry 10=none,Meta+0,啟用工作管理員項目 10
 activate task manager entry 2=Meta+2,Meta+2,啟用工作管理員項目 2
@@ -363,33 +344,29 @@ activate task manager entry 8=Meta+8,Meta+8,啟用工作管理員項目 8
 activate task manager entry 9=Meta+9,Meta+9,啟用工作管理員項目 9
 activate widget 29=none,none,啟動 應用程式啟動器 元件
 activate widget 4=Alt+F1,none,啟動 應用程式啟動器 元件
-clear-history=none,none,清除剪貼簿歷史紀錄(L)
+clear-history=none,,清除剪貼簿歷史紀錄(L)
 clipboard_action=Meta+Ctrl+X,Meta+Ctrl+X,自動動作彈出選單
 cycle-panels=Meta+Alt+P,Meta+Alt+P,在面板間移動鍵盤焦點
-cycleNextAction=none,none,下一個歷史紀錄項目
-cyclePrevAction=none,none,前一個歷史紀錄項目
+cycleNextAction=none,,下一個歷史紀錄項目
+cyclePrevAction=none,,前一個歷史紀錄項目
 edit_clipboard=none,none,編輯內容(%E)…
 manage activities=Meta+Q,Meta+Q,顯示活動切換器
-next activity=Meta+Tab,Meta+Tab,瀏覽活動
-previous activity=Meta+Shift+Tab,Meta+Shift+Tab,瀏覽活動（反向）
+next activity=Meta+Tab,none,瀏覽活動
+previous activity=Meta+Shift+Tab,none,瀏覽活動（反向）
 repeat_action=Meta+Ctrl+R,Meta+Ctrl+R,手動在目前剪貼簿上觸發動作
 show dashboard=Ctrl+F12,Ctrl+F12,顯示桌面
-show-barcode=none,none,顯示條碼(S)…
-show-on-mouse-pos=Meta+V,Meta+V,在滑鼠游標位置顯示項目
+show-barcode=none,,顯示條碼(S)…
+show-on-mouse-pos=Meta+V,Meta+V,在滑鼠位置顯示剪貼簿項目
 stop current activity=Meta+S,Meta+S,停止目前的活動
 switch to next activity=none,none,切至下個活動
 switch to previous activity=none,none,切至上個活動
-toggle do not disturb=none,none,切換請勿打擾
+toggle do not disturb=none,,切換請勿打擾
 
-[systemsettings.desktop]
-_k_friendly_name=系統設定
-_launch=Tools,Tools,系統設定
-kcm-kscreen=none,none,顯示設定
-kcm-lookandfeel=none,none,全域主題
-kcm-users=none,none,使用者
-powerdevilprofilesconfig=none,none,節能選項
-screenlocker=none,none,螢幕鎖定
+[services][org.kde.krunner.desktop]
+_launch=Alt+F2\tAlt+Space\tSearch\tAlt+S
 
-[toggleWezterm.sh-2.desktop]
-_k_friendly_name=toggleWezterm.sh
-_launch=F12,none,/home/flotisable/bin/toggleWezterm.sh
+[services][org.kde.spectacle.desktop]
+RecordWindow=
+
+[services][toggleWezterm.sh-2.desktop]
+_launch=F12
