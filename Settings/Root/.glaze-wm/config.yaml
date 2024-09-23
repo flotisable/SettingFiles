@@ -156,6 +156,9 @@ window_rules:
     - "move to workspace 0"
     match_process_name: "/emacs/"
 
+  - command: "set floating"
+    match_process_name: "/Flow.Launcher/"
+
 binding_modes:
   - name: "resize"
     keybindings:
