@@ -140,7 +140,7 @@ DirSelectDialog Size=795,597
 
 [General]
 BrowserApplication=firefox.desktop
-ColorSchemeHash=7e27a66e6ec46638e4fb9d9f6caa72c4f044c338
+ColorSchemeHash=4a48bd34ba53d580d8594cb0216221e77518509f
 TerminalApplication=wezterm start --cwd .
 TerminalService=org.wezfurlong.wezterm.desktop
 

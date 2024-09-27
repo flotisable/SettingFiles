@@ -162,6 +162,9 @@ window_rules:
     match_process_name: "/emacs/"
     match_title: "/Org Capture/"
 
+  - command: "set floating"
+    match_process_name: "/Flow.Launcher/"
+
 binding_modes:
   - name: "resize"
     keybindings:
