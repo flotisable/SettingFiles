@@ -68,7 +68,8 @@ for_window [class=Emacs title="Org Capture"] floating enable
 exec --no-startup-id xcompmgr
 
 # start a terminal
-bindsym F12 exec ~/bin/toggleWezterm.sh
+bindsym F12         exec ~/bin/toggleWezterm.sh
+bindsym $mod+equal  exec ~/bin/toggleWezterm.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
