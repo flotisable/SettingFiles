@@ -5,7 +5,7 @@ SetTitleMatchMode( "RegEx" )
 wezTermClassName  := "org.wezfurlong.wezterm"
 isWezTermHidden   := 0
 
-F12::
+ToggleTerminal()
 {
   global isWezTermHidden
 
@@ -32,3 +32,6 @@ F12::
     Run( "wezterm-gui start" )
   }
 }
+
+F12::ToggleTerminal()
+!=::ToggleTerminal()
