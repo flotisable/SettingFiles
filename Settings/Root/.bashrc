@@ -37,3 +37,6 @@ fi
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias emacs="emacsclient -c -a '' &"
+alias datas="source ~/bin/datas.sh"
+alias prog="source ~/bin/prog.sh"
+alias rc="~/bin/rc.sh"
