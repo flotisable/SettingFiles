@@ -139,7 +139,7 @@ window_rules:
 
   - commands: ['move --workspace 3']
     match:
-      - window_process: { regex: 'steam' }
+      - window_process: { regex: 'steam|Minecraft' }
 
   - commands: ['move --workspace 1']
     match:
@@ -148,6 +148,14 @@ window_rules:
   - commands: ['move --workspace 4']
     match:
       - window_process: { regex: 'Discord|Teams' }
+
+  - commands: ['move --workspace 8']
+    match:
+      - window_process: { regex: 'CDViewer' }
+
+  - commands: ['move --workspace 9']
+    match:
+      - window_process: { regex: 'obs|avidemux' }
 
   - commands: ['move --workspace 0']
     match:
