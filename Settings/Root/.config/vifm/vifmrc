@@ -564,3 +564,6 @@ nnoremap <c-u> <c-w>x
 " ------------------------------------------------------------------------------
 
 " https://github.com/cirala/vifm_devicons
+"
+" Self Customizations
+set relativenumber
