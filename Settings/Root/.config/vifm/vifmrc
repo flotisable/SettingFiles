@@ -91,7 +91,7 @@ set nohlsearch
 set incsearch
 
 " Try to leave some space from cursor to upper/lower border in lists
-set scrolloff=4
+" set scrolloff=4
 
 " Don't do too many requests to slow file systems
 if !has('win')
