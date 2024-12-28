@@ -49,6 +49,13 @@ config.keys    =
   -- Ctrl + ^ is used in vim to switch to alternative buffer
   { key = '^',    action = act.DisableDefaultAssignment,                mods = 'CTRL|SHIFT' },
 }
+
+local internalTerminalKeys =
+{
+  { key = 'F10',  action = act.DisableDefaultAssignment                               },
+  { key = 'F9',   action = act.EmitEvent( toggleInternalTerminalEvent )               },
+  { key = 'o',    action = act.EmitEvent( toggleInternalTerminalEvent ), mods = 'ALT' },
+}
 --  end keybindings
 -- end basic configs
 
@@ -138,6 +145,7 @@ addLeaderBinding( 'l',    act.ActivatePaneDirection 'Right'                     
 addLeaderBinding( 'o',    act.EmitEvent( toggleBackgroundOpacityEvent )                     )
 addLeaderBinding( 'F10',  act.EmitEvent( toggleStatusLineEvent        )                     )
 addLeaderBinding( 'C',    act.EmitEvent( toggleWindowPaddingEvent     )                     )
+addLeaderBinding( 'i',    act.EmitEvent( toggleInternalTerminalEvent  )                     )
 addLeaderBinding( ',',    act.PromptInputLine
                           {
                             description = 'Enter new name for current tab',
@@ -335,17 +343,18 @@ wezterm.on( toggleInternalTerminalEvent,
           key   = '_',
           mods  = 'WIN|CTRL|SHIFT|ALT',
         }
-      overrides.keys            =
+      overrides.keys            = internalTerminalKeys
+      overrides.colors          =
         {
-          { key = 'F10',  action = act.DisableDefaultAssignment                 },
-          { key = 'F9',   action = act.EmitEvent( toggleInternalTerminalEvent ) },
+          background = color.foreground
         }
 
     else
 
-      overrides.enable_tab_bar  = nil
-      overrides.leader          = nil
-      overrides.keys            = nil
+      overrides.enable_tab_bar    = nil
+      overrides.leader            = nil
+      overrides.keys              = nil
+      overrides.colors.background = nil
 
     end
 
