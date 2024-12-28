@@ -14,43 +14,42 @@ local toggleInternalTerminalEvent   = 'ToggleInternalTerminalEvent'
 -- end constants
 
 -- basic configs
-local config =
+local config = wezterm.config_builder()
+
+--  appearance settings
+config.color_scheme = 'nord'
+
+config.use_fancy_tab_bar                     = false
+config.tab_bar_at_bottom                     = true
+config.tab_and_split_indices_are_zero_based  = true
+
+config.window_background_opacity = 0.8
+
+config.adjust_window_size_when_changing_font_size = false
+
+config.window_padding = { bottom = '0px' }
+--  end appearance settings
+
+--  multiplexing settings
+config.unix_domains =
 {
-  -- appearance settings
-  color_scheme = 'nord',
-
-  use_fancy_tab_bar                     = false,
-  tab_bar_at_bottom                     = true,
-  tab_and_split_indices_are_zero_based  = true,
-
-  window_background_opacity = 0.8,
-
-  adjust_window_size_when_changing_font_size = false,
-
-  window_padding = { bottom = '0px' },
-  -- end appearance settings
-
-  -- multiplexing settings
-  unix_domains =
   {
-    {
-      name = defaultUnixDomain,
-    },
+    name = defaultUnixDomain,
   },
-  default_domain = defaultUnixDomain,
-  -- end multiplexing settings
-
-  -- keybindings
-  leader  = { key = 'a', mods = 'ALT' },
-  keys    =
-  {
-    { key = 'F11',  action = act.ToggleFullScreen                               },
-    { key = 'F10',  action = act.EmitEvent( toggleInternalTerminalEvent )       },
-    -- Ctrl + ^ is used in vim to switch to alternative buffer
-    { key = '^',    action = act.DisableDefaultAssignment, mods = 'CTRL|SHIFT'  },
-  },
-  -- end keybindings
 }
+config.default_domain = defaultUnixDomain
+--  end multiplexing settings
+
+--  keybindings
+config.leader  = { key = 'a', mods = 'ALT' }
+config.keys    =
+{
+  { key = 'F11',  action = act.ToggleFullScreen                                             },
+  { key = 'F10',  action = act.EmitEvent( toggleInternalTerminalEvent )                     },
+  -- Ctrl + ^ is used in vim to switch to alternative buffer
+  { key = '^',    action = act.DisableDefaultAssignment,                mods = 'CTRL|SHIFT' },
+}
+--  end keybindings
 -- end basic configs
 
 -- Windows specific settings
