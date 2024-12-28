@@ -3,6 +3,7 @@ local wezterm = require 'wezterm'
 local act     = wezterm.action
 -- end wezterm variables
 
+-- constants
 local defaultUnixDomain = 'default'
 local minWindowColumns  = '80'
 
@@ -10,6 +11,7 @@ local toggleStatusLineEvent         = 'ToggleStatusLineEvent'
 local toggleWindowPaddingEvent      = 'ToggleWindowPaddingEvent'
 local toggleBackgroundOpacityEvent  = 'ToggleBackgroundOpacityEvent'
 local toggleInternalTerminalEvent   = 'ToggleInternalTerminalEvent'
+-- end constants
 
 -- basic configs
 local config =
@@ -189,7 +191,6 @@ config.colors =
       bg_color  = color.ansi[1],
     },
 
-
     new_tab_hover =
     {
       fg_color  = color.ansi[8],
@@ -258,6 +259,7 @@ wezterm.on( 'update-status',
 )
 -- end statusline
 
+-- events
 wezterm.on( toggleBackgroundOpacityEvent,
   function( window, pane )
 
@@ -352,4 +354,6 @@ wezterm.on( toggleInternalTerminalEvent,
 
   end
 )
+-- end events
+
 return config
