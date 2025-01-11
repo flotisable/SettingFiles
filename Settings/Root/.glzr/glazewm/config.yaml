@@ -139,7 +139,7 @@ window_rules:
 
   - commands: ['move --workspace 3']
     match:
-      - window_process: { regex: 'steam|Minecraft|launcher' }
+      - window_process: { regex: 'steam|Minecraft|launcher|javaw' }
 
   - commands: ['move --workspace 1']
     match:
