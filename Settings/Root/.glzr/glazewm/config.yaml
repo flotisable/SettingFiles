@@ -162,6 +162,11 @@ window_rules:
       - window_process: { regex: 'emacs' }
         window_title:   { regex: 'Emacs' }
 
+  - commands: [ 'set-floating' ]
+    match:
+      - window_process: { regex: "emacs"        }
+        window_title:   { regex: "Org Capture"  }
+
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
   - name: 'resize'
@@ -337,3 +342,7 @@ keybindings:
     bindings: ['alt+shift+9']
   - commands: ['move --workspace 0', 'focus --workspace 0']
     bindings: ['alt+shift+0']
+
+  # Run emacs org capture
+  - commands: [ "shell-exec emacsclientw -a \"\" --eval \"(my-org-capture)\"" ]
+    bindings: ["alt+c"]
