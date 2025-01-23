@@ -154,7 +154,13 @@ mode "resize" {
   bindsym Escape mode "default"
 }
 
-bindsym $mod+Shift+w mode "resize"
+mode "pause" {
+  # back to normal: Escape
+  bindsym $mod+o mode "default"
+}
+
+bindsym $mod+Shift+w  mode "resize"
+bindsym $mod+i        mode "pause"
 
 # reload the configuration file
 bindsym $mod+r reload
