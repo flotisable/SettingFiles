@@ -334,6 +334,7 @@ wezterm.on( toggleInternalTerminalEvent,
   function( window, pane )
 
     local overrides = window:get_config_overrides() or {}
+    local config    = window:effective_config()
 
     if not overrides.leader then
 
@@ -344,17 +345,32 @@ wezterm.on( toggleInternalTerminalEvent,
           mods  = 'WIN|CTRL|SHIFT|ALT',
         }
       overrides.keys            = internalTerminalKeys
-      overrides.colors          =
+      overrides.background      =
         {
-          background = color.foreground
+          {
+            source    = { Color = color.foreground },
+            width     = '100%',
+            height    = '100%',
+            opacity   = config.window_background_opacity,
+          },
+          {
+            source            = { Color = color.background },
+            horizontal_offset = config.window_padding.left,
+            vertical_offset   = config.window_padding.top,
+            width             = pane:tab():get_size().pixel_width,
+            height            = pane:tab():get_size().pixel_height,
+            repeat_x          = 'NoRepeat',
+            repeat_y          = 'NoRepeat',
+            opacity           = config.window_background_opacity,
+          },
         }
 
     else
 
-      overrides.enable_tab_bar    = nil
-      overrides.leader            = nil
-      overrides.keys              = nil
-      overrides.colors.background = nil
+      overrides.enable_tab_bar            = nil
+      overrides.leader                    = nil
+      overrides.keys                      = nil
+      overrides.background                = nil
 
     end
 
