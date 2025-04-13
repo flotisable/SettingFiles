@@ -69,6 +69,9 @@ for_window [class=Emacs title="Org Capture"] floating enable
 # transparency support
 exec --no-startup-id xcompmgr
 
+# emacs org capture support
+exec emacs --daemon
+
 # start a terminal
 bindsym F12         exec ~/bin/toggleWezterm.sh
 bindsym $mod+equal  exec ~/bin/toggleWezterm.sh
@@ -170,7 +173,7 @@ bindsym $mod+r reload
 bindsym $mod+Shift+r restart
 
 # emacs org capture
-bindsym $mod+c exec "emacsclient -a '' --eval '(my-org-capture)'"
+bindsym $mod+c exec "emacsclient --eval '(my-org-capture)'"
 
 bindsym button3 kill
 # vim: filetype=i3config
