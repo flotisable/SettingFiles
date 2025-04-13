@@ -61,6 +61,8 @@ assign [class=Emacs title=Emacs]  $ws0
 assign [class=firefox]            $ws1
 assign [class=Wfica]              $ws8
 assign [class=(?i)steam]          $ws3
+assign [class=obs]                $ws9
+assign [class=(?i)discord]        $ws4
 
 for_window [class=Emacs title="Org Capture"] floating enable
 
