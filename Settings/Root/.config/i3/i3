@@ -6,22 +6,26 @@ set $transparency B0
 exec --no-startup-id polybar primary
 exec --no-startup-id polybar secondary1
 
-# bar
-# {
-#   # i3bar_command i3bar --transparency
-#   i3bar_command i3bar
+# bar {
+#   i3bar_command i3bar --transparency
 #   status_command exec ~/bin/i3StatusLine.sh
-
+#
+#   separator_symbol "|"
+#
 #   tray_output primary
-
-#   colors
-#   {
-#     background #000000$transparency
-
-#     focused_workspace   #4C7899 #285577$transparency #FFFFFF
-#     active_workspace    #333333 #5f676a$transparency #FFFFFF
-#     inactive_workspace  #333333 #222222$transparency #888888
-#     urgent_workspace    #2F343A #900000$transparency #FFFFFF
+#
+#   colors {
+#     background $nord0$transparency
+#     statusline $nord4
+#
+#     separator $nord12
+#
+#     # colorclass        border              background          text
+#     focused_workspace   $nord8              $nord8              $nord6
+#     active_workspace    $nord0$transparency $nord0$transparency $nord4
+#     inactive_workspace  $nord0$transparency $nord0$transparency $nord4
+#     urgent_workspace    #2F343A             #900000             #FFFFFF
+#     binding_mode        $nord0$transparency $nord0$transparency $nord4
 #   }
 # }
 
