@@ -49,7 +49,7 @@ bindsym $win+l exec i3lock --image ~/Pictures/plesios.png -t -p default
 exec --no-startup-id dunst
 
 # kde program launcher
-exec --no-startup-id krunner --daemon --replace
+# exec --no-startup-id krunner --daemon --replace
 # chewing input method
 exec --no-startup-id fcitx5
 # clipboard
@@ -57,6 +57,11 @@ exec --no-startup-id klipper
 
 bindsym $win+1 exec dolphin
 bindsym $win+2 exec firefox
+
+# bindsym $mod+s        exec krunner
+# bindsym $win+Shift+s  exec spectacle
+bindsym $mod+s        exec rofi -show
+bindsym $win+Shift+s  exec "scrot -s -F ~/Pictures/Screenshots/%Y%m%d_%H%M%S.png -e 'feh $f; xclip -selection clipboard -target image/png -i $f'"
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -p -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
