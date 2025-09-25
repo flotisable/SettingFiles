@@ -75,6 +75,7 @@ exec emacs --daemon
 # start a terminal
 bindsym F12         exec ~/bin/toggleWezterm.sh
 bindsym $mod+equal  exec ~/bin/toggleWezterm.sh
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
