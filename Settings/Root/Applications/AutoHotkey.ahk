@@ -33,5 +33,20 @@ ToggleTerminal()
   }
 }
 
+OpenSensibleTerminal()
+{
+  Try
+    Try
+      Try
+        Run( "wezterm-gui")
+      Catch
+        Run( "wt")
+    Catch
+      Run( "powershell" )
+  Catch
+    Run( "cmd" )
+}
+
 F12::ToggleTerminal()
 !=::ToggleTerminal()
+!Enter::OpenSensibleTerminal()
