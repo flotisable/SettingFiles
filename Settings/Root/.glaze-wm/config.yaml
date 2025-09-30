@@ -179,6 +179,11 @@ binding_modes:
       # Press enter/escape to return to default keybindings.
       - command: "binding mode none"
         bindings: ["Escape", "Enter"]
+  - name: "pause"
+    keybindings:
+      # Press enter/escape to return to default keybindings.
+      - command: "binding mode none"
+        bindings: ["Alt+O"]
 
 keybindings:
   # Shift focus in a given direction.
@@ -215,6 +220,9 @@ keybindings:
   # HJKL or arrow keys. The binding mode is defined above with the name "resize".
   - command: "binding mode resize"
     binding: "Alt+Shift+W"
+
+  - command: "binding mode pause"
+    binding: "Alt+I"
 
   # Change tiling direction. This determines where new tiling windows will be inserted.
   - command: "tiling direction toggle"
