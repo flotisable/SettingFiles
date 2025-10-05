@@ -37,7 +37,6 @@ config.unix_domains =
     name = defaultUnixDomain,
   },
 }
-config.default_domain = defaultUnixDomain
 --  end multiplexing settings
 
 --  keybindings
