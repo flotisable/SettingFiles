@@ -137,6 +137,7 @@ addLeaderBinding( '-',    act.SplitVertical(    { domain = 'CurrentPaneDomain' }
 addLeaderBinding( '[',    act.ActivateCopyMode                                              )
 addLeaderBinding( ']',    act.PasteFrom( 'Clipboard' )                                      )
 addLeaderBinding( 'w',    act.ShowTabNavigator                                              )
+addLeaderBinding( 's',    act.ShowLauncherArgs( { flags = 'WORKSPACES' } )                  )
 addLeaderBinding( 'h',    act.ActivatePaneDirection 'Left'                                  )
 addLeaderBinding( 'j',    act.ActivatePaneDirection 'Down'                                  )
 addLeaderBinding( 'k',    act.ActivatePaneDirection 'Up'                                    )
@@ -145,6 +146,7 @@ addLeaderBinding( 'o',    act.EmitEvent( toggleBackgroundOpacityEvent )         
 addLeaderBinding( 'F10',  act.EmitEvent( toggleStatusLineEvent        )                     )
 addLeaderBinding( 'C',    act.EmitEvent( toggleWindowPaddingEvent     )                     )
 addLeaderBinding( 'i',    act.EmitEvent( toggleInternalTerminalEvent  )                     )
+addLeaderBinding( ':',    act.ActivateCommandPalette,                               'SHIFT' )
 addLeaderBinding( ',',    act.PromptInputLine
                           {
                             description = 'Enter new name for current tab',
