@@ -79,4 +79,4 @@ OpenSensibleTerminal()
 
 F12::ToggleTerminal()
 !=::ToggleTerminal()
-!Enter::OpenSensibleTerminal()
+!;::OpenSensibleTerminal()
