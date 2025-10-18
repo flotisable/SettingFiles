@@ -567,3 +567,7 @@ nnoremap <c-u> <c-w>x
 "
 " Self Customizations
 set relativenumber
+
+if has( 'win' )
+  set shell=powershell
+endif
