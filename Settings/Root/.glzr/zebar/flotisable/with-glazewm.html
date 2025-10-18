@@ -34,11 +34,10 @@
       const providers = zebar.createProviderGroup({
         network: { type: 'network' },
         glazewm: { type: 'glazewm' },
-        cpu: { type: 'cpu' },
         date: { type: 'date', formatting: 'f' },
         battery: { type: 'battery' },
-        memory: { type: 'memory' },
         weather: { type: 'weather' },
+        audio: { type: 'audio' },
       });
 
       createRoot(document.getElementById('root')).render(<App />);
@@ -77,6 +76,19 @@
               return (
                 <i className="nf nf-md-wifi_strength_off_outline"></i>
               );
+          }
+        }
+
+        // Get icon to show for current aidio volume
+        function getAudioIcon(audioOutput) {
+          if (audioOutput.defaultPlaybackDevice?.volume >= 70) {
+            return <i className="nf nf-fa-volume_high"></i>;
+          } else if (audioOutput.defaultPlaybackDevice?.volume >= 30) {
+            return <i className="nf nf-fa-volume_low"></i>;
+          } else if (audioOutput.defaultPlaybackDevice?.volume > 0) {
+            return <i className="nf nf-fa-volume_off"></i>;
+          } else {
+            return <i className="nf nf-fa-volume_xmark"></i>;
           }
         }
 
@@ -128,28 +140,6 @@
             <div className="left">
               <i className="logo nf nf-fa-windows"></i>
               {output.glazewm && (
-                <div className="workspaces">
-                  {output.glazewm.currentWorkspaces.map(workspace => (
-                    <button
-                      className={`workspace ${workspace.hasFocus && 'focused'} ${workspace.isDisplayed && 'displayed'}`}
-                      onClick={() =>
-                        output.glazewm.runCommand(
-                          `focus --workspace ${workspace.name}`,
-                        )
-                      }
-                      key={workspace.name}
-                    >
-                      {workspace.displayName ?? workspace.name}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div className="center"></div>
-
-            <div className="right">
-              {output.glazewm && (
                 <>
                   {output.glazewm.bindingModes.map(bindingMode => (
                     <button
@@ -166,9 +156,35 @@
                       output.glazewm.runCommand('toggle-tiling-direction')
                     }
                   ></button>
+
+                  <div className="workspaces">
+                    {output.glazewm.currentWorkspaces.map(workspace => (
+                      <button
+                        className={`workspace ${workspace.hasFocus && 'focused'} ${workspace.isDisplayed && 'displayed'}`}
+                        onClick={() =>
+                          output.glazewm.runCommand(
+                            `focus --workspace ${workspace.name}`,
+                          )
+                        }
+                        key={workspace.name}
+                      >
+                        {workspace.displayName ?? workspace.name}
+                      </button>
+                    ))}
+                  </div>
                 </>
               )}
+            </div>
 
+            <div className="center">
+              {output.glazewm && (
+                <div className="window title">
+                {output.glazewm.focusedContainer.processName}
+                </div>
+              )}
+            </div>
+
+            <div className="right">
               {output.network && (
                 <div className="network">
                   {getNetworkIcon(output.network)}
@@ -176,23 +192,10 @@
                 </div>
               )}
 
-              {output.memory && (
-                <div className="memory">
-                  <i className="nf nf-fae-chip"></i>
-                  {Math.round(output.memory.usage)}%
-                </div>
-              )}
-
-              {output.cpu && (
-                <div className="cpu">
-                  <i className="nf nf-oct-cpu"></i>
-
-                  {/* Change the text color if the CPU usage is high. */}
-                  <span
-                    className={output.cpu.usage > 85 ? 'high-usage' : ''}
-                  >
-                    {Math.round(output.cpu.usage)}%
-                  </span>
+              {output.audio && (
+                <div className='audio'>
+                  {getAudioIcon(output.audio)}
+                  {output.audio.defaultPlaybackDevice?.volume}%
                 </div>
               )}
 
