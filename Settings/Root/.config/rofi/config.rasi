@@ -137,8 +137,8 @@ configuration {
   /*	kb-select-8: "Super+8";*/
   /*	kb-select-9: "Super+9";*/
   /*	kb-select-10: "Super+0";*/
-  kb-entry-history-up: "Control+Up,Alt+Meta+p";
-  kb-entry-history-down: "Control+Down,Alt+Meta+n";
+  kb-entry-history-up: "Control+Up,Alt+p";
+  kb-entry-history-down: "Control+Down,Alt+n";
   /*	ml-row-left: "ScrollLeft";*/
   /*	ml-row-right: "ScrollRight";*/
   /*	ml-row-up: "ScrollUp";*/
