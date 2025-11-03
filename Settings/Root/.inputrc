@@ -9,4 +9,5 @@ set skip-completed-text     on
 
 # keybindings
 TAB: menu-complete
-"\C-xd": "vifm\r"
+"\C-xd":  "vifm .\r"
+"\C-xvg": "lazygit\r"
