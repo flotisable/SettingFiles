@@ -40,3 +40,14 @@ alias emacs="emacsclient -c -a '' &"
 alias datas="source ~/bin/datas.sh"
 alias prog="source ~/bin/prog.sh"
 alias rc="~/bin/rc.sh"
+
+vifm()
+{
+  vifm="$HOME/bin/vifm"
+
+  dir=$($vifm --choose-dir - "$@")
+
+  if [ -n "$dir" ] && [ -d "$dir" ]; then
+    cd "$dir"
+  fi
+}
