@@ -14,6 +14,27 @@ If( Get-Command -ErrorAction SilentlyContinue Set-PSReadLineOption )
     Set-PSReadLineOption -PredictionViewStyle ListView
   }
   Remove-Variable version
+
+  Set-PSReadLineKeyHandler -Chord 'Ctrl+x,d' -ScriptBlock {
+    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+    $path = $(vifm --choose-dir - .)
+
+    If ( $path )
+    {
+      [Microsoft.PowerShell.PSConsoleReadLine]::Insert( "cd $path" )
+      [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+    }
+  }
+  Set-PSReadLineKeyHandler -Chord 'Ctrl+x,v' -ScriptBlock {
+    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert( "lazygit" )
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+  }
+  Set-PSReadLineKeyHandler -Chord 'Ctrl+x,g' -ScriptBlock {
+    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert( "gemini" )
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+  }
 }
 
 # environment settings
