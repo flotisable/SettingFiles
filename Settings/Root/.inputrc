@@ -11,3 +11,4 @@ set skip-completed-text     on
 TAB: menu-complete
 "\C-xd":  "vifm .\r"
 "\C-xvg": "lazygit\r"
+"\C-xg":  "gemini\r"
