@@ -26,3 +26,7 @@ style   = "bold blue"
 [env_var.NVIM]
 format  = "in [NVIM]($style) "
 style   = "bold green"
+
+[env_var.TMUX]
+format  = "in [TMUX]($style) "
+style   = "bold green"
