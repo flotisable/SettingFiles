@@ -340,6 +340,7 @@ wezterm.on( toggleInternalTerminalEvent,
     if not overrides.leader then
 
       overrides.enable_tab_bar  = false
+      -- disable leader key
       overrides.leader          =
         {
           key   = '_',
@@ -359,7 +360,9 @@ wezterm.on( toggleInternalTerminalEvent,
             horizontal_offset = config.window_padding.left,
             vertical_offset   = config.window_padding.top,
             width             = pane:tab():get_size().pixel_width,
-            height            = pane:tab():get_size().pixel_height,
+            height            = pane:tab():get_size().pixel_height +
+                                -- tab bar height
+                                pane:tab():get_size().pixel_height / pane:tab():get_size().rows,
             repeat_x          = 'NoRepeat',
             repeat_y          = 'NoRepeat',
             opacity           = config.window_background_opacity,
