@@ -1,5 +1,5 @@
 format = """
-$username$hostname$directory$git_branch$git_commit$git_state$cmd_duration$line_break\
+$username$hostname$directory$env_var$git_branch$git_commit$git_state$cmd_duration$line_break\
 $character"""
 
 [username]
@@ -18,3 +18,11 @@ truncate_to_repo  = false
 [character]
 success_symbol  = "[\U0001F604❯](bold green)"
 error_symbol    = "[\U0001F62D❯](bold red)"
+
+[env_var.VIFM]
+format  = "in [VIFM]($style) "
+style   = "bold blue"
+
+[env_var.NVIM]
+format  = "in [NVIM]($style) "
+style   = "bold green"
