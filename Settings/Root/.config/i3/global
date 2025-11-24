@@ -46,7 +46,7 @@ floating_modifier $mod
 
 # colors
 # class                 border  background  text    indicator child_border
-client.focused          $nord8  $nord1      $nord6  $nord8    $nord8
+client.focused          $nord8  $nord1      $nord6  $nord13   $nord8
 client.focused_inactive $nord2  $nord2      $nord4  $nord2    $nord2
 client.unfocused        $nord1  $nord1      $nord5  $nord1    $nord1
 client.urgent           $nord11 $nord13     $nord6  $nord11   $nord11
