@@ -73,8 +73,8 @@ exec --no-startup-id xcompmgr
 exec emacs --daemon
 
 # start a terminal
-bindsym F12             exec ~/bin/toggleWezterm.sh
-bindsym $mod+equal      exec ~/bin/toggleWezterm.sh
+bindsym F12             exec ~/bin/toggleTerminal
+bindsym $mod+equal      exec ~/bin/toggleTerminal
 bindsym $mod+semicolon  exec i3-sensible-terminal
 
 # kill focused window
