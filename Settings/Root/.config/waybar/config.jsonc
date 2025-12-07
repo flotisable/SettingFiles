@@ -1,0 +1,32 @@
+{
+  "position": "bottom",
+  "height":   40,
+
+  "spacing": 2,
+  "modules-left":
+    [
+      "sway/mode",
+      "sway/workspaces"
+    ],
+  "modules-center":
+    [
+      "sway/window"
+    ],
+  "modules-right":
+    [
+      "tray",
+      // "keyboard-state",
+      "network",
+      "pulseaudio",
+      "clock"
+    ],
+
+  // "keyboard-state":
+  //   {
+  //     "capslock": true
+  //   },
+  "clock":
+    {
+      "format": "{:%Y/%m/%d %p %H:%M}"
+    }
+}
