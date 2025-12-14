@@ -77,6 +77,13 @@ OpenSensibleTerminal()
     Run( "cmd" )
 }
 
+
 F12::ToggleTerminal()
 !=::ToggleTerminal()
 !;::OpenSensibleTerminal()
+!s::Run( EnvGet( "LOCALAPPDATA" ) "/FlowLauncher/Flow.Launcher.exe" )
+!i::Suspend True
+
+#SuspendExempt
+!o::Suspend False
+#SuspendExempt False

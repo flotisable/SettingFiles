@@ -227,7 +227,7 @@ keybindings:
   - commands: ['wm-enable-binding-mode --name resize']
     bindings: ['alt+shift+w']
 
-  # Disables all keybindings until alt+shift+p is pressed again.
+  # Disables all keybindings
   - commands: ['wm-enable-binding-mode --name pause']
     bindings: ['alt+i']
 
@@ -271,6 +271,9 @@ keybindings:
   # Redraw all windows.
   # - commands: ['wm-redraw']
   #   bindings: ['alt+shift+w']
+
+  - commands: ['shell-exec %LOCALAPPDATA%/FlowLauncher/Flow.Launcher.exe']
+    bindings: ['alt+s']
 
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
